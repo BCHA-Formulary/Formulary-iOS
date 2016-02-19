@@ -15,6 +15,7 @@
 		AF2F06291C76F32400BA7E99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF2F06271C76F32400BA7E99 /* LaunchScreen.storyboard */; };
 		AF2F06341C76F32500BA7E99 /* BCHA_FormularyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F06331C76F32500BA7E99 /* BCHA_FormularyTests.swift */; };
 		AF2F063F1C76F32500BA7E99 /* BCHA_FormularyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F063E1C76F32500BA7E99 /* BCHA_FormularyUITests.swift */; };
+		AF50FA1B1C770BE400FD143A /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50FA1A1C770BE400FD143A /* HttpRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		AF2F063A1C76F32500BA7E99 /* BCHA-FormularyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BCHA-FormularyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2F063E1C76F32500BA7E99 /* BCHA_FormularyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCHA_FormularyUITests.swift; sourceTree = "<group>"; };
 		AF2F06401C76F32500BA7E99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF50FA1A1C770BE400FD143A /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				AF2F06271C76F32400BA7E99 /* LaunchScreen.storyboard */,
 				AF2F062A1C76F32400BA7E99 /* Info.plist */,
 				AF2F06221C76F32400BA7E99 /* BCHA_Formulary.xcdatamodeld */,
+				AF50FA1A1C770BE400FD143A /* HttpRequest.swift */,
 			);
 			path = "BCHA-Formulary";
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF2F06241C76F32400BA7E99 /* BCHA_Formulary.xcdatamodeld in Sources */,
+				AF50FA1B1C770BE400FD143A /* HttpRequest.swift in Sources */,
 				AF2F061E1C76F32400BA7E99 /* ViewController.swift in Sources */,
 				AF2F061C1C76F32400BA7E99 /* AppDelegate.swift in Sources */,
 			);
@@ -488,6 +492,7 @@
 				AF2F06451C76F32500BA7E99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF2F06461C76F32500BA7E99 /* Build configuration list for PBXNativeTarget "BCHA-FormularyTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +501,7 @@
 				AF2F06481C76F32500BA7E99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF2F06491C76F32500BA7E99 /* Build configuration list for PBXNativeTarget "BCHA-FormularyUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +510,7 @@
 				AF2F064B1C76F32500BA7E99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

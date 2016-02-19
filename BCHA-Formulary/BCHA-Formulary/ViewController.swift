@@ -26,6 +26,8 @@ class ViewController: UIViewController {
 
     @IBAction func searchDrug(sender: UIButton) {
 //        let drugName = searchField.text
+        let request = HttpRequest()
+        request.makeGetRequest()
         
     }
 
