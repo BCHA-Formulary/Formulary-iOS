@@ -52,31 +52,43 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pF8-2B-dMT">
                                 <rect key="frame" x="276" y="334" width="48" height="30"/>
                                 <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchDrug:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v4t-MJ-7XT"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Help" translatesAutoresizingMaskIntoConstraints="NO" id="8kk-bS-A2r">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ff-Wi-YgU">
                                 <rect key="frame" x="530" y="172" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="86M-ul-PVu"/>
-                                    <constraint firstAttribute="height" constant="50" id="dBt-TD-G4h"/>
+                                    <constraint firstAttribute="height" constant="50" id="2K1-Fg-QTt"/>
+                                    <constraint firstAttribute="width" constant="50" id="Df1-ao-PcO"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" title="Button" image="Help"/>
+                                <connections>
+                                    <action selector="helpScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rWu-vx-jXu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2Ff-Wi-YgU" firstAttribute="top" secondItem="zwO-z4-3rH" secondAttribute="bottom" constant="8" symbolic="YES" id="2jS-j0-ghc"/>
                             <constraint firstItem="zwO-z4-3rH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6KB-A2-cay"/>
                             <constraint firstAttribute="trailing" secondItem="zwO-z4-3rH" secondAttribute="trailing" id="FU5-MT-G16"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8M3-YH-Bek" secondAttribute="trailing" constant="50" id="GJf-7F-TyO"/>
                             <constraint firstItem="8M3-YH-Bek" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GMM-rS-Pgn"/>
-                            <constraint firstItem="8kk-bS-A2r" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="JNI-Sy-XD2"/>
                             <constraint firstItem="pF8-2B-dMT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LIb-Sm-haQ"/>
                             <constraint firstItem="zwO-z4-3rH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="VFG-kD-mF0"/>
                             <constraint firstItem="zwO-z4-3rH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="i3i-uo-tGg"/>
-                            <constraint firstItem="8kk-bS-A2r" firstAttribute="top" secondItem="zwO-z4-3rH" secondAttribute="bottom" constant="8" symbolic="YES" id="jaB-Vc-g6j"/>
+                            <constraint firstItem="2Ff-Wi-YgU" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="nhZ-55-V9A"/>
                             <constraint firstItem="pF8-2B-dMT" firstAttribute="baseline" secondItem="8M3-YH-Bek" secondAttribute="baseline" constant="50" id="oph-P8-53k"/>
                             <constraint firstItem="8M3-YH-Bek" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="q3N-Qk-MK2"/>
                             <constraint firstItem="8M3-YH-Bek" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="qx1-LH-P6z"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="helpButton" destination="2Ff-Wi-YgU" id="LMd-MV-FrJ"/>
+                        <outlet property="searchBttn" destination="pF8-2B-dMT" id="kzD-01-NkE"/>
+                        <outlet property="searchField" destination="8M3-YH-Bek" id="DDQ-72-TCw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
