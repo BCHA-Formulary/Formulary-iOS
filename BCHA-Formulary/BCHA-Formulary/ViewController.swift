@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
 
@@ -32,6 +33,17 @@ class ViewController: UIViewController {
     }
 
     @IBAction func helpScreen(sender: AnyObject) {
+        let ref = FIRDatabase.database().reference()
+        ref.child("Update").observeSingleEventOfType(.Value, withBlock:  { (snapshot) in
+            // Get user value
+//            let username = snapshot.value!["username"] as! String
+//            let user = User.init(username: username)
+            print(snapshot)
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
 }
 

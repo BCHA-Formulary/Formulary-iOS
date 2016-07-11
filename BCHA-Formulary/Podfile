@@ -1,0 +1,27 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'BCHA-Formulary' do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for BCHA-Formulary
+
+  target 'BCHA-FormularyTests' do
+    inherit! :search_paths
+    # Pods for testing
+  pod 'Firebase'
+  pod ‘Firebase/Database’
+  end
+
+  target 'BCHA-FormularyUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  pod 'Firebase'
+  pod ‘Firebase/Database’
+  end
+
+  pod 'Firebase'
+  pod ‘Firebase/Database’
+
+end
