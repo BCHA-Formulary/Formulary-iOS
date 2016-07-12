@@ -8,7 +8,8 @@
 
 import Foundation
 
-enum NameType {
-    case GENERIC
-    case BRAND
+enum NameType : String {
+    case GENERIC = "GENERIC"
+    case BRAND = "BRAND"
+    
 }

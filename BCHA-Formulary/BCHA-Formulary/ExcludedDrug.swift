@@ -29,4 +29,12 @@ class ExcludedDrug:DrugBase{
         self.criteria = criteria
         super.init(drugClass: drugClass, status: status)
     }
+    
+    init(primaryName:String, nameType:NameType, alternateName:[String], criteria:String, status:Status, drugClass:[String]){
+        self.primaryName = primaryName
+        self.nameType = nameType
+        self.alternateName = alternateName
+        self.criteria = criteria
+        super.init(drugClass: drugClass, status: status)
+    }
 }
