@@ -8,6 +8,8 @@
 
 import Foundation
 
+//WARNING these strings are formatted to be the same as the nodes for firebase retrieval of the drug list
+//Do not change without refactoring firebase child
 enum Status : String{
     case FORMULARY = "Formulary"
     case EXCLUDED = "Excluded"

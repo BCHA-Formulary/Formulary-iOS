@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		68924783E3AB57646C01BC03 /* Pods_BCHA_FormularyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75E85570BB172AD47D22BB1 /* Pods_BCHA_FormularyTests.framework */; };
 		9CA98F792CBB38E824FDFE42 /* Pods_BCHA_FormularyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95038C971946A1E0A00B4F79 /* Pods_BCHA_FormularyUITests.framework */; };
+		AF1C54801D3605000056E1F0 /* SqlHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1C547F1D3605000056E1F0 /* SqlHelper.swift */; };
 		AF2F061C1C76F32400BA7E99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F061B1C76F32400BA7E99 /* AppDelegate.swift */; };
 		AF2F061E1C76F32400BA7E99 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F061D1C76F32400BA7E99 /* MainViewController.swift */; };
 		AF2F06211C76F32400BA7E99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF2F061F1C76F32400BA7E99 /* Main.storyboard */; };
@@ -26,9 +27,39 @@
 		AF94324B1D34BA3600A41590 /* NameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF94324A1D34BA3600A41590 /* NameType.swift */; };
 		AF94324D1D34C90700A41590 /* ExcludedDrug.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF94324C1D34C90700A41590 /* ExcludedDrug.swift */; };
 		AF94324F1D34CA2D00A41590 /* RestrictedDrug.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF94324E1D34CA2D00A41590 /* RestrictedDrug.swift */; };
+		AFE50FEA1D35EA2D00EBF5DC /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE50FE91D35EA2D00EBF5DC /* FirebaseHelper.swift */; };
+		F180AEA0DE834B9BA188446C /* Pods_BCHA_Formulary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62424171189B30FAA18AB081 /* Pods_BCHA_Formulary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AF1C54881D3608BC0056E1F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF1C54811D3608BC0056E1F0 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6D36CFC0CACEEC35CF2FCEF3F79C7306;
+			remoteInfo = "Pods-BCHA-Formulary";
+		};
+		AF1C548A1D3608BC0056E1F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF1C54811D3608BC0056E1F0 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 898C2277661D5269C68AEF767CA65DD2;
+			remoteInfo = "Pods-BCHA-FormularyTests";
+		};
+		AF1C548C1D3608BC0056E1F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF1C54811D3608BC0056E1F0 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D3404D5C47AD578D322C77FE6726FBD;
+			remoteInfo = "Pods-BCHA-FormularyUITests";
+		};
+		AF1C548E1D3608BC0056E1F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF1C54811D3608BC0056E1F0 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2BE3EEB08BA6624821EB941442DA2E79;
+			remoteInfo = SQLite.swift;
+		};
 		AF2F06301C76F32500BA7E99 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AF2F06101C76F32400BA7E99 /* Project object */;
@@ -52,6 +83,8 @@
 		61A338D9FEEA6ED8A24A346A /* Pods-BCHA-FormularyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCHA-FormularyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BCHA-FormularyUITests/Pods-BCHA-FormularyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		62424171189B30FAA18AB081 /* Pods_BCHA_Formulary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BCHA_Formulary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95038C971946A1E0A00B4F79 /* Pods_BCHA_FormularyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BCHA_FormularyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF1C547F1D3605000056E1F0 /* SqlHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqlHelper.swift; sourceTree = "<group>"; };
+		AF1C54811D3608BC0056E1F0 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		AF2F06181C76F32400BA7E99 /* BCHA-Formulary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BCHA-Formulary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2F061B1C76F32400BA7E99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF2F061D1C76F32400BA7E99 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +108,7 @@
 		AF94324A1D34BA3600A41590 /* NameType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameType.swift; sourceTree = "<group>"; };
 		AF94324C1D34C90700A41590 /* ExcludedDrug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcludedDrug.swift; sourceTree = "<group>"; };
 		AF94324E1D34CA2D00A41590 /* RestrictedDrug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestrictedDrug.swift; sourceTree = "<group>"; };
+		AFE50FE91D35EA2D00EBF5DC /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		D879467B688ABFA629AEB9AC /* Pods-BCHA-FormularyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCHA-FormularyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BCHA-FormularyUITests/Pods-BCHA-FormularyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0D81370BD99BAC56BC00D42 /* Pods-BCHA-FormularyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCHA-FormularyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BCHA-FormularyTests/Pods-BCHA-FormularyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F75E85570BB172AD47D22BB1 /* Pods_BCHA_FormularyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BCHA_FormularyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF9432421D34AB0600A41590 /* libsqlite3.tbd in Frameworks */,
+				F180AEA0DE834B9BA188446C /* Pods_BCHA_Formulary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,12 +146,31 @@
 		9DE34C5B84F464F258E71540 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF1C54811D3608BC0056E1F0 /* Pods.xcodeproj */,
 				AF9432411D34AB0600A41590 /* libsqlite3.tbd */,
 				62424171189B30FAA18AB081 /* Pods_BCHA_Formulary.framework */,
 				F75E85570BB172AD47D22BB1 /* Pods_BCHA_FormularyTests.framework */,
 				95038C971946A1E0A00B4F79 /* Pods_BCHA_FormularyUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF1C54821D3608BC0056E1F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF1C54891D3608BC0056E1F0 /* Pods_BCHA_Formulary.framework */,
+				AF1C548B1D3608BC0056E1F0 /* Pods_BCHA_FormularyTests.framework */,
+				AF1C548D1D3608BC0056E1F0 /* Pods_BCHA_FormularyUITests.framework */,
+				AF1C548F1D3608BC0056E1F0 /* SQLite.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF1C54901D360A020056E1F0 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 		AF2F060F1C76F32400BA7E99 = {
@@ -144,6 +198,7 @@
 		AF2F061A1C76F32400BA7E99 /* BCHA-Formulary */ = {
 			isa = PBXGroup;
 			children = (
+				AF1C54901D360A020056E1F0 /* Database */,
 				AF9432431D34B24500A41590 /* Drug */,
 				AF2F061B1C76F32400BA7E99 /* AppDelegate.swift */,
 				AF2F061D1C76F32400BA7E99 /* MainViewController.swift */,
@@ -154,6 +209,8 @@
 				AF2F06221C76F32400BA7E99 /* BCHA_Formulary.xcdatamodeld */,
 				AF50FA1A1C770BE400FD143A /* HttpRequest.swift */,
 				AF44148F1D33525800965246 /* GoogleService-Info.plist */,
+				AFE50FE91D35EA2D00EBF5DC /* FirebaseHelper.swift */,
+				AF1C547F1D3605000056E1F0 /* SqlHelper.swift */,
 			);
 			path = "BCHA-Formulary";
 			sourceTree = "<group>";
@@ -300,6 +357,12 @@
 			mainGroup = AF2F060F1C76F32400BA7E99;
 			productRefGroup = AF2F06191C76F32400BA7E99 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AF1C54821D3608BC0056E1F0 /* Products */;
+					ProjectRef = AF1C54811D3608BC0056E1F0 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AF2F06171C76F32400BA7E99 /* BCHA-Formulary */,
@@ -308,6 +371,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AF1C54891D3608BC0056E1F0 /* Pods_BCHA_Formulary.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_BCHA_Formulary.framework;
+			remoteRef = AF1C54881D3608BC0056E1F0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AF1C548B1D3608BC0056E1F0 /* Pods_BCHA_FormularyTests.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_BCHA_FormularyTests.framework;
+			remoteRef = AF1C548A1D3608BC0056E1F0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AF1C548D1D3608BC0056E1F0 /* Pods_BCHA_FormularyUITests.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_BCHA_FormularyUITests.framework;
+			remoteRef = AF1C548C1D3608BC0056E1F0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AF1C548F1D3608BC0056E1F0 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = AF1C548E1D3608BC0056E1F0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AF2F06161C76F32400BA7E99 /* Resources */ = {
@@ -467,6 +561,7 @@
 			files = (
 				AF94324F1D34CA2D00A41590 /* RestrictedDrug.swift in Sources */,
 				AF2F06241C76F32400BA7E99 /* BCHA_Formulary.xcdatamodeld in Sources */,
+				AF1C54801D3605000056E1F0 /* SqlHelper.swift in Sources */,
 				AF9432491D34B98100A41590 /* FormularyDrug.swift in Sources */,
 				AF94324D1D34C90700A41590 /* ExcludedDrug.swift in Sources */,
 				AF50FA1B1C770BE400FD143A /* HttpRequest.swift in Sources */,
@@ -474,6 +569,7 @@
 				AF94324B1D34BA3600A41590 /* NameType.swift in Sources */,
 				AF9432451D34B43700A41590 /* DrugBase.swift in Sources */,
 				AF2F061C1C76F32400BA7E99 /* AppDelegate.swift in Sources */,
+				AFE50FEA1D35EA2D00EBF5DC /* FirebaseHelper.swift in Sources */,
 				AF9432471D34B5FF00A41590 /* Status.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
