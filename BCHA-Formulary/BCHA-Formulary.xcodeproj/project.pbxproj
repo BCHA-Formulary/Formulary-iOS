@@ -10,7 +10,7 @@
 		68924783E3AB57646C01BC03 /* Pods_BCHA_FormularyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75E85570BB172AD47D22BB1 /* Pods_BCHA_FormularyTests.framework */; };
 		9CA98F792CBB38E824FDFE42 /* Pods_BCHA_FormularyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95038C971946A1E0A00B4F79 /* Pods_BCHA_FormularyUITests.framework */; };
 		AF2F061C1C76F32400BA7E99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F061B1C76F32400BA7E99 /* AppDelegate.swift */; };
-		AF2F061E1C76F32400BA7E99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F061D1C76F32400BA7E99 /* ViewController.swift */; };
+		AF2F061E1C76F32400BA7E99 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F061D1C76F32400BA7E99 /* MainViewController.swift */; };
 		AF2F06211C76F32400BA7E99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF2F061F1C76F32400BA7E99 /* Main.storyboard */; };
 		AF2F06241C76F32400BA7E99 /* BCHA_Formulary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF2F06221C76F32400BA7E99 /* BCHA_Formulary.xcdatamodeld */; };
 		AF2F06261C76F32400BA7E99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF2F06251C76F32400BA7E99 /* Assets.xcassets */; };
@@ -54,7 +54,7 @@
 		95038C971946A1E0A00B4F79 /* Pods_BCHA_FormularyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BCHA_FormularyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2F06181C76F32400BA7E99 /* BCHA-Formulary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BCHA-Formulary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2F061B1C76F32400BA7E99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AF2F061D1C76F32400BA7E99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AF2F061D1C76F32400BA7E99 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AF2F06201C76F32400BA7E99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF2F06231C76F32400BA7E99 /* BCHA_Formulary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BCHA_Formulary.xcdatamodel; sourceTree = "<group>"; };
 		AF2F06251C76F32400BA7E99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 			children = (
 				AF9432431D34B24500A41590 /* Drug */,
 				AF2F061B1C76F32400BA7E99 /* AppDelegate.swift */,
-				AF2F061D1C76F32400BA7E99 /* ViewController.swift */,
+				AF2F061D1C76F32400BA7E99 /* MainViewController.swift */,
 				AF2F061F1C76F32400BA7E99 /* Main.storyboard */,
 				AF2F06251C76F32400BA7E99 /* Assets.xcassets */,
 				AF2F06271C76F32400BA7E99 /* LaunchScreen.storyboard */,
@@ -470,7 +470,7 @@
 				AF9432491D34B98100A41590 /* FormularyDrug.swift in Sources */,
 				AF94324D1D34C90700A41590 /* ExcludedDrug.swift in Sources */,
 				AF50FA1B1C770BE400FD143A /* HttpRequest.swift in Sources */,
-				AF2F061E1C76F32400BA7E99 /* ViewController.swift in Sources */,
+				AF2F061E1C76F32400BA7E99 /* MainViewController.swift in Sources */,
 				AF94324B1D34BA3600A41590 /* NameType.swift in Sources */,
 				AF9432451D34B43700A41590 /* DrugBase.swift in Sources */,
 				AF2F061C1C76F32400BA7E99 /* AppDelegate.swift in Sources */,

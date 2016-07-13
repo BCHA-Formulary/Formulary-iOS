@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum Status {
-    case FORMULARY
-    case EXCLUDED
-    case RESTRUCTED
+enum Status : String{
+    case FORMULARY = "Formulary"
+    case EXCLUDED = "Excluded"
+    case RESTRICTED = "Restricted"
 }

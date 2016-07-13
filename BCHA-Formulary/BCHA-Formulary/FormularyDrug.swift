@@ -30,4 +30,12 @@ class FormuarlyDrug:DrugBase{
         super.init(drugClass:drugClass, status: status)
     }
     
+    init(primaryName:String, nameType:NameType, alternateName:[String], strengths:[String], status:Status, drugClass:[String]){
+        self.primaryName = primaryName
+        self.nameType = nameType
+        self.alternateName = alternateName
+        self.strengths = strengths
+        super.init(drugClass:drugClass, status: status)
+    }
+    
 }
