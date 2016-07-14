@@ -12,7 +12,10 @@
 import Foundation
 import SQLite
 
-class SqlHelper{
+struct SqlHelper{
+    
+    //database
+    var db:Connection?
     
     //Table names
     let drugTable = Table("DrugTable")
@@ -35,17 +38,19 @@ class SqlHelper{
     
     
     init() {
+        db = nil
+
         do {
             let path = NSSearchPathForDirectoriesInDomains(
                 .DocumentDirectory, .UserDomainMask, true
                 ).first!
             
-            let db = try Connection("\(path)/db.sqlite3")
+            db = try Connection("\(path)/db.sqlite3")
             
-            try createDrugTable(db)
-            try createFormularyTable(db)
-            try createExcludedTable(db)
-            try createRestrictedTable(db)
+            try createDrugTable(db!)
+            try createFormularyTable(db!)
+            try createExcludedTable(db!)
+            try createRestrictedTable(db!)
         }
         catch {
             print("Could not connect to db")
@@ -56,16 +61,12 @@ class SqlHelper{
         This method is only called on status:Generic type drugs to avoid duplicates
      */
     func insertFormularyGenericDrug(formulary:FormuarlyDrug){
+        if(db == nil) {
+            print("ERROR: Database not initalized")
+            return
+        }
         do{
-            //get the database
-            let path = NSSearchPathForDirectoriesInDomains(
-                .DocumentDirectory, .UserDomainMask, true
-                ).first!
-            
-            let db = try Connection("\(path)/db.sqlite3")
-            
-            //insert generic name into drug table
-            try insertDrugIntoTable(db, name: formulary.primaryName,
+            try insertDrugIntoTable(formulary.primaryName,
                                         nameType: NameType.GENERIC.rawValue,
                                         status: Status.FORMULARY.rawValue,
                                         drugClasses: formulary.drugClass)
@@ -73,11 +74,11 @@ class SqlHelper{
             //insert into formulary table
             for brand in formulary.alternateName{
                 //for each brand name, add the name to the drug table
-                try insertDrugIntoTable(db, name: brand, nameType: NameType.BRAND.rawValue,
+                try insertDrugIntoTable(brand, nameType: NameType.BRAND.rawValue,
                                         status: Status.FORMULARY.rawValue, drugClasses: formulary.drugClass)
                 for strength in formulary.strengths{
                     //for each strength, and each brand name, add to the formulary table
-                    try db.run(formularyTable.insert(genericName<-formulary.primaryName, brandName<-brand, self.strength<-strength))
+                    try db?.run(formularyTable.insert(genericName<-formulary.primaryName, brandName<-brand, self.strength<-strength))
                 }
             }
         }
@@ -87,16 +88,13 @@ class SqlHelper{
     }
     
     func insertExcludedGenericDrug(excluded:ExcludedDrug){
+        if(db == nil) {
+            print("ERROR: Database not initalized")
+            return
+        }
         do{
-            //get the database
-            let path = NSSearchPathForDirectoriesInDomains(
-                .DocumentDirectory, .UserDomainMask, true
-                ).first!
-            
-            let db = try Connection("\(path)/db.sqlite3")
-            
             //insert generic name into drug table
-            try insertDrugIntoTable(db, name: excluded.primaryName,
+            try insertDrugIntoTable(excluded.primaryName,
                                     nameType: NameType.GENERIC.rawValue,
                                     status: Status.EXCLUDED.rawValue,
                                     drugClasses: excluded.drugClass)
@@ -104,10 +102,10 @@ class SqlHelper{
             //insert into excluded table
             for brand in excluded.alternateName{
                 //for each brand name, add the name to the drug table
-                try insertDrugIntoTable(db, name: brand, nameType: NameType.BRAND.rawValue,
+                try insertDrugIntoTable(brand, nameType: NameType.BRAND.rawValue,
                                         status: Status.EXCLUDED.rawValue, drugClasses: excluded.drugClass)
                 //for each brand name, add to the excluded table
-                try db.run(excludedTable.insert(genericName<-excluded.primaryName, brandName<-brand, self.criteria<-excluded.criteria))
+                try db?.run(excludedTable.insert(genericName<-excluded.primaryName, brandName<-brand, self.criteria<-excluded.criteria))
             }
         }
         catch{
@@ -116,16 +114,13 @@ class SqlHelper{
     }
     
     func insertRestrictedGenericDrug(restricted:RestrictedDrug){
+        if(db == nil) {
+            print("ERROR: Database not initalized")
+            return
+        }
         do{
-            //get the database
-            let path = NSSearchPathForDirectoriesInDomains(
-                .DocumentDirectory, .UserDomainMask, true
-                ).first!
-            
-            let db = try Connection("\(path)/db.sqlite3")
-            
             //insert generic name into drug table
-            try insertDrugIntoTable(db, name: restricted.primaryName,
+            try insertDrugIntoTable(restricted.primaryName,
                                     nameType: NameType.GENERIC.rawValue,
                                     status: Status.RESTRICTED.rawValue,
                                     drugClasses: restricted.drugClass)
@@ -133,10 +128,11 @@ class SqlHelper{
             //insert into Restricted table
             for brand in restricted.alternateName{
                 //for each brand name, add the name to the drug table
-                try insertDrugIntoTable(db, name: brand, nameType: NameType.BRAND.rawValue,
+                try insertDrugIntoTable(
+                    brand, nameType: NameType.BRAND.rawValue,
                                         status: Status.RESTRICTED.rawValue, drugClasses: restricted.drugClass)
                 //for each brand name, add to the restricted table
-                try db.run(restrictedTable.insert(genericName<-restricted.primaryName, brandName<-brand, self.criteria<-restricted.criteria))
+                try db?.run(restrictedTable.insert(genericName<-restricted.primaryName, brandName<-brand, self.criteria<-restricted.criteria))
             }
         }
         catch{
@@ -144,11 +140,11 @@ class SqlHelper{
         }
     }
 
-    private func insertDrugIntoTable(db:Connection, name:String, nameType:String, status:String, drugClasses:[String])throws ->Int64{
+    private func insertDrugIntoTable(name:String, nameType:String, status:String, drugClasses:[String])throws ->Int64{
         var rowsAdded:Int64 = 0
         do{
             for drugClass in drugClasses{
-                rowsAdded = try db.run(drugTable.insert(self.name<-name, self.nameType<-nameType, self.status<-status, self.drugClass<-drugClass))
+                rowsAdded = try db!.run(drugTable.insert(self.name<-name, self.nameType<-nameType, self.status<-status, self.drugClass<-drugClass))
             }
         }
         catch{
@@ -156,8 +152,6 @@ class SqlHelper{
         }
         return rowsAdded
     }
-    
-//    func insertExcludedGenericDrug(
     
     /**
      * CREATE TABLE DrugTable IF NOT EXISTS (
@@ -167,12 +161,6 @@ class SqlHelper{
      * "Class" TEXT)
      */
     private func createDrugTable(db:Connection) throws{
-//        let drugTable = Table("DrugTable")
-//        let name = Expression<String>("Name")
-//        let nameType = Expression<String>("NameType")
-//        let status = Expression<String>("Status")
-//        let drugClass = Expression<String>("Class")
-        
         try db.run(drugTable.create(ifNotExists:true){ t in
             t.column(name, primaryKey:true)
             t.column(nameType)
@@ -189,12 +177,6 @@ class SqlHelper{
      *       "Strength" TEXT )
      */
     private func createFormularyTable(db:Connection) throws{
-//        let formularyTable = Table("FormularyTable")
-//        let id = Expression<Int64>("id")
-//        let genericName = Expression<String>("GenericName")
-//        let brandName = Expression<String>("BrandName")
-//        let strength = Expression<String>("Strength")
-        
         try db.run(formularyTable.create(ifNotExists:true){t in
             t.column(id, primaryKey:.Autoincrement)
             t.column(genericName)
@@ -212,13 +194,6 @@ class SqlHelper{
      */
     
     private func createExcludedTable(db:Connection) throws{
-//        let excludedTable = Table("ExcludedTable")
-//        let id = Expression<Int64>("id")
-//        let genericName = Expression<String>("GenericName")
-//        let brandName = Expression<String>("BrandName")
-//        let criteria = Expression<String>("criteria")
-        
-        
         try db.run(excludedTable.create(ifNotExists:true){t in
             t.column(id, primaryKey:.Autoincrement)
             t.column(genericName)
@@ -236,13 +211,6 @@ class SqlHelper{
      */
     
     private func createRestrictedTable(db:Connection) throws{
-//        let excludedTable = Table("RestrictedTable")
-//        let id = Expression<Int64>("id")
-//        let genericName = Expression<String>("GenericName")
-//        let brandName = Expression<String>("BrandName")
-//        let criteria = Expression<String>("criteria")
-        
-        
         try db.run(restrictedTable.create(ifNotExists:true){t in
             t.column(id, primaryKey:.Autoincrement)
             t.column(genericName)
