@@ -20,6 +20,7 @@
 		AF2F063F1C76F32500BA7E99 /* BCHA_FormularyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F063E1C76F32500BA7E99 /* BCHA_FormularyUITests.swift */; };
 		AF4414901D33525800965246 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF44148F1D33525800965246 /* GoogleService-Info.plist */; };
 		AF50FA1B1C770BE400FD143A /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50FA1A1C770BE400FD143A /* HttpRequest.swift */; };
+		AF93C0E01D38A7C700984FEC /* MPGTextField-Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF93C0DF1D38A7C700984FEC /* MPGTextField-Swift.swift */; };
 		AF9432421D34AB0600A41590 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AF9432411D34AB0600A41590 /* libsqlite3.tbd */; };
 		AF9432451D34B43700A41590 /* DrugBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9432441D34B43700A41590 /* DrugBase.swift */; };
 		AF9432471D34B5FF00A41590 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9432461D34B5FF00A41590 /* Status.swift */; };
@@ -101,6 +102,7 @@
 		AF2F06401C76F32500BA7E99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF44148F1D33525800965246 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF50FA1A1C770BE400FD143A /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		AF93C0DF1D38A7C700984FEC /* MPGTextField-Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MPGTextField-Swift.swift"; sourceTree = "<group>"; };
 		AF9432411D34AB0600A41590 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		AF9432441D34B43700A41590 /* DrugBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugBase.swift; sourceTree = "<group>"; };
 		AF9432461D34B5FF00A41590 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				AF44148F1D33525800965246 /* GoogleService-Info.plist */,
 				AFE50FE91D35EA2D00EBF5DC /* FirebaseHelper.swift */,
 				AF1C547F1D3605000056E1F0 /* SqlHelper.swift */,
+				AF93C0DF1D38A7C700984FEC /* MPGTextField-Swift.swift */,
 			);
 			path = "BCHA-Formulary";
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				AF9432451D34B43700A41590 /* DrugBase.swift in Sources */,
 				AF2F061C1C76F32400BA7E99 /* AppDelegate.swift in Sources */,
 				AFE50FEA1D35EA2D00EBF5DC /* FirebaseHelper.swift in Sources */,
+				AF93C0E01D38A7C700984FEC /* MPGTextField-Swift.swift in Sources */,
 				AF9432471D34B5FF00A41590 /* Status.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

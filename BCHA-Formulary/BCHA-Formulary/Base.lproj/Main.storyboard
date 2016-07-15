@@ -44,7 +44,7 @@
                                     <constraint firstItem="VTh-uK-c57" firstAttribute="top" secondItem="zwO-z4-3rH" secondAttribute="top" constant="30" id="aOk-cw-DfR"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search by generic or brand name" textAlignment="center" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8M3-YH-Bek">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search by generic or brand name" textAlignment="center" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8M3-YH-Bek" customClass="MPGTextField_Swift" customModule="BCHA_Formulary" customModuleProvider="target">
                                 <rect key="frame" x="70" y="285" width="460" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
