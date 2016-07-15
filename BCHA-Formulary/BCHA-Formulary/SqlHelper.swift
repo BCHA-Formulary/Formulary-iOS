@@ -53,8 +53,56 @@ struct SqlHelper{
             try createRestrictedTable(db!)
         }
         catch {
-            print("Could not connect to db")
+            print("Error info: \(error)")
+            
         }
+    }
+    
+    /**
+        Drops drug,formulary,excluded and restricted table if they exist 
+        and then creates them again if needed
+     */
+    func dropAndRemakeTables(){
+        do{
+            try db?.run(drugTable.drop(ifExists: true))
+            try db?.run(formularyTable.drop(ifExists: true))
+            try db?.run(excludedTable.drop(ifExists: true))
+            try db?.run(restrictedTable.drop(ifExists: true))
+            
+            try createDrugTable(db!)
+            try createFormularyTable(db!)
+            try createExcludedTable(db!)
+            try createRestrictedTable(db!)
+        }
+        catch{
+            print("Could not drop tables")
+        }
+    }
+    
+    //TEST METHOD here as an example
+//    func getGeneric(){
+//        do{
+//            let query = drugTable.filter(name == "SYMBICORT")
+//            for drug in try db!.prepare(query){
+//                print("Drug: ", drug[name])
+//            }
+//        }
+//        catch{
+//            print("Query did not work")
+//        }
+//    }
+    
+    func getAllDrugNames()->[String]{
+        var drugNames = [String]()
+        do{
+            for drugName in try db!.prepare(drugTable.select(name)){
+                drugNames.append(drugName[name])
+            }
+        }
+        catch{
+            print("Error info: \(error)")
+        }
+        return drugNames
     }
     
     /**
@@ -66,24 +114,27 @@ struct SqlHelper{
             return
         }
         do{
-            try insertDrugIntoTable(formulary.primaryName,
+            let genericTrimName = formulary.primaryName.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            try insertDrugIntoTable(genericTrimName,
                                         nameType: NameType.GENERIC.rawValue,
                                         status: Status.FORMULARY.rawValue,
                                         drugClasses: formulary.drugClass)
             
             //insert into formulary table
             for brand in formulary.alternateName{
+                let brandTrimName = brand.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                 //for each brand name, add the name to the drug table
-                try insertDrugIntoTable(brand, nameType: NameType.BRAND.rawValue,
+                try insertDrugIntoTable(brandTrimName, nameType: NameType.BRAND.rawValue,
                                         status: Status.FORMULARY.rawValue, drugClasses: formulary.drugClass)
                 for strength in formulary.strengths{
                     //for each strength, and each brand name, add to the formulary table
-                    try db?.run(formularyTable.insert(genericName<-formulary.primaryName, brandName<-brand, self.strength<-strength))
+                    try db?.run(formularyTable.insert(genericName<-genericTrimName, brandName<-brandTrimName, self.strength<-strength))
                 }
             }
         }
         catch{
-            print("Could not add formulary into drug table: ", formulary.primaryName)
+//            print("Could not add formulary into drug table: ", formulary.primaryName)
+            print("Error info: \(error)")
         }
     }
     
@@ -93,19 +144,21 @@ struct SqlHelper{
             return
         }
         do{
+            let genericTrimName = excluded.primaryName.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             //insert generic name into drug table
-            try insertDrugIntoTable(excluded.primaryName,
+            try insertDrugIntoTable(genericTrimName,
                                     nameType: NameType.GENERIC.rawValue,
                                     status: Status.EXCLUDED.rawValue,
                                     drugClasses: excluded.drugClass)
             
             //insert into excluded table
             for brand in excluded.alternateName{
+                let brandTrimName = brand.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                 //for each brand name, add the name to the drug table
-                try insertDrugIntoTable(brand, nameType: NameType.BRAND.rawValue,
+                try insertDrugIntoTable(brandTrimName, nameType: NameType.BRAND.rawValue,
                                         status: Status.EXCLUDED.rawValue, drugClasses: excluded.drugClass)
                 //for each brand name, add to the excluded table
-                try db?.run(excludedTable.insert(genericName<-excluded.primaryName, brandName<-brand, self.criteria<-excluded.criteria))
+                try db?.run(excludedTable.insert(genericName<-genericTrimName, brandName<-brandTrimName, self.criteria<-excluded.criteria))
             }
         }
         catch{
@@ -119,20 +172,22 @@ struct SqlHelper{
             return
         }
         do{
+            let genericTrimName = restricted.primaryName.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             //insert generic name into drug table
-            try insertDrugIntoTable(restricted.primaryName,
+            try insertDrugIntoTable(genericTrimName,
                                     nameType: NameType.GENERIC.rawValue,
                                     status: Status.RESTRICTED.rawValue,
                                     drugClasses: restricted.drugClass)
             
             //insert into Restricted table
             for brand in restricted.alternateName{
+                let brandTrimName = brand.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                 //for each brand name, add the name to the drug table
                 try insertDrugIntoTable(
-                    brand, nameType: NameType.BRAND.rawValue,
+                    brandTrimName, nameType: NameType.BRAND.rawValue,
                                         status: Status.RESTRICTED.rawValue, drugClasses: restricted.drugClass)
                 //for each brand name, add to the restricted table
-                try db?.run(restrictedTable.insert(genericName<-restricted.primaryName, brandName<-brand, self.criteria<-restricted.criteria))
+                try db?.run(restrictedTable.insert(genericName<-genericTrimName, brandName<-brandTrimName, self.criteria<-restricted.criteria))
             }
         }
         catch{
@@ -142,15 +197,30 @@ struct SqlHelper{
 
     private func insertDrugIntoTable(name:String, nameType:String, status:String, drugClasses:[String])throws ->Int64{
         var rowsAdded:Int64 = 0
+        
         do{
+            let drugName = name.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             for drugClass in drugClasses{
-                rowsAdded = try db!.run(drugTable.insert(self.name<-name, self.nameType<-nameType, self.status<-status, self.drugClass<-drugClass))
+                rowsAdded = try db!.run(drugTable.insert(self.name<-drugName, self.nameType<-nameType, self.status<-status, self.drugClass<-drugClass))
             }
         }
         catch{
+            print("Error info: \(error)")
             print("Unable to add drug into DrugTable :", name)
         }
         return rowsAdded
+    }
+    
+    func rowCount(){
+            let drugCount = db?.scalar(drugTable.count)
+            let formularyCount = db?.scalar(formularyTable.count)
+            let excludedCount = db?.scalar(excludedTable.count)
+            let restrictedCount = db?.scalar(restrictedTable.count)
+            print("Drug count: ", drugCount)
+            print("Formulary count: ", formularyCount)
+            print("Excluded count: ", excludedCount)
+            print("Restricted count: ", restrictedCount)
+        
     }
     
     /**
@@ -162,10 +232,11 @@ struct SqlHelper{
      */
     private func createDrugTable(db:Connection) throws{
         try db.run(drugTable.create(ifNotExists:true){ t in
-            t.column(name, primaryKey:true)
+            t.column(name)
             t.column(nameType)
             t.column(status)
             t.column(drugClass)
+            t.primaryKey(name, nameType)
             })
     }
 

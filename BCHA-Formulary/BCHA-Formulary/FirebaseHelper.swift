@@ -22,15 +22,15 @@ struct FirebaseHelper {
     }
     
     func isUpToDate()-> Bool {
-        defaults.setObject(123, forKey: "lastUpdated")
+//        defaults.setObject(123, forKey: "lastUpdated")
         if let lastUpdated = defaults.stringForKey("lastUpdated"){
-            print("Last phone update: ", lastUpdated)
+            print("Last phone updated: ", lastUpdated)
             return false //TODO for now set to false until figure out how to grab firebase
         }
         return false
     }
     
-    func getFirebaseLastUpdate(){
+    private func getFirebaseLastUpdate(){
         let ref = FIRDatabase.database().reference()
         ref.child("Update").observeSingleEventOfType(.Value, withBlock:  { (snapshot) in
             print(snapshot.value)
@@ -46,8 +46,10 @@ struct FirebaseHelper {
         }
     }
     
-    static func retrieveFirebaseDrugList(drugList:Status)->[DrugBase]{
-        var drugsFromFirebase = [DrugBase]()
+//    static func retrieveFirebaseDrugList(drugList:Status)->[DrugBase]{
+    static func updateFirebaseDrugList(drugList:Status){
+//        var drugsFromFirebase = [DrugBase]()
+        let sql:SqlHelper = SqlHelper.init()
         
         let ref = FIRDatabase.database().reference()
         ref.child(drugList.rawValue).observeEventType(.ChildAdded, withBlock: { (snapshot) in
@@ -62,23 +64,35 @@ struct FirebaseHelper {
                 
                 let formularyDrug = FormuarlyDrug(primaryName: drug["primaryName"] as! String, nameType: drugNameType!, alternateName: altName, strengths: strengths, status: Status.FORMULARY, drugClass: drugClass)
                 
-                drugsFromFirebase.append(formularyDrug)
-                print("Drug list count: ", drugsFromFirebase.count)
+//                drugsFromFirebase.append(formularyDrug)
+                
+                if(formularyDrug.nameType == NameType.GENERIC){
+                    sql.insertFormularyGenericDrug(formularyDrug)
+                }
+//                print("Drug list count: ", drugsFromFirebase.count)
                 break
             case Status.EXCLUDED:
                 let excludedDrug = ExcludedDrug(primaryName: drug["primaryName"] as! String, nameType: drugNameType!, alternateName: altName, criteria: drug["criteria"] as! String, status: Status.EXCLUDED, drugClass: drugClass)
                 
-                drugsFromFirebase.append(excludedDrug)
-                print("Drug list count: ", drugsFromFirebase.count)
+                if(excludedDrug.nameType == NameType.GENERIC){
+                    sql.insertExcludedGenericDrug(excludedDrug)
+                }
+                
+//                drugsFromFirebase.append(excludedDrug)
+//                print("Drug list count: ", drugsFromFirebase.count)
                 break
             case Status.RESTRICTED:
                 let restrictedDrug = RestrictedDrug(primaryName: drug["primaryName"] as! String, nameType: drugNameType!, alternateName: altName, criteria: drug["criteria"] as! String, status: Status.RESTRICTED, drugClass: drugClass)
                 
-                drugsFromFirebase.append(restrictedDrug)
-                print("Drug list count: ", drugsFromFirebase.count)
+//                drugsFromFirebase.append(restrictedDrug)
+                
+                if(restrictedDrug.nameType == NameType.GENERIC){
+                    sql.insertRestrictedGenericDrug(restrictedDrug)
+                }
+//                print("Drug list count: ", drugsFromFirebase.count)
                 break
             }
         })
-        return drugsFromFirebase
+//        return drugsFromFirebase
     }
 }

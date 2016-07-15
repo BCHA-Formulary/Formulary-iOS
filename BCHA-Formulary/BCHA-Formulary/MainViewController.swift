@@ -21,7 +21,12 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         firebase = FirebaseHelper.init()
-        firebase.getFirebaseLastUpdate()
+        if(!firebase.isUpToDate()){ //TODO this should be !isUpToDate, to save calls for now, set to opposite
+            print("Needs update")
+            FirebaseHelper.updateFirebaseDrugList(Status.FORMULARY)
+            FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED)
+            FirebaseHelper.updateFirebaseDrugList(Status.RESTRICTED)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,11 +36,17 @@ class MainViewController: UIViewController {
 
     @IBAction func searchDrug(sender: UIButton) {
 //        retrieveFirebaseDrugList(Status.FORMULARY)
-        FirebaseHelper.retrieveFirebaseDrugList(Status.EXCLUDED)
+//        FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED)
+//        SqlHelper.init().dropAndRemakeTables()
+        let list = SqlHelper.init().getAllDrugNames()
+        for name in list{
+            print(name.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()))
+        }
     }
 
     @IBAction func helpScreen(sender: AnyObject) {
-        FirebaseHelper.init().isUpToDate()
+//        FirebaseHelper.init().isUpToDate()
+        SqlHelper.init().rowCount()
     }
 }
 
