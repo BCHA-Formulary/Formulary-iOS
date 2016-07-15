@@ -1,0 +1,710 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		68924783E3AB57646C01BC03 /* Pods_BCHA_FormularyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75E85570BB172AD47D22BB1 /* Pods_BCHA_FormularyTests.framework */; };
+		9CA98F792CBB38E824FDFE42 /* Pods_BCHA_FormularyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95038C971946A1E0A00B4F79 /* Pods_BCHA_FormularyUITests.framework */; };
+		AF2F061C1C76F32400BA7E99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F061B1C76F32400BA7E99 /* AppDelegate.swift */; };
+		AF2F061E1C76F32400BA7E99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F061D1C76F32400BA7E99 /* ViewController.swift */; };
+		AF2F06211C76F32400BA7E99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF2F061F1C76F32400BA7E99 /* Main.storyboard */; };
+		AF2F06241C76F32400BA7E99 /* BCHA_Formulary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF2F06221C76F32400BA7E99 /* BCHA_Formulary.xcdatamodeld */; };
+		AF2F06261C76F32400BA7E99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF2F06251C76F32400BA7E99 /* Assets.xcassets */; };
+		AF2F06291C76F32400BA7E99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF2F06271C76F32400BA7E99 /* LaunchScreen.storyboard */; };
+		AF2F06341C76F32500BA7E99 /* BCHA_FormularyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F06331C76F32500BA7E99 /* BCHA_FormularyTests.swift */; };
+		AF2F063F1C76F32500BA7E99 /* BCHA_FormularyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F063E1C76F32500BA7E99 /* BCHA_FormularyUITests.swift */; };
+		AF4414901D33525800965246 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF44148F1D33525800965246 /* GoogleService-Info.plist */; };
+		AF50FA1B1C770BE400FD143A /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50FA1A1C770BE400FD143A /* HttpRequest.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AF2F06301C76F32500BA7E99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF2F06101C76F32400BA7E99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF2F06171C76F32400BA7E99;
+			remoteInfo = "BCHA-Formulary";
+		};
+		AF2F063B1C76F32500BA7E99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF2F06101C76F32400BA7E99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF2F06171C76F32400BA7E99;
+			remoteInfo = "BCHA-Formulary";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03B4A6EC490E2C0B905AA3F8 /* Pods-BCHA-Formulary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCHA-Formulary.release.xcconfig"; path = "Pods/Target Support Files/Pods-BCHA-Formulary/Pods-BCHA-Formulary.release.xcconfig"; sourceTree = "<group>"; };
+		1B6B348D775C119A4DC8B41E /* Pods-BCHA-Formulary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCHA-Formulary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BCHA-Formulary/Pods-BCHA-Formulary.debug.xcconfig"; sourceTree = "<group>"; };
+		41931F57C6C231573D6663CE /* Pods-BCHA-FormularyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCHA-FormularyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BCHA-FormularyTests/Pods-BCHA-FormularyTests.release.xcconfig"; sourceTree = "<group>"; };
+		61A338D9FEEA6ED8A24A346A /* Pods-BCHA-FormularyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCHA-FormularyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BCHA-FormularyUITests/Pods-BCHA-FormularyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		62424171189B30FAA18AB081 /* Pods_BCHA_Formulary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BCHA_Formulary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95038C971946A1E0A00B4F79 /* Pods_BCHA_FormularyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BCHA_FormularyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF2F06181C76F32400BA7E99 /* BCHA-Formulary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BCHA-Formulary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF2F061B1C76F32400BA7E99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AF2F061D1C76F32400BA7E99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AF2F06201C76F32400BA7E99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AF2F06231C76F32400BA7E99 /* BCHA_Formulary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BCHA_Formulary.xcdatamodel; sourceTree = "<group>"; };
+		AF2F06251C76F32400BA7E99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF2F06281C76F32400BA7E99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AF2F062A1C76F32400BA7E99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF2F062F1C76F32500BA7E99 /* BCHA-FormularyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BCHA-FormularyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF2F06331C76F32500BA7E99 /* BCHA_FormularyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCHA_FormularyTests.swift; sourceTree = "<group>"; };
+		AF2F06351C76F32500BA7E99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF2F063A1C76F32500BA7E99 /* BCHA-FormularyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BCHA-FormularyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF2F063E1C76F32500BA7E99 /* BCHA_FormularyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCHA_FormularyUITests.swift; sourceTree = "<group>"; };
+		AF2F06401C76F32500BA7E99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF44148F1D33525800965246 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AF50FA1A1C770BE400FD143A /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		D879467B688ABFA629AEB9AC /* Pods-BCHA-FormularyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCHA-FormularyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BCHA-FormularyUITests/Pods-BCHA-FormularyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F0D81370BD99BAC56BC00D42 /* Pods-BCHA-FormularyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCHA-FormularyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BCHA-FormularyTests/Pods-BCHA-FormularyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F75E85570BB172AD47D22BB1 /* Pods_BCHA_FormularyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BCHA_FormularyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF2F06151C76F32400BA7E99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF2F062C1C76F32500BA7E99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68924783E3AB57646C01BC03 /* Pods_BCHA_FormularyTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF2F06371C76F32500BA7E99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CA98F792CBB38E824FDFE42 /* Pods_BCHA_FormularyUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9DE34C5B84F464F258E71540 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62424171189B30FAA18AB081 /* Pods_BCHA_Formulary.framework */,
+				F75E85570BB172AD47D22BB1 /* Pods_BCHA_FormularyTests.framework */,
+				95038C971946A1E0A00B4F79 /* Pods_BCHA_FormularyUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF2F060F1C76F32400BA7E99 = {
+			isa = PBXGroup;
+			children = (
+				AF2F061A1C76F32400BA7E99 /* BCHA-Formulary */,
+				AF2F06321C76F32500BA7E99 /* BCHA-FormularyTests */,
+				AF2F063D1C76F32500BA7E99 /* BCHA-FormularyUITests */,
+				AF2F06191C76F32400BA7E99 /* Products */,
+				B379A5CE97475CC87FCE21E7 /* Pods */,
+				9DE34C5B84F464F258E71540 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AF2F06191C76F32400BA7E99 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF2F06181C76F32400BA7E99 /* BCHA-Formulary.app */,
+				AF2F062F1C76F32500BA7E99 /* BCHA-FormularyTests.xctest */,
+				AF2F063A1C76F32500BA7E99 /* BCHA-FormularyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF2F061A1C76F32400BA7E99 /* BCHA-Formulary */ = {
+			isa = PBXGroup;
+			children = (
+				AF2F061B1C76F32400BA7E99 /* AppDelegate.swift */,
+				AF2F061D1C76F32400BA7E99 /* ViewController.swift */,
+				AF2F061F1C76F32400BA7E99 /* Main.storyboard */,
+				AF2F06251C76F32400BA7E99 /* Assets.xcassets */,
+				AF2F06271C76F32400BA7E99 /* LaunchScreen.storyboard */,
+				AF2F062A1C76F32400BA7E99 /* Info.plist */,
+				AF2F06221C76F32400BA7E99 /* BCHA_Formulary.xcdatamodeld */,
+				AF50FA1A1C770BE400FD143A /* HttpRequest.swift */,
+				AF44148F1D33525800965246 /* GoogleService-Info.plist */,
+			);
+			path = "BCHA-Formulary";
+			sourceTree = "<group>";
+		};
+		AF2F06321C76F32500BA7E99 /* BCHA-FormularyTests */ = {
+			isa = PBXGroup;
+			children = (
+				AF2F06331C76F32500BA7E99 /* BCHA_FormularyTests.swift */,
+				AF2F06351C76F32500BA7E99 /* Info.plist */,
+			);
+			path = "BCHA-FormularyTests";
+			sourceTree = "<group>";
+		};
+		AF2F063D1C76F32500BA7E99 /* BCHA-FormularyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AF2F063E1C76F32500BA7E99 /* BCHA_FormularyUITests.swift */,
+				AF2F06401C76F32500BA7E99 /* Info.plist */,
+			);
+			path = "BCHA-FormularyUITests";
+			sourceTree = "<group>";
+		};
+		B379A5CE97475CC87FCE21E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1B6B348D775C119A4DC8B41E /* Pods-BCHA-Formulary.debug.xcconfig */,
+				03B4A6EC490E2C0B905AA3F8 /* Pods-BCHA-Formulary.release.xcconfig */,
+				F0D81370BD99BAC56BC00D42 /* Pods-BCHA-FormularyTests.debug.xcconfig */,
+				41931F57C6C231573D6663CE /* Pods-BCHA-FormularyTests.release.xcconfig */,
+				D879467B688ABFA629AEB9AC /* Pods-BCHA-FormularyUITests.debug.xcconfig */,
+				61A338D9FEEA6ED8A24A346A /* Pods-BCHA-FormularyUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF2F06171C76F32400BA7E99 /* BCHA-Formulary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF2F06431C76F32500BA7E99 /* Build configuration list for PBXNativeTarget "BCHA-Formulary" */;
+			buildPhases = (
+				DD237BC9C7514A0BCBDD99CC /* [CP] Check Pods Manifest.lock */,
+				AF2F06141C76F32400BA7E99 /* Sources */,
+				AF2F06151C76F32400BA7E99 /* Frameworks */,
+				AF2F06161C76F32400BA7E99 /* Resources */,
+				80FB0A113251413A18105EA3 /* [CP] Embed Pods Frameworks */,
+				E9AE9BCAB85B5F8045E8178E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BCHA-Formulary";
+			productName = "BCHA-Formulary";
+			productReference = AF2F06181C76F32400BA7E99 /* BCHA-Formulary.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AF2F062E1C76F32500BA7E99 /* BCHA-FormularyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF2F06461C76F32500BA7E99 /* Build configuration list for PBXNativeTarget "BCHA-FormularyTests" */;
+			buildPhases = (
+				9BFACE9436F94AEC0EFF3C40 /* [CP] Check Pods Manifest.lock */,
+				AF2F062B1C76F32500BA7E99 /* Sources */,
+				AF2F062C1C76F32500BA7E99 /* Frameworks */,
+				AF2F062D1C76F32500BA7E99 /* Resources */,
+				809FF0FC0B6C33DA269ED536 /* [CP] Embed Pods Frameworks */,
+				3261C7D2C20471A45E40E996 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF2F06311C76F32500BA7E99 /* PBXTargetDependency */,
+			);
+			name = "BCHA-FormularyTests";
+			productName = "BCHA-FormularyTests";
+			productReference = AF2F062F1C76F32500BA7E99 /* BCHA-FormularyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AF2F06391C76F32500BA7E99 /* BCHA-FormularyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF2F06491C76F32500BA7E99 /* Build configuration list for PBXNativeTarget "BCHA-FormularyUITests" */;
+			buildPhases = (
+				64A5D2771897F2DAA16D5B04 /* [CP] Check Pods Manifest.lock */,
+				AF2F06361C76F32500BA7E99 /* Sources */,
+				AF2F06371C76F32500BA7E99 /* Frameworks */,
+				AF2F06381C76F32500BA7E99 /* Resources */,
+				0B62E0DCA066BADEEBF0AE09 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF2F063C1C76F32500BA7E99 /* PBXTargetDependency */,
+			);
+			name = "BCHA-FormularyUITests";
+			productName = "BCHA-FormularyUITests";
+			productReference = AF2F063A1C76F32500BA7E99 /* BCHA-FormularyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF2F06101C76F32400BA7E99 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = BCHA;
+				TargetAttributes = {
+					AF2F06171C76F32400BA7E99 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					AF2F062E1C76F32500BA7E99 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = AF2F06171C76F32400BA7E99;
+					};
+					AF2F06391C76F32500BA7E99 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = AF2F06171C76F32400BA7E99;
+					};
+				};
+			};
+			buildConfigurationList = AF2F06131C76F32400BA7E99 /* Build configuration list for PBXProject "BCHA-Formulary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AF2F060F1C76F32400BA7E99;
+			productRefGroup = AF2F06191C76F32400BA7E99 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF2F06171C76F32400BA7E99 /* BCHA-Formulary */,
+				AF2F062E1C76F32500BA7E99 /* BCHA-FormularyTests */,
+				AF2F06391C76F32500BA7E99 /* BCHA-FormularyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF2F06161C76F32400BA7E99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF2F06291C76F32400BA7E99 /* LaunchScreen.storyboard in Resources */,
+				AF4414901D33525800965246 /* GoogleService-Info.plist in Resources */,
+				AF2F06261C76F32400BA7E99 /* Assets.xcassets in Resources */,
+				AF2F06211C76F32400BA7E99 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF2F062D1C76F32500BA7E99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF2F06381C76F32500BA7E99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B62E0DCA066BADEEBF0AE09 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BCHA-FormularyUITests/Pods-BCHA-FormularyUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3261C7D2C20471A45E40E996 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BCHA-FormularyTests/Pods-BCHA-FormularyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64A5D2771897F2DAA16D5B04 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		809FF0FC0B6C33DA269ED536 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BCHA-FormularyTests/Pods-BCHA-FormularyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80FB0A113251413A18105EA3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BCHA-Formulary/Pods-BCHA-Formulary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BFACE9436F94AEC0EFF3C40 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DD237BC9C7514A0BCBDD99CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E9AE9BCAB85B5F8045E8178E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BCHA-Formulary/Pods-BCHA-Formulary-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF2F06141C76F32400BA7E99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF2F06241C76F32400BA7E99 /* BCHA_Formulary.xcdatamodeld in Sources */,
+				AF50FA1B1C770BE400FD143A /* HttpRequest.swift in Sources */,
+				AF2F061E1C76F32400BA7E99 /* ViewController.swift in Sources */,
+				AF2F061C1C76F32400BA7E99 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF2F062B1C76F32500BA7E99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF2F06341C76F32500BA7E99 /* BCHA_FormularyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF2F06361C76F32500BA7E99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF2F063F1C76F32500BA7E99 /* BCHA_FormularyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AF2F06311C76F32500BA7E99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF2F06171C76F32400BA7E99 /* BCHA-Formulary */;
+			targetProxy = AF2F06301C76F32500BA7E99 /* PBXContainerItemProxy */;
+		};
+		AF2F063C1C76F32500BA7E99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF2F06171C76F32400BA7E99 /* BCHA-Formulary */;
+			targetProxy = AF2F063B1C76F32500BA7E99 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AF2F061F1C76F32400BA7E99 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF2F06201C76F32400BA7E99 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AF2F06271C76F32400BA7E99 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF2F06281C76F32400BA7E99 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AF2F06411C76F32500BA7E99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AF2F06421C76F32500BA7E99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AF2F06441C76F32500BA7E99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B6B348D775C119A4DC8B41E /* Pods-BCHA-Formulary.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "BCHA-Formulary/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "BCHA.BCHA-Formulary";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AF2F06451C76F32500BA7E99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03B4A6EC490E2C0B905AA3F8 /* Pods-BCHA-Formulary.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "BCHA-Formulary/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "BCHA.BCHA-Formulary";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AF2F06471C76F32500BA7E99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0D81370BD99BAC56BC00D42 /* Pods-BCHA-FormularyTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "BCHA-FormularyTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "BCHA.BCHA-FormularyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BCHA-Formulary.app/BCHA-Formulary";
+			};
+			name = Debug;
+		};
+		AF2F06481C76F32500BA7E99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41931F57C6C231573D6663CE /* Pods-BCHA-FormularyTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "BCHA-FormularyTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "BCHA.BCHA-FormularyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BCHA-Formulary.app/BCHA-Formulary";
+			};
+			name = Release;
+		};
+		AF2F064A1C76F32500BA7E99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D879467B688ABFA629AEB9AC /* Pods-BCHA-FormularyUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = "BCHA-FormularyUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "BCHA.BCHA-FormularyUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "BCHA-Formulary";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		AF2F064B1C76F32500BA7E99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61A338D9FEEA6ED8A24A346A /* Pods-BCHA-FormularyUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = "BCHA-FormularyUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "BCHA.BCHA-FormularyUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "BCHA-Formulary";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF2F06131C76F32400BA7E99 /* Build configuration list for PBXProject "BCHA-Formulary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF2F06411C76F32500BA7E99 /* Debug */,
+				AF2F06421C76F32500BA7E99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF2F06431C76F32500BA7E99 /* Build configuration list for PBXNativeTarget "BCHA-Formulary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF2F06441C76F32500BA7E99 /* Debug */,
+				AF2F06451C76F32500BA7E99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF2F06461C76F32500BA7E99 /* Build configuration list for PBXNativeTarget "BCHA-FormularyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF2F06471C76F32500BA7E99 /* Debug */,
+				AF2F06481C76F32500BA7E99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF2F06491C76F32500BA7E99 /* Build configuration list for PBXNativeTarget "BCHA-FormularyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF2F064A1C76F32500BA7E99 /* Debug */,
+				AF2F064B1C76F32500BA7E99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AF2F06221C76F32400BA7E99 /* BCHA_Formulary.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AF2F06231C76F32400BA7E99 /* BCHA_Formulary.xcdatamodel */,
+			);
+			currentVersion = AF2F06231C76F32400BA7E99 /* BCHA_Formulary.xcdatamodel */;
+			path = BCHA_Formulary.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AF2F06101C76F32400BA7E99 /* Project object */;
+}

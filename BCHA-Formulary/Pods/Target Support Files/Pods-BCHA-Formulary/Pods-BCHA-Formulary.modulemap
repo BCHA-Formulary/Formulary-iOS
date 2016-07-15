@@ -1,0 +1,6 @@
+framework module Pods_BCHA_Formulary {
+  umbrella header "Pods-BCHA-Formulary-umbrella.h"
+
+  export *
+  module * { export * }
+}
