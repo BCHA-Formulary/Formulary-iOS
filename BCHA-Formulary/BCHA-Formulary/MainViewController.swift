@@ -30,7 +30,11 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
             FirebaseHelper.updateFirebaseDrugList(Status.RESTRICTED)
         }
         sql = SqlHelper.init()
+        
         searchField.mDelegate = self
+        searchField.layer.borderWidth = 1;
+        searchField.layer.cornerRadius = 8.0
+        searchField.layer.borderColor = UIColor.orangeColor().CGColor
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -62,9 +66,6 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
     }
 
     @IBAction func searchDrug(sender: UIButton) {
-//        drugSearched = sql.queryForDrugByName(searchField.text!)
-        print("Search")
-//        self.performSegueWithIdentifier("DrugResultSegue", sender: self)
         drugSearched = sql.queryForDrugByName(searchField.text!)
         performSegueWithIdentifier("DrugResultSegue", sender: self)
     }
@@ -77,7 +78,7 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
     func dataForPopoverInTextField(textfield: MPGTextField_Swift) -> [Dictionary<String, AnyObject>]
     {
         var sampleData = [Dictionary<String, AnyObject>]()
-        let drugNames = sql.getAllDrugNames()
+        let drugNames = sql.getAllDrugNames().sort(){ $0 < $1 }
         for name in drugNames{
             let dictionary = ["DisplayText":name, "DisplaySubText":"", "CustomObject":""]
             sampleData.append(dictionary)
