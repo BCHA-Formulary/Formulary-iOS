@@ -12,12 +12,22 @@ import UIKit
 
 class DrugClassSearchTableViewController: UITableViewController {
     var drugClassName:String?
+    var sql:SqlHelper!
+    var drugClassSearchNameList = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sql = SqlHelper.init()
+        
         if(drugClassName != nil){
             self.title = drugClassName
+            do{
+                drugClassSearchNameList = try sql.queryDrugNamesByDrugClass(drugClassName!).sort(){ $0 < $1 }
+            }
+            catch{
+                print("Error info: \(error)")
+            }
         }
         else{
             self.title = "Drug Class not found"
@@ -29,21 +39,22 @@ class DrugClassSearchTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 1
+        //TODO if drugClassSearchNameList is zero
+       return drugClassSearchNameList.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("DrugNameCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = "Test"
+        cell.textLabel?.text = drugClassSearchNameList[indexPath.row]
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("Tapped")
+        let drugSearched = sql.queryForDrugByName(drugClassSearchNameList[indexPath.row])
         let control = self.navigationController?.viewControllers[(navigationController?.viewControllers.count)!-2] as! DrugResultsViewController
-        control.drug = FormuarlyDrug.init(primaryName: "Test", nameType: NameType.GENERIC, alternateName: ["1","2"], strengths: ["3","4"], status: Status.FORMULARY, drugClass: ["class1", "class2"])
+        control.drug = drugSearched
         
         navigationController?.popViewControllerAnimated(true)
     }

@@ -23,10 +23,13 @@ class DrugResultsViewController : UITableViewController {
             //TODO prompt error message
             return
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         if(drug.status == Status.FORMULARY){
-            let formDrug = drug as! FormuarlyDrug
-            self.title = formDrug.primaryName
+            self.title = (drug as! FormuarlyDrug).primaryName
         }
         else if(drug.status == Status.EXCLUDED){
             self.title = (drug as! ExcludedDrug).primaryName
@@ -35,18 +38,11 @@ class DrugResultsViewController : UITableViewController {
             self.title = (drug as! RestrictedDrug).primaryName
         }
         
-        
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        print(drug.status)
         tableView.reloadData()
     }
     override func viewWillDisappear(animated: Bool)
     {
         super.viewWillDisappear(animated)
-//        self.navigationController?.navigationBarHidden = true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -57,7 +53,6 @@ class DrugResultsViewController : UITableViewController {
             if let indexPath = tableView.indexPathForCell(sender as! UITableViewCell){
                 drugSearchViewController.drugClassName = drug.drugClass[indexPath.row]
             }
-            
         }
         else{
             //going back to main search page

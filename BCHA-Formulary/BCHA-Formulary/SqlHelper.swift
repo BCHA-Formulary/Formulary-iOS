@@ -297,6 +297,15 @@ struct SqlHelper{
                                  status: Status(rawValue:restrictedStatus)!,
                                  drugClass:restrictedClass)
     }
+    
+    func queryDrugNamesByDrugClass(drugClassName:String) throws -> [String]{
+        var drugQueryResult = Set<String>()
+        let drugQuery = drugTable.filter(drugClass == drugClassName)
+        for drug in try db!.prepare(drugQuery){
+            drugQueryResult.insert(drug[name])
+        }
+        return Array(drugQueryResult)
+    }
 
     private func insertDrugIntoTable(name:String, nameType:String, status:String, drugClasses:[String])throws ->Int64{
         var rowsAdded:Int64 = 0
