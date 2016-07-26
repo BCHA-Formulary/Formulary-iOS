@@ -17,6 +17,7 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
     
     var firebase:FirebaseHelper!
     var sql:SqlHelper!
+    var drugSearched:DrugBase?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,21 +35,38 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBarHidden = false
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        print("Prep segue")
+        if (segue.identifier == "DrugResultSegue") {
+            let svc = segue.destinationViewController as! DrugResultsViewController;
+            
+            if (drugSearched != nil){
+                svc.drug = drugSearched!
+            }
+            
+        }
+    }
 
     @IBAction func searchDrug(sender: UIButton) {
-//        retrieveFirebaseDrugList(Status.FORMULARY)
-//        FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED)
-//        SqlHelper.init().dropAndRemakeTables()
-        let list = SqlHelper.init().getAllDrugNames()
-        for name in list{
-            print(name.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()))
-        }
+//        drugSearched = sql.queryForDrugByName(searchField.text!)
+        print("Search")
+//        self.performSegueWithIdentifier("DrugResultSegue", sender: self)
+        drugSearched = sql.queryForDrugByName(searchField.text!)
+        performSegueWithIdentifier("DrugResultSegue", sender: self)
     }
 
     @IBAction func helpScreen(sender: AnyObject) {

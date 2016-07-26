@@ -65,7 +65,7 @@ struct FirebaseHelper {
                 let formularyDrug = FormuarlyDrug(primaryName: drug["primaryName"] as! String, nameType: drugNameType!, alternateName: altName, strengths: strengths, status: Status.FORMULARY, drugClass: drugClass)
                 
 //                drugsFromFirebase.append(formularyDrug)
-                
+
                 if(formularyDrug.nameType == NameType.GENERIC){
                     sql.insertFormularyGenericDrug(formularyDrug)
                 }

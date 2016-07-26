@@ -18,6 +18,8 @@
 		AF2F06291C76F32400BA7E99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF2F06271C76F32400BA7E99 /* LaunchScreen.storyboard */; };
 		AF2F06341C76F32500BA7E99 /* BCHA_FormularyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F06331C76F32500BA7E99 /* BCHA_FormularyTests.swift */; };
 		AF2F063F1C76F32500BA7E99 /* BCHA_FormularyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F063E1C76F32500BA7E99 /* BCHA_FormularyUITests.swift */; };
+		AF3698341D420568008A7B37 /* DrugResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3698331D420568008A7B37 /* DrugResultsViewController.swift */; };
+		AF36983A1D421AA9008A7B37 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3698391D421AA9008A7B37 /* CustomCell.swift */; };
 		AF4414901D33525800965246 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF44148F1D33525800965246 /* GoogleService-Info.plist */; };
 		AF50FA1B1C770BE400FD143A /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50FA1A1C770BE400FD143A /* HttpRequest.swift */; };
 		AF93C0E01D38A7C700984FEC /* MPGTextField-Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF93C0DF1D38A7C700984FEC /* MPGTextField-Swift.swift */; };
@@ -100,6 +102,8 @@
 		AF2F063A1C76F32500BA7E99 /* BCHA-FormularyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BCHA-FormularyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2F063E1C76F32500BA7E99 /* BCHA_FormularyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCHA_FormularyUITests.swift; sourceTree = "<group>"; };
 		AF2F06401C76F32500BA7E99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF3698331D420568008A7B37 /* DrugResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugResultsViewController.swift; sourceTree = "<group>"; };
+		AF3698391D421AA9008A7B37 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		AF44148F1D33525800965246 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF50FA1A1C770BE400FD143A /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		AF93C0DF1D38A7C700984FEC /* MPGTextField-Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MPGTextField-Swift.swift"; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 		AF2F061A1C76F32400BA7E99 /* BCHA-Formulary */ = {
 			isa = PBXGroup;
 			children = (
+				AF3698331D420568008A7B37 /* DrugResultsViewController.swift */,
 				AF1C54901D360A020056E1F0 /* Database */,
 				AF9432431D34B24500A41590 /* Drug */,
 				AF2F061B1C76F32400BA7E99 /* AppDelegate.swift */,
@@ -214,6 +219,7 @@
 				AFE50FE91D35EA2D00EBF5DC /* FirebaseHelper.swift */,
 				AF1C547F1D3605000056E1F0 /* SqlHelper.swift */,
 				AF93C0DF1D38A7C700984FEC /* MPGTextField-Swift.swift */,
+				AF3698391D421AA9008A7B37 /* CustomCell.swift */,
 			);
 			path = "BCHA-Formulary";
 			sourceTree = "<group>";
@@ -569,10 +575,12 @@
 				AF94324D1D34C90700A41590 /* ExcludedDrug.swift in Sources */,
 				AF50FA1B1C770BE400FD143A /* HttpRequest.swift in Sources */,
 				AF2F061E1C76F32400BA7E99 /* MainViewController.swift in Sources */,
+				AF36983A1D421AA9008A7B37 /* CustomCell.swift in Sources */,
 				AF94324B1D34BA3600A41590 /* NameType.swift in Sources */,
 				AF9432451D34B43700A41590 /* DrugBase.swift in Sources */,
 				AF2F061C1C76F32400BA7E99 /* AppDelegate.swift in Sources */,
 				AFE50FEA1D35EA2D00EBF5DC /* FirebaseHelper.swift in Sources */,
+				AF3698341D420568008A7B37 /* DrugResultsViewController.swift in Sources */,
 				AF93C0E01D38A7C700984FEC /* MPGTextField-Swift.swift in Sources */,
 				AF9432471D34B5FF00A41590 /* Status.swift in Sources */,
 			);
