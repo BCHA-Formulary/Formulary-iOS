@@ -199,11 +199,11 @@ struct SqlHelper{
         let drugQuery = drugTable.filter(name == drugName.uppercaseString)
         
         do{
-            var drugClasses = [String]()
+            var drugClasses = Set<String>()
             var drugStatus:String = ""
             var drugNameType:String = "" //TODO for now, assume only 1 name type
             for drug in try db!.prepare(drugQuery){
-                drugClasses.append(drug[drugClass])
+                drugClasses.insert(drug[drugClass])
                 if(drugStatus == ""){
                     drugStatus = drug[status]
                 }
@@ -213,17 +213,17 @@ struct SqlHelper{
             }
 //            let drugStatus = drug[status]
             if(drugStatus == Status.FORMULARY.rawValue){
-                let drugReturn = try queryFormularyDrugByName(drugName, formularyNametype: drugNameType, formularyStatus: drugStatus, formularyClass: drugClasses)
+                let drugReturn = try queryFormularyDrugByName(drugName, formularyNametype: drugNameType, formularyStatus: drugStatus, formularyClass: Array(drugClasses))
                 print(drugReturn)
                 return drugReturn
             }
             else if(drugStatus == Status.EXCLUDED.rawValue){
-                let drugReturn = try queryExcludedDrugByName(drugName, excludedNametype: drugNameType, excludedStatus: drugStatus, excludedClass: drugClasses)
+                let drugReturn = try queryExcludedDrugByName(drugName, excludedNametype: drugNameType, excludedStatus: drugStatus, excludedClass: Array(drugClasses))
                 print(drugReturn)
                 return drugReturn
             }
             else{
-                let drugReturn = try queryRestrictedDrugByName(drugName, restrictedNametype: drugNameType, restrictedStatus: drugStatus, restrictedClass: drugClasses)
+                let drugReturn = try queryRestrictedDrugByName(drugName, restrictedNametype: drugNameType, restrictedStatus: drugStatus, restrictedClass: Array(drugClasses))
                 print(drugReturn)
                 return drugReturn
             }
@@ -237,7 +237,7 @@ struct SqlHelper{
     func queryFormularyDrugByName(formularyDrugName:String, formularyNametype:String, formularyStatus:String, formularyClass:[String]) throws -> FormuarlyDrug{
         let drugQuery = formularyTable.filter(genericName == formularyDrugName || brandName == formularyDrugName)
         var altNames = Set<String>()
-        var strengths = [String]()
+        var strengths = Set<String>()
         let isGeneric = (formularyNametype == NameType.GENERIC.rawValue)
         for drug in try db!.prepare(drugQuery){
             if (isGeneric){
@@ -246,10 +246,10 @@ struct SqlHelper{
             else{
                 altNames.insert(drug[genericName])
             }
-            strengths.append(drug[strength])
+            strengths.insert(drug[strength])
         }
         return FormuarlyDrug.init(primaryName: formularyDrugName, nameType: NameType(rawValue: formularyNametype)!,
-                                  alternateName:Array(altNames), strengths: strengths,
+                                  alternateName:Array(altNames), strengths: Array(strengths),
                                   status: Status(rawValue:formularyStatus)!, drugClass:formularyClass)
     }
     

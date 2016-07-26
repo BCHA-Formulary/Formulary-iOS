@@ -66,6 +66,10 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
     }
 
     @IBAction func searchDrug(sender: UIButton) {
+        if(searchField.text! == ""){
+            //TODO tell user field is empty
+            return
+        }
         drugSearched = sql.queryForDrugByName(searchField.text!)
         performSegueWithIdentifier("DrugResultSegue", sender: self)
     }
@@ -78,7 +82,7 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
     func dataForPopoverInTextField(textfield: MPGTextField_Swift) -> [Dictionary<String, AnyObject>]
     {
         var sampleData = [Dictionary<String, AnyObject>]()
-        let drugNames = sql.getAllDrugNames().sort(){ $0 < $1 }
+        let drugNames = Array(Set(sql.getAllDrugNames())).sort(){ $0 < $1 }
         for name in drugNames{
             let dictionary = ["DisplayText":name, "DisplaySubText":"", "CustomObject":""]
             sampleData.append(dictionary)

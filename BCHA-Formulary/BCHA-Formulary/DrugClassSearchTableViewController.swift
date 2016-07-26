@@ -23,7 +23,7 @@ class DrugClassSearchTableViewController: UITableViewController {
         if(drugClassName != nil){
             self.title = drugClassName
             do{
-                drugClassSearchNameList = try sql.queryDrugNamesByDrugClass(drugClassName!).sort(){ $0 < $1 }
+                drugClassSearchNameList = try Array(Set(sql.queryDrugNamesByDrugClass(drugClassName!))).sort(){ $0 < $1 }
             }
             catch{
                 print("Error info: \(error)")
