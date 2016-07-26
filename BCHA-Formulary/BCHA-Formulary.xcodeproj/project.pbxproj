@@ -30,6 +30,7 @@
 		AF94324B1D34BA3600A41590 /* NameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF94324A1D34BA3600A41590 /* NameType.swift */; };
 		AF94324D1D34C90700A41590 /* ExcludedDrug.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF94324C1D34C90700A41590 /* ExcludedDrug.swift */; };
 		AF94324F1D34CA2D00A41590 /* RestrictedDrug.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF94324E1D34CA2D00A41590 /* RestrictedDrug.swift */; };
+		AFDE09641D4744210008712E /* DrugClassSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE09631D4744210008712E /* DrugClassSearchTableViewController.swift */; };
 		AFE50FEA1D35EA2D00EBF5DC /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE50FE91D35EA2D00EBF5DC /* FirebaseHelper.swift */; };
 		F180AEA0DE834B9BA188446C /* Pods_BCHA_Formulary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62424171189B30FAA18AB081 /* Pods_BCHA_Formulary.framework */; };
 /* End PBXBuildFile section */
@@ -114,6 +115,7 @@
 		AF94324A1D34BA3600A41590 /* NameType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameType.swift; sourceTree = "<group>"; };
 		AF94324C1D34C90700A41590 /* ExcludedDrug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcludedDrug.swift; sourceTree = "<group>"; };
 		AF94324E1D34CA2D00A41590 /* RestrictedDrug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestrictedDrug.swift; sourceTree = "<group>"; };
+		AFDE09631D4744210008712E /* DrugClassSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugClassSearchTableViewController.swift; sourceTree = "<group>"; };
 		AFE50FE91D35EA2D00EBF5DC /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		D879467B688ABFA629AEB9AC /* Pods-BCHA-FormularyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCHA-FormularyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BCHA-FormularyUITests/Pods-BCHA-FormularyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0D81370BD99BAC56BC00D42 /* Pods-BCHA-FormularyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCHA-FormularyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BCHA-FormularyTests/Pods-BCHA-FormularyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,11 +206,12 @@
 		AF2F061A1C76F32400BA7E99 /* BCHA-Formulary */ = {
 			isa = PBXGroup;
 			children = (
-				AF3698331D420568008A7B37 /* DrugResultsViewController.swift */,
 				AF1C54901D360A020056E1F0 /* Database */,
 				AF9432431D34B24500A41590 /* Drug */,
 				AF2F061B1C76F32400BA7E99 /* AppDelegate.swift */,
+				AF3698331D420568008A7B37 /* DrugResultsViewController.swift */,
 				AF2F061D1C76F32400BA7E99 /* MainViewController.swift */,
+				AFDE09631D4744210008712E /* DrugClassSearchTableViewController.swift */,
 				AF2F061F1C76F32400BA7E99 /* Main.storyboard */,
 				AF2F06251C76F32400BA7E99 /* Assets.xcassets */,
 				AF2F06271C76F32400BA7E99 /* LaunchScreen.storyboard */,
@@ -576,6 +579,7 @@
 				AF50FA1B1C770BE400FD143A /* HttpRequest.swift in Sources */,
 				AF2F061E1C76F32400BA7E99 /* MainViewController.swift in Sources */,
 				AF36983A1D421AA9008A7B37 /* CustomCell.swift in Sources */,
+				AFDE09641D4744210008712E /* DrugClassSearchTableViewController.swift in Sources */,
 				AF94324B1D34BA3600A41590 /* NameType.swift in Sources */,
 				AF9432451D34B43700A41590 /* DrugBase.swift in Sources */,
 				AF2F061C1C76F32400BA7E99 /* AppDelegate.swift in Sources */,

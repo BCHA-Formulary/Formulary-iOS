@@ -37,10 +37,32 @@ class DrugResultsViewController : UITableViewController {
         
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print(drug.status)
+        tableView.reloadData()
+    }
     override func viewWillDisappear(animated: Bool)
     {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBarHidden = true
+//        self.navigationController?.navigationBarHidden = true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "DrugClassSearchSegue") {
+            //going to drug search by class
+            self.navigationController?.navigationBarHidden = false
+            let drugSearchViewController = segue.destinationViewController as! DrugClassSearchTableViewController
+            if let indexPath = tableView.indexPathForCell(sender as! UITableViewCell){
+                drugSearchViewController.drugClassName = drug.drugClass[indexPath.row]
+            }
+            
+        }
+        else{
+            //going back to main search page
+            self.navigationController?.navigationBarHidden = true
+        }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -96,7 +118,13 @@ class DrugResultsViewController : UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Data cell", forIndexPath: indexPath) as UITableViewCell
+        let cell:UITableViewCell
+        if(indexPath.section == 3){
+            cell = tableView.dequeueReusableCellWithIdentifier("DrugClass cell", forIndexPath: indexPath) as UITableViewCell
+        }
+        else{
+            cell = tableView.dequeueReusableCellWithIdentifier("Data cell", forIndexPath: indexPath) as UITableViewCell
+        }
         
         if(indexPath.section == 0){
             if (drug.status == Status.FORMULARY){
@@ -111,6 +139,7 @@ class DrugResultsViewController : UITableViewController {
                 let data = (drug as! RestrictedDrug).alternateName[indexPath.row]
                 cell.textLabel?.text = data
             }
+            cell.accessoryType = UITableViewCellAccessoryType.None
         }
         else if(indexPath.section == 1){
             cell.textLabel?.text = drug.status.rawValue
@@ -120,6 +149,7 @@ class DrugResultsViewController : UITableViewController {
             else{
                 cell.textLabel?.textColor = UIColor.redColor()
             }
+            cell.accessoryType = UITableViewCellAccessoryType.None
         }
         else if(indexPath.section == 2){
             if (drug.status == Status.FORMULARY){
@@ -134,15 +164,28 @@ class DrugResultsViewController : UITableViewController {
                 let data = (drug as! RestrictedDrug).criteria
                 cell.textLabel?.text = data
             }
+            cell.accessoryType = UITableViewCellAccessoryType.None
         }
         else{
             let data = drug.drugClass[indexPath.row]
             cell.textLabel?.text = data
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
         return cell
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
+    }
+    
+    //TableView iteraction
+    //Only the drug class section is clickable
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if(indexPath.section == 3){
+            return indexPath
+        }
+        else{
+            return nil
+        }
     }
 }
