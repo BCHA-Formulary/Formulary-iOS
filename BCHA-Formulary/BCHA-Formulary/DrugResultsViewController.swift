@@ -114,6 +114,12 @@ class DrugResultsViewController : UITableViewController {
         }
         else if(indexPath.section == 1){
             cell.textLabel?.text = drug.status.rawValue
+            if(drug.status == Status.FORMULARY){
+                cell.textLabel?.textColor = UIColor.blackColor()
+            }
+            else{
+                cell.textLabel?.textColor = UIColor.redColor()
+            }
         }
         else if(indexPath.section == 2){
             if (drug.status == Status.FORMULARY){
@@ -136,4 +142,7 @@ class DrugResultsViewController : UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
 }
