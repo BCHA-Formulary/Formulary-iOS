@@ -154,91 +154,170 @@
             </objects>
             <point key="canvasLocation" x="1764" y="626"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="NiX-tY-z4w">
             <objects>
-                <viewController id="vmy-jh-xhw" sceneMemberID="viewController">
+                <viewController id="vmy-jh-xhw" customClass="AboutViewController" customModule="BCHA_Formulary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XxM-7b-XJ0"/>
                         <viewControllerLayoutGuide type="bottom" id="FpH-FH-Dm0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zEP-L5-K6M" customClass="UIScrollView">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="875"/>
+                    <view key="view" contentMode="scaleToFill" id="zEP-L5-K6M">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To search for the formulary status of a drug, enter the generic or brand name of the drug" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqq-zS-vhX">
-                                <rect key="frame" x="20" y="72" width="560" height="44"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search results will depend on formulary status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ple-3s-clm">
-                                <rect key="frame" x="20" y="124" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6n-Fh-PuJ">
-                                <rect key="frame" x="20" y="153" width="560" height="76"/>
-                                <string key="text">- Formulary drugs: all strengths and formulations available in FH - Restricted drugs: restriction criteria for approved indications, populations, patient care areas, and prescribers in FH - Excluded drugs: reason for BCHA provincial formulary exclusion</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The app will auto-update every time it is open and connected to the Internet." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHO-pb-D3S">
-                                <rect key="frame" x="20" y="258" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search tips:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1i-eD-pTK">
-                                <rect key="frame" x="20" y="306" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyd-BX-QiW">
-                                <rect key="frame" x="20" y="335" width="560" height="129"/>
-                                <mutableString key="text">- Combination drug products can be found by searching for any individual component alone or for the brand name of the entire product. - A full list of all vaccines will appear when you search for "vaccine". Similarly for "multivitamins" and "lipid" - If you are unable to find a medication, use the "Download Formulary" button to browse a list of all formulary, restricted, and excluded drugs
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KI5-S7-Tde">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGI-oL-G6P">
+                                        <rect key="frame" x="0.0" y="8" width="600" height="1100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search results will depend on formulary status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubo-n2-OTJ">
+                                                <rect key="frame" x="8" y="20" width="560" height="18"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xY9-Kg-Gaw">
+                                                <rect key="frame" x="20" y="354" width="560" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="BjF-CB-XWw"/>
+                                                </constraints>
+                                                <mutableString key="text">- Combination drug products can be found by searching for any individual component alone or for the brand name of the entire product. - A full list of all vaccines will appear when you search for "vaccine". Similarly for "multivitamins" and "lipid" - If you are unable to find a medication, use the "Download Formulary" button to browse a list of all formulary, restricted, and excluded drugs
 </mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Questions and comments:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loK-rj-KXA">
-                                <rect key="frame" x="20" y="472" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="anthony.tung@fraserhealth.ca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEL-yp-aGB">
-                                <rect key="frame" x="20" y="501" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The BCHA Formulary App was created by Jessica Yeung and Kelvin Chan, with support from FH Medication  Use Evaluation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUZ-rc-R9P">
-                                <rect key="frame" x="20" y="547" width="560" height="44"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWN-Fc-2ue">
-                                <rect key="frame" x="20" y="599" width="560" height="218"/>
-                                <mutableString key="text">Disclaimer: The information contained in this document, and as amended from time to time, was created expressly for use by the Lower Mainland Pharmacy Services and persons acting on behalf of the Lower Mainland Pharmacy Services for guiding actions and decisions taken on behalf of Lower Mainland Pharmacy Services. Any adoption/use/modification of this document are done so at the risk of the adopting organization. Lower Mainland Pharmacy Services accepts no responsibility for any modification and/or redistribution and is not liable in any way for any actions taken by individuals based on the information herein, or for any inaccuracies, errors, or omissions in the information in this document. Local health authorities may have additional restrictions to the use of this drug.</mutableString>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzv-cj-SHO">
+                                                <rect key="frame" x="8" y="711" width="560" height="350"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="350" id="eSp-gL-CuU"/>
+                                                </constraints>
+                                                <mutableString key="text">Disclaimer: The information contained in this document, and as amended from time to time, was created expressly for use by the Lower Mainland Pharmacy Services and persons acting on behalf of the Lower Mainland Pharmacy Services for guiding actions and decisions taken on behalf of Lower Mainland Pharmacy Services. Any adoption/use/modification of this document are done so at the risk of the adopting organization. Lower Mainland Pharmacy Services accepts no responsibility for any modification and/or redistribution and is not liable in any way for any actions taken by individuals based on the information herein, or for any inaccuracies, errors, or omissions in the information in this document. Local health authorities may have additional restrictions to the use of this drug.</mutableString>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGP-OP-ieG">
+                                                <rect key="frame" x="20" y="46" width="560" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="RIZ-r1-dAq"/>
+                                                </constraints>
+                                                <string key="text">- Formulary drugs: all strengths and formulations available in FH - Restricted drugs: restriction criteria for approved indications, populations, patient care areas, and prescribers in FH - Excluded drugs: reason for BCHA provincial formulary exclusion</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="To search for the formulary status of a drug, enter the generic or brand name of the drug" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oY0-Ki-0jK">
+                                                <rect key="frame" x="8" y="271" width="560" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="EeU-La-wB1"/>
+                                                    <constraint firstAttribute="height" constant="40" id="p2Q-hU-NXo"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="The BCHA Formulary App was created by Jessica Yeung and Kelvin Chan, with support from FH Medication  Use Evaluation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gk-nV-fav">
+                                                <rect key="frame" x="8" y="655" width="560" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="b11-M5-JPD"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The app will auto-update every time it is open and connected to the Internet." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2X-aA-pla">
+                                                <rect key="frame" x="8" y="176" width="560" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="R57-Xa-4IK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="anthony.tung@fraserhealth.ca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugx-Oa-bPo">
+                                                <rect key="frame" x="20" y="602" width="560" height="18"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" link="YES" staticText="YES"/>
+                                                </accessibility>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Search tips:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymd-ib-e0a">
+                                                <rect key="frame" x="8" y="326" width="560" height="18"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Questions and comments:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWH-FE-vvk">
+                                                <rect key="frame" x="8" y="574" width="560" height="18"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="vGP-OP-ieG" firstAttribute="top" secondItem="Ubo-n2-OTJ" secondAttribute="bottom" constant="8" id="1CX-cV-4k1"/>
+                                            <constraint firstAttribute="trailing" secondItem="xY9-Kg-Gaw" secondAttribute="trailing" constant="20" id="2kr-9b-l6m"/>
+                                            <constraint firstItem="ymd-ib-e0a" firstAttribute="top" secondItem="oY0-Ki-0jK" secondAttribute="bottom" constant="30" id="8Z8-M2-SdG"/>
+                                            <constraint firstItem="tzv-cj-SHO" firstAttribute="top" secondItem="4Gk-nV-fav" secondAttribute="bottom" constant="20" id="9FE-Ao-5lD"/>
+                                            <constraint firstItem="ymd-ib-e0a" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="9Lp-R9-5SA"/>
+                                            <constraint firstItem="oY0-Ki-0jK" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="9p4-FA-m6T"/>
+                                            <constraint firstAttribute="trailing" secondItem="CWH-FE-vvk" secondAttribute="trailing" constant="32" id="BXh-Ja-8M6"/>
+                                            <constraint firstAttribute="trailing" secondItem="oY0-Ki-0jK" secondAttribute="trailing" constant="32" id="CjK-7Z-mz5"/>
+                                            <constraint firstItem="xY9-Kg-Gaw" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="20" id="DjU-z6-tNa"/>
+                                            <constraint firstItem="o2X-aA-pla" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="G6i-98-CAL"/>
+                                            <constraint firstItem="CWH-FE-vvk" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="IHN-iw-flo"/>
+                                            <constraint firstItem="Ubo-n2-OTJ" firstAttribute="top" secondItem="DGI-oL-G6P" secondAttribute="top" constant="20" id="Iob-mO-hmO"/>
+                                            <constraint firstAttribute="height" constant="1100" id="LY0-2s-uLf"/>
+                                            <constraint firstItem="4Gk-nV-fav" firstAttribute="top" secondItem="ugx-Oa-bPo" secondAttribute="bottom" constant="20" id="N0c-JF-oeW"/>
+                                            <constraint firstAttribute="trailing" secondItem="4Gk-nV-fav" secondAttribute="trailing" constant="32" id="N1o-da-YlM"/>
+                                            <constraint firstItem="tzv-cj-SHO" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="SoQ-aj-ozq"/>
+                                            <constraint firstAttribute="trailing" secondItem="vGP-OP-ieG" secondAttribute="trailing" constant="20" id="TDz-X9-prO"/>
+                                            <constraint firstItem="xY9-Kg-Gaw" firstAttribute="top" secondItem="ymd-ib-e0a" secondAttribute="bottom" constant="10" id="U1V-AL-hGI"/>
+                                            <constraint firstAttribute="trailing" secondItem="ymd-ib-e0a" secondAttribute="trailing" constant="32" id="YYE-MF-T6q"/>
+                                            <constraint firstItem="vGP-OP-ieG" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="20" id="aNY-me-mXd"/>
+                                            <constraint firstItem="CWH-FE-vvk" firstAttribute="top" secondItem="xY9-Kg-Gaw" secondAttribute="bottom" constant="20" id="dV0-QG-qiC"/>
+                                            <constraint firstItem="4Gk-nV-fav" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="fcY-BR-ZC6"/>
+                                            <constraint firstItem="ugx-Oa-bPo" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="20" id="icT-bO-klo"/>
+                                            <constraint firstItem="o2X-aA-pla" firstAttribute="top" secondItem="vGP-OP-ieG" secondAttribute="bottom" constant="10" id="kuP-hB-t1h"/>
+                                            <constraint firstItem="Ubo-n2-OTJ" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="lkm-F9-Nbn"/>
+                                            <constraint firstAttribute="trailing" secondItem="ugx-Oa-bPo" secondAttribute="trailing" constant="20" id="nCH-dY-su4"/>
+                                            <constraint firstItem="oY0-Ki-0jK" firstAttribute="top" secondItem="o2X-aA-pla" secondAttribute="bottom" constant="20" id="pKG-rg-odO"/>
+                                            <constraint firstAttribute="trailing" secondItem="tzv-cj-SHO" secondAttribute="trailing" constant="32" id="sMb-Ud-UEu"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ubo-n2-OTJ" secondAttribute="trailing" constant="32" id="uaY-VJ-DmP"/>
+                                            <constraint firstItem="ugx-Oa-bPo" firstAttribute="top" secondItem="CWH-FE-vvk" secondAttribute="bottom" constant="10" id="uxI-dl-n8s"/>
+                                            <constraint firstAttribute="trailing" secondItem="o2X-aA-pla" secondAttribute="trailing" constant="32" id="zhu-ze-jDz"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="DGI-oL-G6P" secondAttribute="bottom" id="QCP-7P-42A"/>
+                                    <constraint firstItem="DGI-oL-G6P" firstAttribute="leading" secondItem="KI5-S7-Tde" secondAttribute="leading" id="ebZ-aH-v1a"/>
+                                    <constraint firstAttribute="trailing" secondItem="DGI-oL-G6P" secondAttribute="trailing" id="htV-dx-xCV"/>
+                                    <constraint firstItem="DGI-oL-G6P" firstAttribute="top" secondItem="KI5-S7-Tde" secondAttribute="top" constant="8" id="uTy-rD-ZpN"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KI5-S7-Tde" firstAttribute="top" secondItem="zEP-L5-K6M" secondAttribute="top" id="HWU-fU-vBh"/>
+                            <constraint firstAttribute="trailing" secondItem="KI5-S7-Tde" secondAttribute="trailing" id="cbw-ta-V1A"/>
+                            <constraint firstItem="DGI-oL-G6P" firstAttribute="width" secondItem="zEP-L5-K6M" secondAttribute="width" id="f0Z-OX-V4f"/>
+                            <constraint firstItem="KI5-S7-Tde" firstAttribute="leading" secondItem="zEP-L5-K6M" secondAttribute="leading" id="iPn-pK-iEA"/>
+                            <constraint firstItem="FpH-FH-Dm0" firstAttribute="top" secondItem="KI5-S7-Tde" secondAttribute="bottom" id="nzI-6N-Bgf"/>
+                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="875"/>
+                    <size key="freeformSize" width="600" height="1000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKe-uU-2qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1367" y="1552.5"/>
+            <point key="canvasLocation" x="1367" y="1552"/>
         </scene>
         <!--Drug Class Search Table View Controller-->
         <scene sceneID="IRg-eQ-Qnp">

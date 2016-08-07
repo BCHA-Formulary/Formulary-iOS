@@ -31,6 +31,7 @@
 		AF94324F1D34CA2D00A41590 /* RestrictedDrug.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF94324E1D34CA2D00A41590 /* RestrictedDrug.swift */; };
 		AFDE09641D4744210008712E /* DrugClassSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE09631D4744210008712E /* DrugClassSearchTableViewController.swift */; };
 		AFE50FEA1D35EA2D00EBF5DC /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE50FE91D35EA2D00EBF5DC /* FirebaseHelper.swift */; };
+		AFEBC12D1D572DF500BC38F5 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEBC12C1D572DF500BC38F5 /* AboutViewController.swift */; };
 		F180AEA0DE834B9BA188446C /* Pods_BCHA_Formulary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62424171189B30FAA18AB081 /* Pods_BCHA_Formulary.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		AF94324E1D34CA2D00A41590 /* RestrictedDrug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestrictedDrug.swift; sourceTree = "<group>"; };
 		AFDE09631D4744210008712E /* DrugClassSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugClassSearchTableViewController.swift; sourceTree = "<group>"; };
 		AFE50FE91D35EA2D00EBF5DC /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		AFEBC12C1D572DF500BC38F5 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		D879467B688ABFA629AEB9AC /* Pods-BCHA-FormularyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCHA-FormularyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BCHA-FormularyUITests/Pods-BCHA-FormularyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0D81370BD99BAC56BC00D42 /* Pods-BCHA-FormularyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BCHA-FormularyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BCHA-FormularyTests/Pods-BCHA-FormularyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F75E85570BB172AD47D22BB1 /* Pods_BCHA_FormularyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BCHA_FormularyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +222,7 @@
 				AFE50FE91D35EA2D00EBF5DC /* FirebaseHelper.swift */,
 				AF1C547F1D3605000056E1F0 /* SqlHelper.swift */,
 				AF93C0DF1D38A7C700984FEC /* MPGTextField-Swift.swift */,
+				AFEBC12C1D572DF500BC38F5 /* AboutViewController.swift */,
 			);
 			path = "BCHA-Formulary";
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				AFE50FEA1D35EA2D00EBF5DC /* FirebaseHelper.swift in Sources */,
 				AF3698341D420568008A7B37 /* DrugResultsViewController.swift in Sources */,
 				AF93C0E01D38A7C700984FEC /* MPGTextField-Swift.swift in Sources */,
+				AFEBC12D1D572DF500BC38F5 /* AboutViewController.swift in Sources */,
 				AF9432471D34B5FF00A41590 /* Status.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
