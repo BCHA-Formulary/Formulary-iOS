@@ -23,7 +23,7 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         firebase = FirebaseHelper.init()
-        if(firebase.isUpToDate()){ //TODO this should be !isUpToDate, to save calls for now, set to opposite
+        if(!firebase.isUpToDate()){ //TODO this should be !isUpToDate, to save calls for now, set to opposite
             print("Needs update")
             FirebaseHelper.updateFirebaseDrugList(Status.FORMULARY)
             FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED)
