@@ -52,6 +52,15 @@ struct FirebaseHelper {
         let sql:SqlHelper = SqlHelper.init()
         
         let ref = FIRDatabase.database().reference()
+        
+        print("Before firebase update")
+        sql.rowCount()
+        
+        ref.child(drugList.rawValue).observeEventType(.Value, withBlock: {(snapshot) in
+            print("Done retrieving " + drugList.rawValue)
+            sql.rowCount()
+        })
+        
         ref.child(drugList.rawValue).observeEventType(.ChildAdded, withBlock: { (snapshot) in
             let drug = snapshot.value as! [String : AnyObject]
             

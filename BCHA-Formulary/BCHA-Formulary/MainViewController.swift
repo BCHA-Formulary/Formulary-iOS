@@ -22,14 +22,17 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        //TODO internet check
+        sql = SqlHelper.init()
         firebase = FirebaseHelper.init()
         if(!firebase.isUpToDate()){ //TODO this should be !isUpToDate, to save calls for now, set to opposite
             print("Needs update")
+            sql.dropAndRemakeTables() //TODO needed?
             FirebaseHelper.updateFirebaseDrugList(Status.FORMULARY)
             FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED)
             FirebaseHelper.updateFirebaseDrugList(Status.RESTRICTED)
         }
-        sql = SqlHelper.init()
+        
         
         searchField.mDelegate = self
         searchField.layer.borderWidth = 1;
