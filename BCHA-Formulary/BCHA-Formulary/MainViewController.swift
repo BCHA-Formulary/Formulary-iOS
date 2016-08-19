@@ -31,9 +31,9 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
         //TODO internet check
         sql = SqlHelper.init()
         firebase = FirebaseHelper.init()
-        if(!firebase.isUpToDate()){ //TODO this should be !isUpToDate, to save calls for now, set to opposite
+        if(firebase.isUpToDate()){ //TODO this should be !isUpToDate, to save calls for now, set to opposite
             print("Needs update")
-            loadingSpinner.hidden = false
+//            loadingSpinner.hidden = false
             loadingSpinner.hidesWhenStopped = true
             loadingSpinner.startAnimating()
             sql.dropAndRemakeTables() //TODO needed?
@@ -112,7 +112,7 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
     //Calls this function when the tap is recognized.
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
+        searchField.endEditing(true)
     }
 }
 

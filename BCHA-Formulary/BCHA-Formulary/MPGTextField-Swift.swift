@@ -216,6 +216,10 @@ class MPGTextField_Swift: UITextField, UITextFieldDelegate, UITableViewDelegate,
         if ((mDelegate?.textFieldShouldSelect?(self)) != nil){
             if self.applyFilterWithSearchQuery(self.text!).count > 0 {
                 
+                //if clicked outside causes index out of bounds
+                if(self.applyFilterWithSearchQuery(self.text!).count < selectedIndex){
+                    selectedIndex = 0
+                }
                 let selectedData = self.applyFilterWithSearchQuery(self.text!)[selectedIndex]
                 let displayText : AnyObject? = selectedData["DisplayText"]
                 self.text = displayText as? String
