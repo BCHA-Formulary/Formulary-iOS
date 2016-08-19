@@ -47,7 +47,7 @@ struct FirebaseHelper {
     }
     
 //    static func retrieveFirebaseDrugList(drugList:Status)->[DrugBase]{
-    static func updateFirebaseDrugList(drugList:Status){
+    static func updateFirebaseDrugList(drugList:Status, spinner:UIActivityIndicatorView){
 //        var drugsFromFirebase = [DrugBase]()
         let sql:SqlHelper = SqlHelper.init()
         
@@ -58,7 +58,10 @@ struct FirebaseHelper {
         
         ref.child(drugList.rawValue).observeEventType(.Value, withBlock: {(snapshot) in
             print("Done retrieving " + drugList.rawValue)
-            sql.rowCount()
+            if(drugList == Status.FORMULARY){
+                sql.rowCount()
+                spinner.stopAnimating()
+            }
         })
         
         ref.child(drugList.rawValue).observeEventType(.ChildAdded, withBlock: { (snapshot) in

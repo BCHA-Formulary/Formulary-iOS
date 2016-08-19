@@ -14,6 +14,7 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
     @IBOutlet weak var searchField: MPGTextField_Swift!
     @IBOutlet weak var searchBttn: UIButton!
     @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     
     var firebase:FirebaseHelper!
     var sql:SqlHelper!
@@ -21,16 +22,24 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         // Do any additional setup after loading the view, typically from a nib.
         //TODO internet check
         sql = SqlHelper.init()
         firebase = FirebaseHelper.init()
         if(!firebase.isUpToDate()){ //TODO this should be !isUpToDate, to save calls for now, set to opposite
             print("Needs update")
+            loadingSpinner.hidden = false
+            loadingSpinner.hidesWhenStopped = true
+            loadingSpinner.startAnimating()
             sql.dropAndRemakeTables() //TODO needed?
-            FirebaseHelper.updateFirebaseDrugList(Status.FORMULARY)
-            FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED)
-            FirebaseHelper.updateFirebaseDrugList(Status.RESTRICTED)
+            FirebaseHelper.updateFirebaseDrugList(Status.FORMULARY, spinner: loadingSpinner) //controls spinner
+            FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED, spinner: loadingSpinner)
+            FirebaseHelper.updateFirebaseDrugList(Status.RESTRICTED, spinner: loadingSpinner)
         }
         
         
@@ -98,6 +107,12 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
     
     func textFieldDidEndEditing(textField: MPGTextField_Swift, withSelection data: Dictionary<String,AnyObject>){
         print("Dictionary received = \(data)")
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 }
 

@@ -68,6 +68,10 @@
                                     <segue destination="vmy-jh-xhw" kind="show" id="9Fz-Xo-dlj"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zki-Cy-0hV">
+                                <rect key="frame" x="291" y="289" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -88,6 +92,7 @@
                     <navigationItem key="navigationItem" id="Slh-zV-g4G"/>
                     <connections>
                         <outlet property="helpButton" destination="2Ff-Wi-YgU" id="LMd-MV-FrJ"/>
+                        <outlet property="loadingSpinner" destination="zki-Cy-0hV" id="snn-Q5-JgN"/>
                         <outlet property="searchBttn" destination="pF8-2B-dMT" id="kzD-01-NkE"/>
                         <outlet property="searchField" destination="8M3-YH-Bek" id="DDQ-72-TCw"/>
                         <segue destination="xqI-Xk-kaW" kind="show" identifier="DrugResultSegue" id="nSy-cC-euq"/>
