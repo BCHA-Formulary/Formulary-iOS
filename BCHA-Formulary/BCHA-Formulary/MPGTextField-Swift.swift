@@ -22,6 +22,7 @@ class MPGTextField_Swift: UITextField, UITextFieldDelegate, UITableViewDelegate,
     var mDelegate : MPGTextFieldDelegate?
     var tableViewController : UITableViewController?
     var data = [Dictionary<String, AnyObject>]()
+    var selectedIndex : Int = 0
     
     //Set this to override the default color of suggestions popover. The default color is [UIColor colorWithWhite:0.8 alpha:0.9]
     @IBInspectable var popoverBackgroundColor : UIColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1.0)
@@ -114,14 +115,14 @@ class MPGTextField_Swift: UITextField, UITextFieldDelegate, UITableViewDelegate,
             else{
                 //PopoverSize frame has not been set. Use default parameters instead.
                 var frameForPresentation = self.frame
-                frameForPresentation.origin.y += self.frame.size.height
-                frameForPresentation.size.height = 200
+                frameForPresentation.origin.y += self.frame.size.height-30 //30 is the height of textfield, manual set
+                frameForPresentation.size.height = -200 //-200 is above textfield, 200 is below
                 self.tableViewController!.tableView.frame = frameForPresentation
             }
             
             var frameForPresentation = self.frame
-            frameForPresentation.origin.y += self.frame.size.height;
-            frameForPresentation.size.height = 200;
+            frameForPresentation.origin.y += self.frame.size.height-30; //30 is the height of textfield, manual set
+            frameForPresentation.size.height = -200; 
             tableViewController!.tableView.frame = frameForPresentation
             
             self.superview!.addSubview(tableViewController!.tableView)
@@ -185,6 +186,7 @@ class MPGTextField_Swift: UITextField, UITextFieldDelegate, UITableViewDelegate,
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         //self.text = self.applyFilterWithSearchQuery(self.text)[indexPath.row]["DisplayText"]
+        selectedIndex = indexPath.row
         self.resignFirstResponder()
     }
     
@@ -214,7 +216,7 @@ class MPGTextField_Swift: UITextField, UITextFieldDelegate, UITableViewDelegate,
         if ((mDelegate?.textFieldShouldSelect?(self)) != nil){
             if self.applyFilterWithSearchQuery(self.text!).count > 0 {
                 
-                let selectedData = self.applyFilterWithSearchQuery(self.text!)[0]
+                let selectedData = self.applyFilterWithSearchQuery(self.text!)[selectedIndex]
                 let displayText : AnyObject? = selectedData["DisplayText"]
                 self.text = displayText as? String
                 mDelegate?.textFieldDidEndEditing?(self, withSelection: selectedData)
