@@ -73,7 +73,13 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
             if (drugSearched != nil){
                 svc.drug = drugSearched!
             }
+        }
+        else if (segue.identifier == "NoDrugResultSegue"){
+            let svc = segue.destinationViewController as! NoDrugResultViewController
             
+            if(drugSearched == nil){
+                svc.drugName = searchField.text
+            }
         }
     }
 
@@ -83,7 +89,12 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
             return
         }
         drugSearched = sql.queryForDrugByName(searchField.text!)
-        performSegueWithIdentifier("DrugResultSegue", sender: self)
+        if(drugSearched != nil){
+            performSegueWithIdentifier("DrugResultSegue", sender: self)
+        }
+        else{
+            performSegueWithIdentifier("NoDrugResultSegue", sender: self)
+        }
     }
 
     @IBAction func helpScreen(sender: AnyObject) {

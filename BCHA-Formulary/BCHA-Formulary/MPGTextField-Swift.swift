@@ -78,7 +78,8 @@ class MPGTextField_Swift: UITextField, UITextFieldDelegate, UITableViewDelegate,
     }
     
     override func resignFirstResponder() -> Bool{
-        UIView.animateWithDuration(0.3,
+        if(self.tableViewController != nil){
+            UIView.animateWithDuration(0.3,
                                    animations: ({
                                     self.tableViewController!.tableView.alpha = 0.0
                                    }),
@@ -86,7 +87,8 @@ class MPGTextField_Swift: UITextField, UITextFieldDelegate, UITableViewDelegate,
                                     (finished : Bool) in
                                     self.tableViewController!.tableView.removeFromSuperview()
                                     self.tableViewController = nil
-        })
+            })
+        }
         self.handleExit()
         return super.resignFirstResponder()
     }

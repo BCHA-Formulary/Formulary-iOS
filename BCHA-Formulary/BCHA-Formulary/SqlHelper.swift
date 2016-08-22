@@ -222,7 +222,7 @@ struct SqlHelper{
                 print(drugReturn)
                 return drugReturn
             }
-            else{
+            else if(drugStatus == Status.RESTRICTED.rawValue){
                 let drugReturn = try queryRestrictedDrugByName(drugName, restrictedNametype: drugNameType, restrictedStatus: drugStatus, restrictedClass: Array(drugClasses))
                 print(drugReturn)
                 return drugReturn
