@@ -11,6 +11,7 @@ import Firebase
 
 class MainViewController: UIViewController, MPGTextFieldDelegate {
 
+    @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var searchField: MPGTextField_Swift!
     @IBOutlet weak var searchBttn: UIButton!
     @IBOutlet weak var helpButton: UIButton!
@@ -31,15 +32,17 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
         //TODO internet check
         sql = SqlHelper.init()
         firebase = FirebaseHelper.init()
-        if(firebase.isUpToDate()){ //TODO this should be !isUpToDate, to save calls for now, set to opposite
+        if(!firebase.isUpToDate()){ //TODO this should be !isUpToDate, to save calls for now, set to opposite
             print("Needs update")
 //            loadingSpinner.hidden = false
+            loadingView.hidden = false
+            loadingSpinner.hidden = false
             loadingSpinner.hidesWhenStopped = true
             loadingSpinner.startAnimating()
             sql.dropAndRemakeTables() //TODO needed?
-            FirebaseHelper.updateFirebaseDrugList(Status.FORMULARY, spinner: loadingSpinner) //controls spinner
-            FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED, spinner: loadingSpinner)
-            FirebaseHelper.updateFirebaseDrugList(Status.RESTRICTED, spinner: loadingSpinner)
+            FirebaseHelper.updateFirebaseDrugList(Status.FORMULARY, view:loadingView, spinner: loadingSpinner) //controls spinner
+            FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED, view:loadingView, spinner: loadingSpinner)
+            FirebaseHelper.updateFirebaseDrugList(Status.RESTRICTED, view:loadingView, spinner: loadingSpinner)
         }
         
         

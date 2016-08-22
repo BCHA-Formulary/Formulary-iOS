@@ -22,13 +22,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="164"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BC Health Authorities" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTh-uK-c57">
-                                        <rect key="frame" x="196" y="30" width="207.5" height="24"/>
+                                        <rect key="frame" x="196" y="30" width="208" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FORMULARY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zij-MN-aRY">
-                                        <rect key="frame" x="162" y="64" width="275.5" height="53"/>
+                                        <rect key="frame" x="162" y="64" width="276" height="53"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="44"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,14 +68,25 @@
                                     <segue destination="vmy-jh-xhw" kind="show" id="9Fz-Xo-dlj"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zki-Cy-0hV">
-                                <rect key="frame" x="291" y="289" width="20" height="20"/>
-                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gH-Dt-Z3t">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zki-Cy-0hV">
+                                        <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                        <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.75" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="zki-Cy-0hV" firstAttribute="centerY" secondItem="9gH-Dt-Z3t" secondAttribute="centerY" id="BQ9-6a-iKC"/>
+                                    <constraint firstItem="zki-Cy-0hV" firstAttribute="centerX" secondItem="9gH-Dt-Z3t" secondAttribute="centerX" id="cbc-e7-NJn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2Ff-Wi-YgU" firstAttribute="top" secondItem="zwO-z4-3rH" secondAttribute="bottom" constant="8" symbolic="YES" id="2jS-j0-ghc"/>
+                            <constraint firstItem="9gH-Dt-Z3t" firstAttribute="top" secondItem="zwO-z4-3rH" secondAttribute="top" id="6JW-v0-iby"/>
                             <constraint firstItem="zwO-z4-3rH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6KB-A2-cay"/>
                             <constraint firstAttribute="trailing" secondItem="zwO-z4-3rH" secondAttribute="trailing" id="FU5-MT-G16"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8M3-YH-Bek" secondAttribute="trailing" constant="50" id="GJf-7F-TyO"/>
@@ -83,6 +94,9 @@
                             <constraint firstItem="pF8-2B-dMT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LIb-Sm-haQ"/>
                             <constraint firstItem="zwO-z4-3rH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="VFG-kD-mF0"/>
                             <constraint firstItem="zwO-z4-3rH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="i3i-uo-tGg"/>
+                            <constraint firstItem="9gH-Dt-Z3t" firstAttribute="leading" secondItem="zwO-z4-3rH" secondAttribute="leading" id="kpm-CR-S1S"/>
+                            <constraint firstItem="9gH-Dt-Z3t" firstAttribute="trailing" secondItem="zwO-z4-3rH" secondAttribute="trailing" id="mhV-Gv-fHw"/>
+                            <constraint firstItem="9gH-Dt-Z3t" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="moL-eY-v5J"/>
                             <constraint firstItem="2Ff-Wi-YgU" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="nhZ-55-V9A"/>
                             <constraint firstItem="pF8-2B-dMT" firstAttribute="baseline" secondItem="8M3-YH-Bek" secondAttribute="baseline" constant="50" id="oph-P8-53k"/>
                             <constraint firstItem="8M3-YH-Bek" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="q3N-Qk-MK2"/>
@@ -93,6 +107,7 @@
                     <connections>
                         <outlet property="helpButton" destination="2Ff-Wi-YgU" id="LMd-MV-FrJ"/>
                         <outlet property="loadingSpinner" destination="zki-Cy-0hV" id="snn-Q5-JgN"/>
+                        <outlet property="loadingView" destination="9gH-Dt-Z3t" id="ZhD-ky-WgE"/>
                         <outlet property="searchBttn" destination="pF8-2B-dMT" id="kzD-01-NkE"/>
                         <outlet property="searchField" destination="8M3-YH-Bek" id="DDQ-72-TCw"/>
                         <segue destination="xqI-Xk-kaW" kind="show" identifier="DrugResultSegue" id="nSy-cC-euq"/>

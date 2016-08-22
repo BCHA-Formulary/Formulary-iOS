@@ -47,7 +47,7 @@ struct FirebaseHelper {
     }
     
 //    static func retrieveFirebaseDrugList(drugList:Status)->[DrugBase]{
-    static func updateFirebaseDrugList(drugList:Status, spinner:UIActivityIndicatorView){
+    static func updateFirebaseDrugList(drugList:Status, view:UIView, spinner:UIActivityIndicatorView){
 //        var drugsFromFirebase = [DrugBase]()
         let sql:SqlHelper = SqlHelper.init()
         
@@ -61,6 +61,7 @@ struct FirebaseHelper {
             if(drugList == Status.FORMULARY){
                 sql.rowCount()
                 spinner.stopAnimating()
+                view.hidden = true
             }
         })
         
