@@ -29,10 +29,14 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
         view.addGestureRecognizer(tap)
         
         // Do any additional setup after loading the view, typically from a nib.
-        //TODO internet check
-        sql = SqlHelper.init()
-        firebase = FirebaseHelper.init()
-        firebase.isUpToDate(loadingView, spinner: loadingSpinner, sql: sql)
+        if(FirebaseHelper.isConnectedToNetwork()){
+            sql = SqlHelper.init()
+            firebase = FirebaseHelper.init()
+            firebase.isUpToDate(loadingView, spinner: loadingSpinner, sql: sql)
+        }
+        else{
+            //TODO no internet error
+        }
         
         
         searchField.mDelegate = self
