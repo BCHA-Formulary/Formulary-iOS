@@ -18,32 +18,66 @@ struct FirebaseHelper {
     let defaults = NSUserDefaults.standardUserDefaults()
     
     init(){
-        getFirebaseLastUpdate()
+//        getFirebaseLastUpdate()
     }
     
-    func isUpToDate()-> Bool {
-//        defaults.setObject(123, forKey: "lastUpdated")
-        if let lastUpdated = defaults.stringForKey("lastUpdated"){
-            print("Last phone updated: ", lastUpdated)
-            return false //TODO for now set to false until figure out how to grab firebase
-        }
-        return false
-    }
-    
-    private func getFirebaseLastUpdate(){
-        let ref = FIRDatabase.database().reference()
-        ref.child("Update").observeSingleEventOfType(.Value, withBlock:  { (snapshot) in
+    func isUpToDate(view:UIView, spinner:UIActivityIndicatorView, sql:SqlHelper) {
+        let lastUpdated = defaults.stringForKey("lastUpdated")
+        //HACK should not be doing view things here...
+        view.hidden = false
+        spinner.hidden = false
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
+        let closure:(snapshot:FIRDataSnapshot)-> Void = {(snapshot) in
             print(snapshot.value)
-            // Get user value
-            //            let username = snapshot.value!["username"] as! String
-            //            let user = User.init(username: username)
+                        // Get user value
+                        //            let username = snapshot.value!["username"] as! String
+                        //            let user = User.init(username: username)
             let dateNum = snapshot.value as! NSNumber as Double
-            print("Firebase last updated: ", dateNum)
-            
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
+            let lastFirebaseUpdateDate = String(format: "%f", dateNum)
+            if(lastUpdated == lastFirebaseUpdateDate){
+                spinner.stopAnimating()
+                view.hidden = true
+                return
+            }
+            else{
+                sql.dropAndRemakeTables() //TODO needed?
+                FirebaseHelper.updateFirebaseDrugList(Status.FORMULARY, view:view, spinner: spinner) //controls spinner
+                FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED, view:view, spinner: spinner)
+                FirebaseHelper.updateFirebaseDrugList(Status.RESTRICTED, view:view, spinner: spinner)
+                self.defaults.setObject(lastFirebaseUpdateDate, forKey: "lastUpdated")
+            }
         }
+        getFirebaseLastUpdate(closure)
+//        if lastUpdated != nil {
+//            print("Last phone updated: ", lastUpdated)
+//            return false //TODO for now set to false until figure out how to grab firebase
+//        }
+//        return false
+    }
+    
+    
+    
+    private func getFirebaseLastUpdate(closure:(snapshot:FIRDataSnapshot)-> Void){
+        let ref = FIRDatabase.database().reference()
+//        ref.child("Update").observeSingleEventOfType(.Value, withBlock:  { (snapshot) in
+//            print(snapshot.value)
+//            // Get user value
+//            //            let username = snapshot.value!["username"] as! String
+//            //            let user = User.init(username: username)
+//            let dateNum = snapshot.value as! NSNumber as Double
+//            print("Firebase last updated: ", dateNum)
+//            
+//            // ...
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+//        let closure:(snapshot:FIRDataSnapshot)-> Void = {(snapshot) in
+//            print(snapshot)
+//        }
+        ref.child("Update").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            closure(snapshot: snapshot)
+        })
     }
     
 //    static func retrieveFirebaseDrugList(drugList:Status)->[DrugBase]{
@@ -56,6 +90,7 @@ struct FirebaseHelper {
         print("Before firebase update")
         sql.rowCount()
         
+        //HACK we are assuming formulary takes the longest
         ref.child(drugList.rawValue).observeEventType(.Value, withBlock: {(snapshot) in
             print("Done retrieving " + drugList.rawValue)
             if(drugList == Status.FORMULARY){
