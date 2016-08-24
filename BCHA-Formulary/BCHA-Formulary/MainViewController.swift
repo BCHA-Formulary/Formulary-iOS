@@ -32,17 +32,6 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
         //TODO internet check
         sql = SqlHelper.init()
         firebase = FirebaseHelper.init()
-//        if(!firebase.isUpToDate(loadingView, spinner:loadingSpinner, sql)){ //TODO this should be !isUpToDate, to save calls for now, set to opposite
-//            print("Needs update")
-//            loadingView.hidden = false
-//            loadingSpinner.hidden = false
-//            loadingSpinner.hidesWhenStopped = true
-//            loadingSpinner.startAnimating()
-//            sql.dropAndRemakeTables() //TODO needed?
-//            FirebaseHelper.updateFirebaseDrugList(Status.FORMULARY, view:loadingView, spinner: loadingSpinner) //controls spinner
-//            FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED, view:loadingView, spinner: loadingSpinner)
-//            FirebaseHelper.updateFirebaseDrugList(Status.RESTRICTED, view:loadingView, spinner: loadingSpinner)
-//        }
         firebase.isUpToDate(loadingView, spinner: loadingSpinner, sql: sql)
         
         

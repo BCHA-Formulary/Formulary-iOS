@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SystemConfiguration
 import Firebase
 /**
  * Based on the enum of status, there are 3 possible nodes from firebase that the drugs could be
@@ -18,10 +19,10 @@ struct FirebaseHelper {
     let defaults = NSUserDefaults.standardUserDefaults()
     
     init(){
-//        getFirebaseLastUpdate()
     }
     
     func isUpToDate(view:UIView, spinner:UIActivityIndicatorView, sql:SqlHelper) {
+        
         let lastUpdated = defaults.stringForKey("lastUpdated")
         //HACK should not be doing view things here...
         view.hidden = false
@@ -30,9 +31,6 @@ struct FirebaseHelper {
         spinner.startAnimating()
         let closure:(snapshot:FIRDataSnapshot)-> Void = {(snapshot) in
             print(snapshot.value)
-                        // Get user value
-                        //            let username = snapshot.value!["username"] as! String
-                        //            let user = User.init(username: username)
             let dateNum = snapshot.value as! NSNumber as Double
             let lastFirebaseUpdateDate = String(format: "%f", dateNum)
             if(lastUpdated == lastFirebaseUpdateDate){
@@ -49,46 +47,24 @@ struct FirebaseHelper {
             }
         }
         getFirebaseLastUpdate(closure)
-//        if lastUpdated != nil {
-//            print("Last phone updated: ", lastUpdated)
-//            return false //TODO for now set to false until figure out how to grab firebase
-//        }
-//        return false
     }
     
     
     
     private func getFirebaseLastUpdate(closure:(snapshot:FIRDataSnapshot)-> Void){
         let ref = FIRDatabase.database().reference()
-//        ref.child("Update").observeSingleEventOfType(.Value, withBlock:  { (snapshot) in
-//            print(snapshot.value)
-//            // Get user value
-//            //            let username = snapshot.value!["username"] as! String
-//            //            let user = User.init(username: username)
-//            let dateNum = snapshot.value as! NSNumber as Double
-//            print("Firebase last updated: ", dateNum)
-//            
-//            // ...
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
-//        let closure:(snapshot:FIRDataSnapshot)-> Void = {(snapshot) in
-//            print(snapshot)
-//        }
         ref.child("Update").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             closure(snapshot: snapshot)
         })
     }
     
-//    static func retrieveFirebaseDrugList(drugList:Status)->[DrugBase]{
     static func updateFirebaseDrugList(drugList:Status, view:UIView, spinner:UIActivityIndicatorView){
-//        var drugsFromFirebase = [DrugBase]()
         let sql:SqlHelper = SqlHelper.init()
         
         let ref = FIRDatabase.database().reference()
-        
-        print("Before firebase update")
-        sql.rowCount()
+//        
+//        print("Before firebase update")
+//        sql.rowCount()
         
         //HACK we are assuming formulary takes the longest
         ref.child(drugList.rawValue).observeEventType(.Value, withBlock: {(snapshot) in
@@ -142,5 +118,27 @@ struct FirebaseHelper {
             }
         })
 //        return drugsFromFirebase
+    }
+    
+    static func isConnectedToNetwork() -> Bool {
+        
+        var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
+        zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+            SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, UnsafePointer($0))
+        }
+        
+        var flags: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
+        if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) == false {
+            return false
+        }
+        
+        let isReachable = flags == .Reachable
+        let needsConnection = flags == .ConnectionRequired
+        
+        return isReachable && !needsConnection
+        
     }
 }
