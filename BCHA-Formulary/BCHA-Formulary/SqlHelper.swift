@@ -194,6 +194,118 @@ struct SqlHelper{
             print("Could not add restricted into drug table: ", restricted.primaryName)
         }
     }
+    
+    func queryForDrugByName(drugName:String) ->DrugBase?{
+        let drugQuery = drugTable.filter(name == drugName.uppercaseString)
+        
+        do{
+            var drugClasses = Set<String>()
+            var drugStatus:String = ""
+            var drugNameType:String = "" //TODO for now, assume only 1 name type
+            for drug in try db!.prepare(drugQuery){
+                drugClasses.insert(drug[drugClass])
+                if(drugStatus == ""){
+                    drugStatus = drug[status]
+                }
+                if(drugNameType == ""){
+                    drugNameType = drug[nameType]
+                }
+            }
+//            let drugStatus = drug[status]
+            if(drugStatus == Status.FORMULARY.rawValue){
+                let drugReturn = try queryFormularyDrugByName(drugName, formularyNametype: drugNameType, formularyStatus: drugStatus, formularyClass: Array(drugClasses))
+                print(drugReturn)
+                return drugReturn
+            }
+            else if(drugStatus == Status.EXCLUDED.rawValue){
+                let drugReturn = try queryExcludedDrugByName(drugName, excludedNametype: drugNameType, excludedStatus: drugStatus, excludedClass: Array(drugClasses))
+                print(drugReturn)
+                return drugReturn
+            }
+            else if(drugStatus == Status.RESTRICTED.rawValue){
+                let drugReturn = try queryRestrictedDrugByName(drugName, restrictedNametype: drugNameType, restrictedStatus: drugStatus, restrictedClass: Array(drugClasses))
+                print(drugReturn)
+                return drugReturn
+            }
+        }
+        catch{
+            print("Error info: \(error)")
+        }
+        return nil
+    }
+//
+    func queryFormularyDrugByName(formularyDrugName:String, formularyNametype:String, formularyStatus:String, formularyClass:[String]) throws -> FormuarlyDrug{
+        let drugQuery = formularyTable.filter(genericName == formularyDrugName || brandName == formularyDrugName)
+        var altNames = Set<String>()
+        var strengths = Set<String>()
+        let isGeneric = (formularyNametype == NameType.GENERIC.rawValue)
+        for drug in try db!.prepare(drugQuery){
+            if (isGeneric){
+                altNames.insert(drug[brandName])
+            }
+            else{
+                altNames.insert(drug[genericName])
+            }
+            strengths.insert(drug[strength])
+        }
+        return FormuarlyDrug.init(primaryName: formularyDrugName, nameType: NameType(rawValue: formularyNametype)!,
+                                  alternateName:Array(altNames), strengths: Array(strengths),
+                                  status: Status(rawValue:formularyStatus)!, drugClass:formularyClass)
+    }
+    
+    func queryExcludedDrugByName(excludedDrugName:String, excludedNametype:String, excludedStatus:String, excludedClass:[String]) throws -> ExcludedDrug {
+        let drugQuery = excludedTable.filter(genericName == excludedDrugName || brandName == excludedDrugName)
+        var altNames = Set<String>()
+        var excludedCriteria:String = ""
+        let isGeneric = (excludedNametype == NameType.GENERIC.rawValue)
+        for drug in try db!.prepare(drugQuery){
+            if (isGeneric){
+                altNames.insert(drug[brandName])
+            }
+            else{
+                altNames.insert(drug[genericName])
+            }
+            if(excludedCriteria == ""){
+                excludedCriteria = drug[criteria]
+            }
+        }
+        return ExcludedDrug.init(primaryName: excludedDrugName, nameType: NameType(rawValue: excludedNametype)!,
+                                  alternateName:Array(altNames), criteria: excludedCriteria,
+                                  status: Status(rawValue:excludedStatus)!, drugClass:excludedClass)
+    }
+    
+    func queryRestrictedDrugByName(restrictedDrugName:String, restrictedNametype:String, restrictedStatus:String, restrictedClass:[String]) throws -> RestrictedDrug {
+        let drugQuery = restrictedTable.filter(genericName == restrictedDrugName || brandName == restrictedDrugName)
+        var altNames = Set<String>()
+        var restrictedCriteria:String = ""
+        let isGeneric = (restrictedNametype == NameType.GENERIC.rawValue)
+        for drug in try db!.prepare(drugQuery){
+            if (isGeneric){
+                altNames.insert(drug[brandName])
+            }
+            else{
+                altNames.insert(drug[genericName])
+            }
+            if(restrictedCriteria == ""){
+                restrictedCriteria = drug[criteria]
+            }
+        }
+        return RestrictedDrug.init(primaryName: restrictedDrugName,
+                                   nameType: NameType(rawValue: restrictedNametype)!,
+                                   alternateName:Array(altNames),
+                                   criteria: restrictedCriteria,
+                                 status: Status(rawValue:restrictedStatus)!,
+                                 drugClass:restrictedClass)
+    }
+    
+    func queryDrugNamesByDrugClass(drugClassName:String) throws -> [String]{
+        var drugQueryResult = Set<String>()
+        let drugQuery = drugTable.filter(drugClass == drugClassName)
+        for drug in try db!.prepare(drugQuery){
+            drugQueryResult.insert(drug[name])
+        }
+        return Array(drugQueryResult)
+    }
 
     private func insertDrugIntoTable(name:String, nameType:String, status:String, drugClasses:[String])throws ->Int64{
         var rowsAdded:Int64 = 0
@@ -225,18 +337,19 @@ struct SqlHelper{
     
     /**
      * CREATE TABLE DrugTable IF NOT EXISTS (
-     * "Name" TEXT PRIMARY KEY NOT NULL,
+     * "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+     * "Name" TEXT,
      * "NameType" TEXT,
      * "Status" TEXT,
-     * "Class" TEXT)
+     * "Class" TEXT )
      */
     private func createDrugTable(db:Connection) throws{
         try db.run(drugTable.create(ifNotExists:true){ t in
+            t.column(id, primaryKey:.Autoincrement)
             t.column(name)
             t.column(nameType)
             t.column(status)
             t.column(drugClass)
-            t.primaryKey(name, nameType)
             })
     }
 

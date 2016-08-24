@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SystemConfiguration
 import Firebase
 /**
  * Based on the enum of status, there are 3 possible nodes from firebase that the drugs could be
@@ -18,40 +19,63 @@ struct FirebaseHelper {
     let defaults = NSUserDefaults.standardUserDefaults()
     
     init(){
-        getFirebaseLastUpdate()
     }
     
-    func isUpToDate()-> Bool {
-//        defaults.setObject(123, forKey: "lastUpdated")
-        if let lastUpdated = defaults.stringForKey("lastUpdated"){
-            print("Last phone updated: ", lastUpdated)
-            return false //TODO for now set to false until figure out how to grab firebase
-        }
-        return false
-    }
-    
-    private func getFirebaseLastUpdate(){
-        let ref = FIRDatabase.database().reference()
-        ref.child("Update").observeSingleEventOfType(.Value, withBlock:  { (snapshot) in
+    func isUpToDate(view:UIView, spinner:UIActivityIndicatorView, sql:SqlHelper) {
+        
+        let lastUpdated = defaults.stringForKey("lastUpdated")
+        //HACK should not be doing view things here...
+        view.hidden = false
+        spinner.hidden = false
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
+        let closure:(snapshot:FIRDataSnapshot)-> Void = {(snapshot) in
             print(snapshot.value)
-            // Get user value
-            //            let username = snapshot.value!["username"] as! String
-            //            let user = User.init(username: username)
             let dateNum = snapshot.value as! NSNumber as Double
-            print("Firebase last updated: ", dateNum)
-            
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
+            let lastFirebaseUpdateDate = String(format: "%f", dateNum)
+            if(lastUpdated == lastFirebaseUpdateDate){
+                spinner.stopAnimating()
+                view.hidden = true
+                return
+            }
+            else{
+                sql.dropAndRemakeTables() //TODO needed?
+                FirebaseHelper.updateFirebaseDrugList(Status.FORMULARY, view:view, spinner: spinner) //controls spinner
+                FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED, view:view, spinner: spinner)
+                FirebaseHelper.updateFirebaseDrugList(Status.RESTRICTED, view:view, spinner: spinner)
+                self.defaults.setObject(lastFirebaseUpdateDate, forKey: "lastUpdated")
+            }
         }
+        getFirebaseLastUpdate(closure)
     }
     
-//    static func retrieveFirebaseDrugList(drugList:Status)->[DrugBase]{
-    static func updateFirebaseDrugList(drugList:Status){
-//        var drugsFromFirebase = [DrugBase]()
+    
+    
+    private func getFirebaseLastUpdate(closure:(snapshot:FIRDataSnapshot)-> Void){
+        let ref = FIRDatabase.database().reference()
+        ref.child("Update").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            closure(snapshot: snapshot)
+        })
+    }
+    
+    static func updateFirebaseDrugList(drugList:Status, view:UIView, spinner:UIActivityIndicatorView){
         let sql:SqlHelper = SqlHelper.init()
         
         let ref = FIRDatabase.database().reference()
+//        
+//        print("Before firebase update")
+//        sql.rowCount()
+        
+        //HACK we are assuming formulary takes the longest
+        ref.child(drugList.rawValue).observeEventType(.Value, withBlock: {(snapshot) in
+            print("Done retrieving " + drugList.rawValue)
+            if(drugList == Status.FORMULARY){
+                sql.rowCount()
+                spinner.stopAnimating()
+                view.hidden = true
+            }
+        })
+        
         ref.child(drugList.rawValue).observeEventType(.ChildAdded, withBlock: { (snapshot) in
             let drug = snapshot.value as! [String : AnyObject]
             
@@ -65,7 +89,7 @@ struct FirebaseHelper {
                 let formularyDrug = FormuarlyDrug(primaryName: drug["primaryName"] as! String, nameType: drugNameType!, alternateName: altName, strengths: strengths, status: Status.FORMULARY, drugClass: drugClass)
                 
 //                drugsFromFirebase.append(formularyDrug)
-                
+
                 if(formularyDrug.nameType == NameType.GENERIC){
                     sql.insertFormularyGenericDrug(formularyDrug)
                 }
@@ -94,5 +118,27 @@ struct FirebaseHelper {
             }
         })
 //        return drugsFromFirebase
+    }
+    
+    static func isConnectedToNetwork() -> Bool {
+        
+        var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
+        zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+            SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, UnsafePointer($0))
+        }
+        
+        var flags: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
+        if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) == false {
+            return false
+        }
+        
+        let isReachable = flags == .Reachable
+        let needsConnection = flags == .ConnectionRequired
+        
+        return isReachable && !needsConnection
+        
     }
 }
