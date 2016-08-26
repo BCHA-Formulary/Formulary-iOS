@@ -68,6 +68,12 @@
                                     <segue destination="vmy-jh-xhw" kind="show" id="9Fz-Xo-dlj"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BCHA_Banner" translatesAutoresizingMaskIntoConstraints="NO" id="Gjq-rf-IxT">
+                                <rect key="frame" x="20" y="522" width="560" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="SSF-An-ZgM"/>
+                                </constraints>
+                            </imageView>
                             <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gH-Dt-Z3t">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
@@ -103,6 +109,8 @@
                             <constraint firstItem="pF8-2B-dMT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LIb-Sm-haQ"/>
                             <constraint firstItem="zwO-z4-3rH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="VFG-kD-mF0"/>
                             <constraint firstItem="zwO-z4-3rH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="i3i-uo-tGg"/>
+                            <constraint firstAttribute="bottom" secondItem="Gjq-rf-IxT" secondAttribute="bottom" constant="20" symbolic="YES" id="jlD-6V-xa2"/>
+                            <constraint firstItem="Gjq-rf-IxT" firstAttribute="centerX" secondItem="pF8-2B-dMT" secondAttribute="centerX" id="kgH-V4-tP1"/>
                             <constraint firstItem="9gH-Dt-Z3t" firstAttribute="leading" secondItem="zwO-z4-3rH" secondAttribute="leading" id="kpm-CR-S1S"/>
                             <constraint firstItem="9gH-Dt-Z3t" firstAttribute="trailing" secondItem="zwO-z4-3rH" secondAttribute="trailing" id="mhV-Gv-fHw"/>
                             <constraint firstItem="9gH-Dt-Z3t" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="moL-eY-v5J"/>
@@ -110,6 +118,7 @@
                             <constraint firstItem="pF8-2B-dMT" firstAttribute="baseline" secondItem="8M3-YH-Bek" secondAttribute="baseline" constant="50" id="oph-P8-53k"/>
                             <constraint firstItem="8M3-YH-Bek" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="q3N-Qk-MK2"/>
                             <constraint firstItem="8M3-YH-Bek" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="qx1-LH-P6z"/>
+                            <constraint firstItem="Gjq-rf-IxT" firstAttribute="trailing" secondItem="2Ff-Wi-YgU" secondAttribute="trailing" id="sfb-UO-zC1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Slh-zV-g4G"/>
@@ -462,6 +471,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BCHA_Banner" width="708" height="52"/>
         <image name="Help" width="68" height="68"/>
     </resources>
 </document>

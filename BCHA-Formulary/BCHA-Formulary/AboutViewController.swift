@@ -45,9 +45,13 @@ class AboutViewController : UIViewController, MFMailComposeViewControllerDelegat
     }
     
     func emailFailAlert(){
-        let emailAlert = UIAlertView(title: "Email could not send", message: "Could not send email from device. Please check settings and try again", delegate: self, cancelButtonTitle: "OK")
-//        let alert = UIAlertController(title: "Email could not send", message: "Could not send email from device. Please check settings and try again", preferredStyle: UIAlertControllerStyle)
-        emailAlert.show()
+//        let emailAlert = UIAlertView(title: "Email could not send", message: "Could not send email from device. Please check settings and try again", delegate: self, cancelButtonTitle: "OK")
+        let emailAlert = UIAlertController(title:"Email could not send", message: "Could not send email from device. Please check settings and try again", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        emailAlert.addAction(action
+        )
+        presentViewController(emailAlert, animated: true, completion: nil)
+//        emailAlert.show()
     }
     
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
