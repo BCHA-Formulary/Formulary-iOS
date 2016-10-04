@@ -324,14 +324,20 @@ struct SqlHelper{
     }
     
     func rowCount(){
-            let drugCount = db?.scalar(drugTable.count)
-            let formularyCount = db?.scalar(formularyTable.count)
-            let excludedCount = db?.scalar(excludedTable.count)
-            let restrictedCount = db?.scalar(restrictedTable.count)
+        do{
+            let drugCount = try db?.scalar(drugTable.count)
+            let formularyCount = try  db?.scalar(formularyTable.count)
+            let excludedCount = try db?.scalar(excludedTable.count)
+            let restrictedCount = try db?.scalar(restrictedTable.count)
             print("Drug count: ", drugCount)
             print("Formulary count: ", formularyCount)
             print("Excluded count: ", excludedCount)
             print("Restricted count: ", restrictedCount)
+        }
+        catch{
+            print("Error info: \(error)")
+            print("Unable to get drug count")
+        }
         
     }
     

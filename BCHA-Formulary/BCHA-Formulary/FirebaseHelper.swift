@@ -29,6 +29,8 @@ struct FirebaseHelper {
         spinner.hidden = false
         spinner.hidesWhenStopped = true
         spinner.startAnimating()
+        
+        //create a callback as a continue with for when firebase update returns
         let closure:(snapshot:FIRDataSnapshot)-> Void = {(snapshot) in
             print(snapshot.value)
             let dateNum = snapshot.value as! NSNumber as Double
