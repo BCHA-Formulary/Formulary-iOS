@@ -33,8 +33,15 @@ struct FirebaseHelper {
         //create a callback as a continue with for when firebase update returns
         let closure:(snapshot:FIRDataSnapshot)-> Void = {(snapshot) in
             print(snapshot.value)
-            let dateNum = snapshot.value as! NSNumber as Double
-            let lastFirebaseUpdateDate = String(format: "%f", dateNum)
+//            let dateNum = snapshot.value as! NSNumber as Double
+            // Set date format
+//            var dateFmt = NSDateFormatter()
+//            dateFmt.timeZone = NSTimeZone.defaultTimeZone()
+//            dateFmt.dateFormat =  "yyyy-MM-ddThh:mm:ss"
+            
+//            let date = dateFmt.dateFromString(snapshot.value as! String)
+//            let lastFirebaseUpdateDate = String(format: "%f", dateNum)
+            let lastFirebaseUpdateDate = snapshot.value as! String
             if(lastUpdated == lastFirebaseUpdateDate){
                 spinner.stopAnimating()
                 view.hidden = true
