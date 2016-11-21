@@ -9,6 +9,8 @@
 import Foundation
 import SystemConfiguration
 import Firebase
+import SwiftyJSON
+
 /**
  * Based on the enum of status, there are 3 possible nodes from firebase that the drugs could be
  * retrieved. Firebase listener FIRDataEventTypeChildAdded will retrieve the drug objects
@@ -33,15 +35,16 @@ struct FirebaseHelper {
         //create a callback as a continue with for when firebase update returns
         let closure:(snapshot:FIRDataSnapshot)-> Void = {(snapshot) in
             print(snapshot.value)
-//            let dateNum = snapshot.value as! NSNumber as Double
+            //            let dateNum = snapshot.value as! NSNumber as Double
             // Set date format
-//            var dateFmt = NSDateFormatter()
-//            dateFmt.timeZone = NSTimeZone.defaultTimeZone()
-//            dateFmt.dateFormat =  "yyyy-MM-ddThh:mm:ss"
+            //            var dateFmt = NSDateFormatter()
+            //            dateFmt.timeZone = NSTimeZone.defaultTimeZone()
+            //            dateFmt.dateFormat =  "yyyy-MM-ddThh:mm:ss"
             
-//            let date = dateFmt.dateFromString(snapshot.value as! String)
-//            let lastFirebaseUpdateDate = String(format: "%f", dateNum)
+            //            let date = dateFmt.dateFromString(snapshot.value as! String)
+            //            let lastFirebaseUpdateDate = String(format: "%f", dateNum)
             let lastFirebaseUpdateDate = snapshot.value as! String
+            FirebaseHelper.updateFirebaseDrugs() //TODO remove
             if(lastUpdated == lastFirebaseUpdateDate){
                 spinner.stopAnimating()
                 view.hidden = true
@@ -49,13 +52,41 @@ struct FirebaseHelper {
             }
             else{
                 sql.dropAndRemakeTables() //TODO needed?
-                FirebaseHelper.updateFirebaseDrugList(Status.FORMULARY, view:view, spinner: spinner) //controls spinner
-                FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED, view:view, spinner: spinner)
-                FirebaseHelper.updateFirebaseDrugList(Status.RESTRICTED, view:view, spinner: spinner)
+                
+                //                FirebaseHelper.updateFirebaseDrugList(Status.FORMULARY, view:view, spinner: spinner) //controls spinner
+                //                FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED, view:view, spinner: spinner)
+                //                FirebaseHelper.updateFirebaseDrugList(Status.RESTRICTED, view:view, spinner: spinner)
                 self.defaults.setObject(lastFirebaseUpdateDate, forKey: "lastUpdated")
             }
         }
         getFirebaseLastUpdate(closure)
+    }
+    
+    static func updateFirebaseDrugs(){
+        let ref = FIRDatabase.database().reference()
+        ref.child("ExcludedString").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            let value = snapshot.value as! String
+            do{
+                //                json = try NSJSONSerialization.JSONObjectWithData(value, options: NSJSONReadingOptions()) as [ExcludedDrug]
+                if let dataFromString = value.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                    let json = JSON(data: dataFromString)
+                    let ind = json.arrayValue.count
+                    print(ind)
+                    
+                    for index in 0...ind {
+                        if(index < 5){
+                        let drug0 = json[index]
+                        let eDrug = ExcludedDrug.init(json: drug0)
+                        print(eDrug.primaryName)
+                        }
+                    }
+                }
+            }
+//            catch{
+//                print(error)
+//            }
+        })
+        
     }
     
     
@@ -71,9 +102,9 @@ struct FirebaseHelper {
         let sql:SqlHelper = SqlHelper.init()
         
         let ref = FIRDatabase.database().reference()
-//        
-//        print("Before firebase update")
-//        sql.rowCount()
+        //
+        //        print("Before firebase update")
+        //        sql.rowCount()
         
         //HACK we are assuming formulary takes the longest
         ref.child(drugList.rawValue).observeEventType(.Value, withBlock: {(snapshot) in
@@ -97,12 +128,12 @@ struct FirebaseHelper {
                 
                 let formularyDrug = FormuarlyDrug(primaryName: drug["primaryName"] as! String, nameType: drugNameType!, alternateName: altName, strengths: strengths, status: Status.FORMULARY, drugClass: drugClass)
                 
-//                drugsFromFirebase.append(formularyDrug)
-
+                //                drugsFromFirebase.append(formularyDrug)
+                
                 if(formularyDrug.nameType == NameType.GENERIC){
                     sql.insertFormularyGenericDrug(formularyDrug)
                 }
-//                print("Drug list count: ", drugsFromFirebase.count)
+                //                print("Drug list count: ", drugsFromFirebase.count)
                 break
             case Status.EXCLUDED:
                 let excludedDrug = ExcludedDrug(primaryName: drug["primaryName"] as! String, nameType: drugNameType!, alternateName: altName, criteria: drug["criteria"] as! String, status: Status.EXCLUDED, drugClass: drugClass)
@@ -111,22 +142,22 @@ struct FirebaseHelper {
                     sql.insertExcludedGenericDrug(excludedDrug)
                 }
                 
-//                drugsFromFirebase.append(excludedDrug)
-//                print("Drug list count: ", drugsFromFirebase.count)
+                //                drugsFromFirebase.append(excludedDrug)
+                //                print("Drug list count: ", drugsFromFirebase.count)
                 break
             case Status.RESTRICTED:
                 let restrictedDrug = RestrictedDrug(primaryName: drug["primaryName"] as! String, nameType: drugNameType!, alternateName: altName, criteria: drug["criteria"] as! String, status: Status.RESTRICTED, drugClass: drugClass)
                 
-//                drugsFromFirebase.append(restrictedDrug)
+                //                drugsFromFirebase.append(restrictedDrug)
                 
                 if(restrictedDrug.nameType == NameType.GENERIC){
                     sql.insertRestrictedGenericDrug(restrictedDrug)
                 }
-//                print("Drug list count: ", drugsFromFirebase.count)
+                //                print("Drug list count: ", drugsFromFirebase.count)
                 break
             }
         })
-//        return drugsFromFirebase
+        //        return drugsFromFirebase
     }
     
     static func isConnectedToNetwork() -> Bool {

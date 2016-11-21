@@ -24,11 +24,13 @@ PODS:
   - SQLite.swift (0.10.1):
     - SQLite.swift/standard (= 0.10.1)
   - SQLite.swift/standard (0.10.1)
+  - SwiftyJSON (2.4.0)
 
 DEPENDENCIES:
   - Firebase
   - Firebase/Database
   - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`, branch `xcode8`)
+  - SwiftyJSON (= 2.4.0)
 
 EXTERNAL SOURCES:
   SQLite.swift:
@@ -49,7 +51,8 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   SQLite.swift: c8d4b69c9009bd738b9af318b4577a3a798596a0
+  SwiftyJSON: 96918c1bf505efa50c4f72957018dd3452090c9c
 
-PODFILE CHECKSUM: 136dbcd3b96942b9b29dad3fea83710d116c35f4
+PODFILE CHECKSUM: 340b6e29f05105c6a9a6bd40fecf90a223f02ada
 
 COCOAPODS: 1.0.1
