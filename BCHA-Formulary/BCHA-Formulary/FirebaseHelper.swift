@@ -44,7 +44,9 @@ struct FirebaseHelper {
             //            let date = dateFmt.dateFromString(snapshot.value as! String)
             //            let lastFirebaseUpdateDate = String(format: "%f", dateNum)
             let lastFirebaseUpdateDate = snapshot.value as! String
-            FirebaseHelper.updateFirebaseDrugs() //TODO remove
+            FirebaseHelper.updateFirebaseDrugsFromJSONString(Status.FORMULARY, view:view, spinner: spinner)
+            FirebaseHelper.updateFirebaseDrugsFromJSONString(Status.EXCLUDED, view:view, spinner: spinner)
+            FirebaseHelper.updateFirebaseDrugsFromJSONString(Status.RESTRICTED, view:view, spinner: spinner)
             if(lastUpdated == lastFirebaseUpdateDate){
                 spinner.stopAnimating()
                 view.hidden = true
@@ -74,19 +76,56 @@ struct FirebaseHelper {
                     print(ind)
                     
                     for index in 0...ind {
-                        if(index < 5){
-                        let drug0 = json[index]
-                        let eDrug = ExcludedDrug.init(json: drug0)
-                        print(eDrug.primaryName)
+                        if (index < 5) {
+                            let drug0 = json[index]
+                            let eDrug = ExcludedDrug.init(json: drug0)
+                            print(eDrug.primaryName)
                         }
                     }
                 }
             }
-//            catch{
-//                print(error)
-//            }
         })
-        
+    }
+    
+    static func updateFirebaseDrugsFromJSONString(drugList:Status, view:UIView, spinner:UIActivityIndicatorView){
+        let ref = FIRDatabase.database().reference()
+        var childString:String
+        if(drugList == Status.FORMULARY){
+            childString = "FormularyString"
+        }
+        else if(drugList == Status.EXCLUDED){
+            childString = "ExcludedString"
+        }
+        else{
+            childString = "RestrictedString"
+        }
+        ref.child(childString).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            let value = snapshot.value as! String
+            do{
+                if let dataFromString = value.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                    let json = JSON(data: dataFromString)
+                    let arrayLength = json.arrayValue.count
+                    
+                    for index in 0...arrayLength {
+                        if(index < 5){
+                            let drugJSON = json[index]
+                            var drug:DrugBase
+                            if(drugList == Status.FORMULARY){
+                                drug = FormuarlyDrug.init(json: drugJSON)
+                            }
+                            else if(drugList == Status.EXCLUDED){
+                                drug = ExcludedDrug.init(json: drugJSON)
+                            }
+                            else{
+                                drug = RestrictedDrug.init(json: drugJSON)
+                            }
+                            
+                            print(drug.status.rawValue + ": " + drug.drugClass[0])
+                        }
+                    }
+                }
+            }
+        })
     }
     
     
