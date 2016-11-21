@@ -42,6 +42,7 @@ class FormuarlyDrug:DrugBase{
     init(json:JSON){
         self.primaryName = json["primaryName"].stringValue
         self.alternateName = json["alternateName"].arrayObject as! [String]
+        self.strengths = json["strengths"].arrayObject as! [String]
         
         if(json["nameType"].stringValue=="GENERIC"){
             self.nameType = NameType.GENERIC

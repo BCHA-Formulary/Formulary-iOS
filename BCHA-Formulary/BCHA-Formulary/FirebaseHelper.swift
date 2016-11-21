@@ -44,9 +44,6 @@ struct FirebaseHelper {
             //            let date = dateFmt.dateFromString(snapshot.value as! String)
             //            let lastFirebaseUpdateDate = String(format: "%f", dateNum)
             let lastFirebaseUpdateDate = snapshot.value as! String
-            FirebaseHelper.updateFirebaseDrugsFromJSONString(Status.FORMULARY, view:view, spinner: spinner)
-            FirebaseHelper.updateFirebaseDrugsFromJSONString(Status.EXCLUDED, view:view, spinner: spinner)
-            FirebaseHelper.updateFirebaseDrugsFromJSONString(Status.RESTRICTED, view:view, spinner: spinner)
             if(lastUpdated == lastFirebaseUpdateDate){
                 spinner.stopAnimating()
                 view.hidden = true
@@ -54,7 +51,9 @@ struct FirebaseHelper {
             }
             else{
                 sql.dropAndRemakeTables() //TODO needed?
-                
+                FirebaseHelper.updateFirebaseDrugsFromJSONString(Status.FORMULARY, view:view, spinner: spinner)
+                FirebaseHelper.updateFirebaseDrugsFromJSONString(Status.EXCLUDED, view:view, spinner: spinner)
+                FirebaseHelper.updateFirebaseDrugsFromJSONString(Status.RESTRICTED, view:view, spinner: spinner)
                 //                FirebaseHelper.updateFirebaseDrugList(Status.FORMULARY, view:view, spinner: spinner) //controls spinner
                 //                FirebaseHelper.updateFirebaseDrugList(Status.EXCLUDED, view:view, spinner: spinner)
                 //                FirebaseHelper.updateFirebaseDrugList(Status.RESTRICTED, view:view, spinner: spinner)
@@ -63,31 +62,33 @@ struct FirebaseHelper {
         }
         getFirebaseLastUpdate(closure)
     }
-    
-    static func updateFirebaseDrugs(){
-        let ref = FIRDatabase.database().reference()
-        ref.child("ExcludedString").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            let value = snapshot.value as! String
-            do{
-                //                json = try NSJSONSerialization.JSONObjectWithData(value, options: NSJSONReadingOptions()) as [ExcludedDrug]
-                if let dataFromString = value.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
-                    let json = JSON(data: dataFromString)
-                    let ind = json.arrayValue.count
-                    print(ind)
-                    
-                    for index in 0...ind {
-                        if (index < 5) {
-                            let drug0 = json[index]
-                            let eDrug = ExcludedDrug.init(json: drug0)
-                            print(eDrug.primaryName)
-                        }
-                    }
-                }
-            }
-        })
-    }
+//    
+//    static func updateFirebaseDrugs(){
+//        let ref = FIRDatabase.database().reference()
+//        ref.child("ExcludedString").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+//            let value = snapshot.value as! String
+//            do{
+//                //                json = try NSJSONSerialization.JSONObjectWithData(value, options: NSJSONReadingOptions()) as [ExcludedDrug]
+//                if let dataFromString = value.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+//                    let json = JSON(data: dataFromString)
+//                    let ind = json.arrayValue.count
+//                    print(ind)
+//                    
+//                    for index in 0...ind {
+//                        if (index < 5) {
+//                            let drug0 = json[index]
+//                            let eDrug = ExcludedDrug.init(json: drug0)
+//                            print(eDrug.primaryName)
+//                        }
+//                    }
+//                }
+//            }
+//        })
+//    }
     
     static func updateFirebaseDrugsFromJSONString(drugList:Status, view:UIView, spinner:UIActivityIndicatorView){
+        let sql:SqlHelper = SqlHelper.init()
+        
         let ref = FIRDatabase.database().reference()
         var childString:String
         if(drugList == Status.FORMULARY){
@@ -99,6 +100,7 @@ struct FirebaseHelper {
         else{
             childString = "RestrictedString"
         }
+        
         ref.child(childString).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             let value = snapshot.value as! String
             do{
@@ -106,21 +108,26 @@ struct FirebaseHelper {
                     let json = JSON(data: dataFromString)
                     let arrayLength = json.arrayValue.count
                     
-                    for index in 0...arrayLength {
-                        if(index < 5){
-                            let drugJSON = json[index]
-                            var drug:DrugBase
-                            if(drugList == Status.FORMULARY){
-                                drug = FormuarlyDrug.init(json: drugJSON)
-                            }
-                            else if(drugList == Status.EXCLUDED){
-                                drug = ExcludedDrug.init(json: drugJSON)
-                            }
-                            else{
-                                drug = RestrictedDrug.init(json: drugJSON)
-                            }
+                    for index in 0...arrayLength-1 {
+                        let drugJSON = json[index]
                             
-                            print(drug.status.rawValue + ": " + drug.drugClass[0])
+                        if(drugList == Status.FORMULARY){
+                            let drug = FormuarlyDrug.init(json: drugJSON)
+                            if(drug.nameType == NameType.GENERIC){
+                                sql.insertFormularyGenericDrug(drug)
+                            }
+                        }
+                        else if(drugList == Status.EXCLUDED){
+                            let drug = ExcludedDrug.init(json: drugJSON)
+                            if(drug.nameType == NameType.GENERIC){
+                                sql.insertExcludedGenericDrug(drug)
+                            }
+                        }
+                        else{
+                            let drug = RestrictedDrug.init(json: drugJSON)
+                            if(drug.nameType == NameType.GENERIC){
+                                sql.insertRestrictedGenericDrug(drug)
+                            }
                         }
                     }
                 }
