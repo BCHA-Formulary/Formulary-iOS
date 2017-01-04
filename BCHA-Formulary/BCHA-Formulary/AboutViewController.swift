@@ -58,10 +58,11 @@ class AboutViewController : UIViewController, MFMailComposeViewControllerDelegat
         
         //incase we want to add function later
         switch result.rawValue {
-        case MFMailComposeResultCancelled.rawValue:
+        
+        case MFMailComposeResult.Cancelled.rawValue:
             print("Email cancelled")
             break
-        case MFMailComposeResultSent.rawValue:
+        case MFMailComposeResult.Sent.rawValue:
             print("Email sent")
             break
         default:

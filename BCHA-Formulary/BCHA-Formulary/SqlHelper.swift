@@ -20,6 +20,7 @@ struct SqlHelper{
     //Table names
     let drugTable = Table("DrugTable")
     let formularyTable = Table("FormularyTable")
+    let formularyBrandTable = Table("FormularyBrandTable")
     let excludedTable = Table("ExcludedTable")
     let restrictedTable = Table("RestrictedTable")
     
@@ -49,6 +50,7 @@ struct SqlHelper{
             
             try createDrugTable(db!)
             try createFormularyTable(db!)
+            try createFormularyBrandTable(db!)
             try createExcludedTable(db!)
             try createRestrictedTable(db!)
         }
@@ -66,11 +68,13 @@ struct SqlHelper{
         do{
             try db?.run(drugTable.drop(ifExists: true))
             try db?.run(formularyTable.drop(ifExists: true))
+            try db?.run(formularyBrandTable.drop(ifExists: true))
             try db?.run(excludedTable.drop(ifExists: true))
             try db?.run(restrictedTable.drop(ifExists: true))
             
             try createDrugTable(db!)
             try createFormularyTable(db!)
+            try createFormularyBrandTable(db!)
             try createExcludedTable(db!)
             try createRestrictedTable(db!)
         }
@@ -124,8 +128,8 @@ struct SqlHelper{
             for brand in formulary.alternateName{
                 let brandTrimName = brand.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                 //for each brand name, add the name to the drug table
-                try insertDrugIntoTable(brandTrimName, nameType: NameType.BRAND.rawValue,
-                                        status: Status.FORMULARY.rawValue, drugClasses: formulary.drugClass)
+//                try insertDrugIntoTable(brandTrimName, nameType: NameType.BRAND.rawValue,
+//                                        status: Status.FORMULARY.rawValue, drugClasses: formulary.drugClass)
                 for strength in formulary.strengths{
                     //for each strength, and each brand name, add to the formulary table
                     try db?.run(formularyTable.insert(genericName<-genericTrimName, brandName<-brandTrimName, self.strength<-strength))
@@ -134,6 +138,29 @@ struct SqlHelper{
         }
         catch{
 //            print("Could not add formulary into drug table: ", formulary.primaryName)
+            print("Error info: \(error)")
+        }
+    }
+    
+    func insertFormularyBrandDrug(formularyBrand:FormuarlyDrug){
+        if(db == nil) {
+            print("ERROR: Database not initalized")
+            return
+        }
+        do{
+            let brandTrimName = formularyBrand.primaryName.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            try insertDrugIntoTable(brandTrimName,
+                                    nameType: NameType.BRAND.rawValue,
+                                    status: Status.FORMULARY.rawValue,
+                                    drugClasses: formularyBrand.drugClass)
+            for generic in formularyBrand.alternateName {
+                let genericTrimName = generic.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                for strength in formularyBrand.strengths {
+                    try db?.run(formularyBrandTable.insert(genericName<-genericTrimName, brandName<-brandTrimName, self.strength<-strength))
+                }
+            }
+        }
+        catch{
             print("Error info: \(error)")
         }
     }
@@ -211,7 +238,7 @@ struct SqlHelper{
                     drugNameType = drug[nameType]
                 }
             }
-//            let drugStatus = drug[status]
+
             if(drugStatus == Status.FORMULARY.rawValue){
                 let drugReturn = try queryFormularyDrugByName(drugName, formularyNametype: drugNameType, formularyStatus: drugStatus, formularyClass: Array(drugClasses))
                 print(drugReturn)
@@ -235,21 +262,31 @@ struct SqlHelper{
     }
 //
     func queryFormularyDrugByName(formularyDrugName:String, formularyNametype:String, formularyStatus:String, formularyClass:[String]) throws -> FormuarlyDrug{
-        let drugQuery = formularyTable.filter(genericName == formularyDrugName || brandName == formularyDrugName)
+        
+        //query the formulary generic table to see if drug exists
+        var drugQuery = formularyTable.filter(genericName == formularyDrugName)
+
         var altNames = Set<String>()
         var strengths = Set<String>()
-        let isGeneric = (formularyNametype == NameType.GENERIC.rawValue)
-        for drug in try db!.prepare(drugQuery){
-            if (isGeneric){
-                altNames.insert(drug[brandName])
-            }
-            else{
-                altNames.insert(drug[genericName])
-            }
+        
+        var drugSearch = try db!.prepare(drugQuery)
+        var drugCount = 0 //HACK - tracks if query drug name is in generic table
+        for drug in drugSearch{
+            drugCount += 1
+            altNames.insert(drug[brandName])
             strengths.insert(drug[strength])
         }
-        return FormuarlyDrug.init(primaryName: formularyDrugName, nameType: NameType(rawValue: formularyNametype)!,
-                                  alternateName:Array(altNames), strengths: Array(strengths),
+        
+        //HACK - if no drugs were found, the drug query must be in the brand name table
+        if(drugCount == 0){
+            drugQuery = formularyBrandTable.filter(brandName == formularyDrugName)
+            drugSearch = try db!.prepare(drugQuery)
+            for drug in drugSearch{
+                altNames.insert(drug[genericName])
+                strengths.insert(drug[strength])
+            }
+        }
+        return FormuarlyDrug.init(primaryName: formularyDrugName, nameType: NameType(rawValue: formularyNametype)!, alternateName:Array(altNames), strengths: Array(strengths),
                                   status: Status(rawValue:formularyStatus)!, drugClass:formularyClass)
     }
     
@@ -324,14 +361,22 @@ struct SqlHelper{
     }
     
     func rowCount(){
-            let drugCount = db?.scalar(drugTable.count)
-            let formularyCount = db?.scalar(formularyTable.count)
-            let excludedCount = db?.scalar(excludedTable.count)
-            let restrictedCount = db?.scalar(restrictedTable.count)
+        do{
+            let drugCount = try db?.scalar(drugTable.count)
+            let formularyCount = try  db?.scalar(formularyTable.count)
+            let formularyBrandCount = try  db?.scalar(formularyBrandTable.count)
+            let excludedCount = try db?.scalar(excludedTable.count)
+            let restrictedCount = try db?.scalar(restrictedTable.count)
             print("Drug count: ", drugCount)
             print("Formulary count: ", formularyCount)
+            print("Formulary Brand count: ", formularyBrandCount)
             print("Excluded count: ", excludedCount)
             print("Restricted count: ", restrictedCount)
+        }
+        catch{
+            print("Error info: \(error)")
+            print("Unable to get drug count")
+        }
         
     }
     
@@ -362,6 +407,22 @@ struct SqlHelper{
      */
     private func createFormularyTable(db:Connection) throws{
         try db.run(formularyTable.create(ifNotExists:true){t in
+            t.column(id, primaryKey:.Autoincrement)
+            t.column(genericName)
+            t.column(brandName)
+            t.column(strength)
+            })
+    }
+    
+    /**
+     *   CREATE TABLE FormularyBrandTable IF NOT EXISTS(
+     *       "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL
+     *       "Generic" TEXT,
+     *       "BrandName" TEXT,
+     *       "Strength" TEXT )
+     */
+    private func createFormularyBrandTable(db:Connection) throws{
+        try db.run(formularyBrandTable.create(ifNotExists:true){t in
             t.column(id, primaryKey:.Autoincrement)
             t.column(genericName)
             t.column(brandName)

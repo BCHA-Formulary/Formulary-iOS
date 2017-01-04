@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class FormuarlyDrug:DrugBase{
     var primaryName:String
@@ -36,6 +37,33 @@ class FormuarlyDrug:DrugBase{
         self.alternateName = alternateName
         self.strengths = strengths
         super.init(drugClass:drugClass, status: status)
+    }
+    
+    init(json:JSON){
+        self.primaryName = json["primaryName"].stringValue
+        self.alternateName = json["alternateName"].arrayObject as! [String]
+        self.strengths = json["strengths"].arrayObject as! [String]
+        
+        if(json["nameType"].stringValue=="GENERIC"){
+            self.nameType = NameType.GENERIC
+        }
+        else{
+            self.nameType = NameType.BRAND
+        }
+        
+        var drugStatus:Status
+        if(json["status"].stringValue == "FORMULARY"){
+            drugStatus = Status.FORMULARY
+        }
+        else if(json["status"].stringValue == "EXCLUDED"){
+            drugStatus = Status.EXCLUDED
+        }
+        else{
+            drugStatus = Status.RESTRICTED
+        }
+        
+        let drugClass = json["drugClass"].arrayObject as! [String]
+        super.init(drugClass: drugClass, status: drugStatus)
     }
     
 }

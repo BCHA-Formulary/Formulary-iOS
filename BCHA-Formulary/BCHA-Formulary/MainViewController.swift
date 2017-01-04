@@ -30,8 +30,13 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
         
         // Do any additional setup after loading the view, typically from a nib.
         if(FirebaseHelper.isConnectedToNetwork()){
+            
+            //initialize sql
             sql = SqlHelper.init()
+            
+            //initialize firebase
             firebase = FirebaseHelper.init()
+            //check if firebase needs updating
             firebase.isUpToDate(loadingView, spinner: loadingSpinner, sql: sql)
         }
         else{

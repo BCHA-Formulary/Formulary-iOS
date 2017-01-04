@@ -1,5 +1,5 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
 
 target 'BCHA-Formulary' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
@@ -24,6 +24,8 @@ target 'BCHA-Formulary' do
   pod 'Firebase'
   pod ‘Firebase/Database’
 
-  pod 'SQLite.swift', '~> 0.10.1'
+  pod 'SQLite.swift', :git => 'https://github.com/stephencelis/SQLite.swift.git',
+       :branch => 'xcode8'
 
+  pod 'SwiftyJSON', '2.4.0'
 end
