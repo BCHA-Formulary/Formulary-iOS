@@ -262,38 +262,28 @@ struct SqlHelper{
     }
 //
     func queryFormularyDrugByName(formularyDrugName:String, formularyNametype:String, formularyStatus:String, formularyClass:[String]) throws -> FormuarlyDrug{
-//        let drugQuery = formularyTable.filter(genericName == formularyDrugName || brandName == formularyDrugName)
+        
+        //query the formulary generic table to see if drug exists
         var drugQuery = formularyTable.filter(genericName == formularyDrugName)
-//        if(drugQuery == nil){
-//            drugQuery = formularyBrandTable.filter(brandName == formularyDrug)
-//        }
+
         var altNames = Set<String>()
         var strengths = Set<String>()
-        let isGeneric = (formularyNametype == NameType.GENERIC.rawValue)
+//        let isGeneric = (formularyNametype == NameType.GENERIC.rawValue)
         
         var drugSearch = try db!.prepare(drugQuery)
-        var drugCount = 0
+        var drugCount = 0 //HACK - tracks if query drug name is in generic table
         for drug in drugSearch{
             drugCount += 1
-            if (isGeneric){
-                altNames.insert(drug[brandName])
-            }
-            else{
-                altNames.insert(drug[genericName])
-            }
+            altNames.insert(drug[brandName])
             strengths.insert(drug[strength])
         }
         
+        //HACK - if no drugs were found, the drug query must be in the brand name table
         if(drugCount == 0){
             drugQuery = formularyBrandTable.filter(brandName == formularyDrugName)
             drugSearch = try db!.prepare(drugQuery)
             for drug in drugSearch{
-                if (isGeneric){
-                    altNames.insert(drug[brandName])
-                }
-                else{
-                    altNames.insert(drug[genericName])
-                }
+                altNames.insert(drug[genericName])
                 strengths.insert(drug[strength])
             }
         }
