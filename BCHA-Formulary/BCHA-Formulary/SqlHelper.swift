@@ -20,6 +20,7 @@ struct SqlHelper{
     //Table names
     let drugTable = Table("DrugTable")
     let formularyTable = Table("FormularyTable")
+    let formularyBrandTable = Table("FormularyBrandTable")
     let excludedTable = Table("ExcludedTable")
     let restrictedTable = Table("RestrictedTable")
     
@@ -49,6 +50,7 @@ struct SqlHelper{
             
             try createDrugTable(db!)
             try createFormularyTable(db!)
+            try createFormularyBrandTable(db!)
             try createExcludedTable(db!)
             try createRestrictedTable(db!)
         }
@@ -66,11 +68,13 @@ struct SqlHelper{
         do{
             try db?.run(drugTable.drop(ifExists: true))
             try db?.run(formularyTable.drop(ifExists: true))
+            try db?.run(formularyBrandTable.drop(ifExists: true))
             try db?.run(excludedTable.drop(ifExists: true))
             try db?.run(restrictedTable.drop(ifExists: true))
             
             try createDrugTable(db!)
             try createFormularyTable(db!)
+            try createFormularyBrandTable(db!)
             try createExcludedTable(db!)
             try createRestrictedTable(db!)
         }
@@ -327,10 +331,12 @@ struct SqlHelper{
         do{
             let drugCount = try db?.scalar(drugTable.count)
             let formularyCount = try  db?.scalar(formularyTable.count)
+            let formularyBrandCount = try  db?.scalar(formularyBrandTable.count)
             let excludedCount = try db?.scalar(excludedTable.count)
             let restrictedCount = try db?.scalar(restrictedTable.count)
             print("Drug count: ", drugCount)
             print("Formulary count: ", formularyCount)
+            print("Formulary Brand count: ", formularyBrandCount)
             print("Excluded count: ", excludedCount)
             print("Restricted count: ", restrictedCount)
         }
@@ -367,6 +373,22 @@ struct SqlHelper{
      *       "Strength" TEXT )
      */
     private func createFormularyTable(db:Connection) throws{
+        try db.run(formularyTable.create(ifNotExists:true){t in
+            t.column(id, primaryKey:.Autoincrement)
+            t.column(genericName)
+            t.column(brandName)
+            t.column(strength)
+            })
+    }
+    
+    /**
+     *   CREATE TABLE FormularyBrandTable IF NOT EXISTS(
+     *       "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL
+     *       "Generic" TEXT,
+     *       "BrandName" TEXT,
+     *       "Strength" TEXT )
+     */
+    private func createFormularyBrandTable(db:Connection) throws{
         try db.run(formularyTable.create(ifNotExists:true){t in
             t.column(id, primaryKey:.Autoincrement)
             t.column(genericName)
