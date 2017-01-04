@@ -238,7 +238,7 @@ struct SqlHelper{
                     drugNameType = drug[nameType]
                 }
             }
-//            let drugStatus = drug[status]
+
             if(drugStatus == Status.FORMULARY.rawValue){
                 let drugReturn = try queryFormularyDrugByName(drugName, formularyNametype: drugNameType, formularyStatus: drugStatus, formularyClass: Array(drugClasses))
                 print(drugReturn)
@@ -268,7 +268,6 @@ struct SqlHelper{
 
         var altNames = Set<String>()
         var strengths = Set<String>()
-//        let isGeneric = (formularyNametype == NameType.GENERIC.rawValue)
         
         var drugSearch = try db!.prepare(drugQuery)
         var drugCount = 0 //HACK - tracks if query drug name is in generic table
