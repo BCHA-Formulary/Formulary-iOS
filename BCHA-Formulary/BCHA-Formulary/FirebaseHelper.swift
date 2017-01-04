@@ -110,11 +110,14 @@ struct FirebaseHelper {
                     
                     for index in 0...arrayLength-1 {
                         let drugJSON = json[index]
-                            
+                        
                         if(drugList == Status.FORMULARY){
                             let drug = FormuarlyDrug.init(json: drugJSON)
                             if(drug.nameType == NameType.GENERIC){
                                 sql.insertFormularyGenericDrug(drug)
+                            }
+                            else{
+                                sql.insertFormularyBrandDrug(drug)
                             }
                         }
                         else if(drugList == Status.EXCLUDED){
