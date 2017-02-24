@@ -82,7 +82,7 @@ class DrugResultsViewController : UITableViewController {
                 return "Strengths"
             }
             else{
-                return "Criteria"
+                return "Reason for Exclusion"
             }
         }
         else{
@@ -160,6 +160,8 @@ class DrugResultsViewController : UITableViewController {
             else if(drug.status == Status.EXCLUDED){
                 let data = (drug as! ExcludedDrug).criteria
                 cell.textLabel?.text = data
+                tableView.estimatedRowHeight = 60
+                tableView.rowHeight = UITableViewAutomaticDimension
             }
             else{
                 let data = (drug as! RestrictedDrug).criteria
