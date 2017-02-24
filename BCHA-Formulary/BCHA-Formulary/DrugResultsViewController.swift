@@ -29,6 +29,8 @@ class DrugResultsViewController : UITableViewController {
         if(drug.status == Status.FORMULARY){
             strengthList = (drug as! FormuarlyDrug).strengths.sort(){$0 < $1}
         }
+        tableView.estimatedRowHeight = 60
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -160,8 +162,7 @@ class DrugResultsViewController : UITableViewController {
             else if(drug.status == Status.EXCLUDED){
                 let data = (drug as! ExcludedDrug).criteria
                 cell.textLabel?.text = data
-                tableView.estimatedRowHeight = 60
-                tableView.rowHeight = UITableViewAutomaticDimension
+                
             }
             else{
                 let data = (drug as! RestrictedDrug).criteria
