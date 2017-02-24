@@ -11,6 +11,7 @@ import UIKit
 
 class DrugResultsViewController : UITableViewController {
     var drug:DrugBase!
+    var strengthList:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,11 @@ class DrugResultsViewController : UITableViewController {
             self.navigationController?.popViewControllerAnimated(true)
             //TODO prompt error message
             return
+        }
+        
+        //order strength list if formulary
+        if(drug.status == Status.FORMULARY){
+            strengthList = (drug as! FormuarlyDrug).strengths.sort(){$0 < $1}
         }
     }
     
@@ -148,7 +154,7 @@ class DrugResultsViewController : UITableViewController {
         }
         else if(indexPath.section == 2){
             if (drug.status == Status.FORMULARY){
-                let data = (drug as! FormuarlyDrug).strengths[indexPath.row]
+                let data = strengthList[indexPath.row]
                 cell.textLabel?.text = data
             }
             else if(drug.status == Status.EXCLUDED){
