@@ -70,7 +70,7 @@ struct FirebaseHelper {
         let ref = FIRDatabase.database().reference()
         var childString:String
         if(drugList == Status.FORMULARY){
-            childString = "FormularyString"
+            childString = "FormularyStringTest"
         }
         else if(drugList == Status.EXCLUDED){
             childString = "ExcludedString"
