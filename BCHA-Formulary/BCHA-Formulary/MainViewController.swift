@@ -113,8 +113,10 @@ class MainViewController: UIViewController, MPGTextFieldDelegate {
         }
         return sampleData
     }
+    
+    //when the autocomplete exits, return true if the field should auto select a choice
     func textFieldShouldSelect(textField: MPGTextField_Swift) -> Bool{
-        return true
+        return false
     }
     
     func textFieldDidEndEditing(textField: MPGTextField_Swift, withSelection data: Dictionary<String,AnyObject>){

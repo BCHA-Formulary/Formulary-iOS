@@ -267,7 +267,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGI-oL-G6P">
-                                        <rect key="frame" x="0.0" y="8" width="600" height="1100"/>
+                                        <rect key="frame" x="0.0" y="72" width="600" height="1100"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search results will depend on formulary status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubo-n2-OTJ">
                                                 <rect key="frame" x="8" y="20" width="560" height="18"/>
@@ -316,9 +316,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The BCHA Formulary App was created by Jessica Yeung and Kelvin Chan, with support from FH Medication  Use Evaluation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gk-nV-fav">
-                                                <rect key="frame" x="8" y="630" width="560" height="50"/>
+                                                <rect key="frame" x="8" y="630" width="560" height="75"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="b11-M5-JPD"/>
+                                                    <constraint firstAttribute="height" constant="75" id="b11-M5-JPD"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -360,7 +360,7 @@
                                             <constraint firstItem="vGP-OP-ieG" firstAttribute="top" secondItem="Ubo-n2-OTJ" secondAttribute="bottom" constant="8" id="1CX-cV-4k1"/>
                                             <constraint firstAttribute="trailing" secondItem="xY9-Kg-Gaw" secondAttribute="trailing" constant="20" id="2kr-9b-l6m"/>
                                             <constraint firstItem="ymd-ib-e0a" firstAttribute="top" secondItem="oY0-Ki-0jK" secondAttribute="bottom" constant="30" id="8Z8-M2-SdG"/>
-                                            <constraint firstItem="tzv-cj-SHO" firstAttribute="top" secondItem="4Gk-nV-fav" secondAttribute="bottom" constant="20" id="9FE-Ao-5lD"/>
+                                            <constraint firstItem="tzv-cj-SHO" firstAttribute="top" secondItem="4Gk-nV-fav" secondAttribute="bottom" constant="-5" id="9FE-Ao-5lD"/>
                                             <constraint firstItem="ymd-ib-e0a" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="9Lp-R9-5SA"/>
                                             <constraint firstItem="oY0-Ki-0jK" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="9p4-FA-m6T"/>
                                             <constraint firstAttribute="trailing" secondItem="CWH-FE-vvk" secondAttribute="trailing" constant="32" id="BXh-Ja-8M6"/>
@@ -392,10 +392,10 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="DGI-oL-G6P" secondAttribute="bottom" id="QCP-7P-42A"/>
+                                    <constraint firstAttribute="bottom" secondItem="DGI-oL-G6P" secondAttribute="bottom" constant="-172" id="QCP-7P-42A"/>
                                     <constraint firstItem="DGI-oL-G6P" firstAttribute="leading" secondItem="KI5-S7-Tde" secondAttribute="leading" id="ebZ-aH-v1a"/>
                                     <constraint firstAttribute="trailing" secondItem="DGI-oL-G6P" secondAttribute="trailing" id="htV-dx-xCV"/>
-                                    <constraint firstItem="DGI-oL-G6P" firstAttribute="top" secondItem="KI5-S7-Tde" secondAttribute="top" constant="8" id="uTy-rD-ZpN"/>
+                                    <constraint firstItem="DGI-oL-G6P" firstAttribute="top" secondItem="KI5-S7-Tde" secondAttribute="top" constant="72" id="uTy-rD-ZpN"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
