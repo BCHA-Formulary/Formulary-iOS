@@ -260,25 +260,25 @@
                         <viewControllerLayoutGuide type="bottom" id="FpH-FH-Dm0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zEP-L5-K6M">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KI5-S7-Tde">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="1100"/>
                                 <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGI-oL-G6P">
-                                        <rect key="frame" x="0.0" y="72" width="600" height="1100"/>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGI-oL-G6P">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1164"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search results will depend on formulary status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubo-n2-OTJ">
-                                                <rect key="frame" x="8" y="20" width="560" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search results will depend on formulary status:" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubo-n2-OTJ">
+                                                <rect key="frame" x="8" y="20" width="550" height="18"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xY9-Kg-Gaw">
-                                                <rect key="frame" x="20" y="344" width="560" height="200"/>
+                                                <rect key="frame" x="20" y="344" width="550" height="175"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="BjF-CB-XWw"/>
+                                                    <constraint firstAttribute="height" constant="175" id="Tw7-ij-hbg"/>
                                                 </constraints>
                                                 <string key="text">- Combination drug products can be found by searching for any individual component alone or for the brand name of the entire product. - A full list of all vaccines will appear when you search for "vaccine". Similarly for "multivitamins" and "lipid" - If you are unable to find a medication, use the "Download Formulary" button to browse a list of all formulary, restricted, and excluded drugs
 </string>
@@ -286,55 +286,45 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzv-cj-SHO">
-                                                <rect key="frame" x="8" y="700" width="560" height="350"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="vGP-OP-ieG">
+                                                <rect key="frame" x="20" y="46" width="550" height="120"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="350" id="eSp-gL-CuU"/>
-                                                </constraints>
-                                                <string key="text">Disclaimer: The information contained in this document, and as amended from time to time, was created expressly for use by the Lower Mainland Pharmacy Services and persons acting on behalf of the Lower Mainland Pharmacy Services for guiding actions and decisions taken on behalf of Lower Mainland Pharmacy Services. Any adoption/use/modification of this document are done so at the risk of the adopting organization. Lower Mainland Pharmacy Services accepts no responsibility for any modification and/or redistribution and is not liable in any way for any actions taken by individuals based on the information herein, or for any inaccuracies, errors, or omissions in the information in this document. Local health authorities may have additional restrictions to the use of this drug.</string>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGP-OP-ieG">
-                                                <rect key="frame" x="20" y="46" width="560" height="120"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="120" id="RIZ-r1-dAq"/>
+                                                    <constraint firstAttribute="height" constant="120" id="hqt-v9-1c2"/>
                                                 </constraints>
                                                 <string key="text">- Formulary drugs: all strengths and formulations available in FH - Restricted drugs: restriction criteria for approved indications, populations, patient care areas, and prescribers in FH - Excluded drugs: reason for BCHA provincial formulary exclusion</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To search for the formulary status of a drug, enter the generic or brand name of the drug" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oY0-Ki-0jK">
-                                                <rect key="frame" x="8" y="236" width="560" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To search for the formulary status of a drug, enter the generic or brand name of the drug" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oY0-Ki-0jK">
+                                                <rect key="frame" x="8" y="236" width="550" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="EeU-La-wB1"/>
+                                                    <constraint firstAttribute="height" constant="50" id="x9M-pF-gU1"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The BCHA Formulary App was created by Jessica Yeung and Kelvin Chan, with support from FH Medication  Use Evaluation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gk-nV-fav">
-                                                <rect key="frame" x="8" y="630" width="560" height="75"/>
+                                                <rect key="frame" x="8" y="579" width="550" height="75"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="75" id="b11-M5-JPD"/>
+                                                    <constraint firstAttribute="height" constant="75" id="0dH-9L-px6"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The app will auto-update every time it is open and connected to the Internet." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2X-aA-pla">
-                                                <rect key="frame" x="8" y="176" width="560" height="40"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The app will auto-update every time it is open and connected to the Internet." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2X-aA-pla">
+                                                <rect key="frame" x="8" y="176" width="550" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="R57-Xa-4IK"/>
+                                                    <constraint firstAttribute="height" constant="40" id="OYo-H2-ZLb"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="anthony.tung@fraserhealth.ca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugx-Oa-bPo">
-                                                <rect key="frame" x="20" y="592" width="560" height="18"/>
+                                                <rect key="frame" x="20" y="553" width="550" height="18"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" link="YES" staticText="YES"/>
                                                 </accessibility>
@@ -343,80 +333,101 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search tips:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymd-ib-e0a">
-                                                <rect key="frame" x="8" y="316" width="560" height="18"/>
+                                                <rect key="frame" x="8" y="316" width="550" height="18"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questions and comments:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWH-FE-vvk">
-                                                <rect key="frame" x="8" y="564" width="560" height="18"/>
+                                                <rect key="frame" x="8" y="527" width="550" height="18"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzv-cj-SHO">
+                                                <rect key="frame" x="8" y="662" width="550" height="350"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="350" id="mFy-ei-cRR"/>
+                                                </constraints>
+                                                <string key="text">Disclaimer: The information contained in this document, and as amended from time to time, was created expressly for use by the Lower Mainland Pharmacy Services and persons acting on behalf of the Lower Mainland Pharmacy Services for guiding actions and decisions taken on behalf of Lower Mainland Pharmacy Services. Any adoption/use/modification of this document are done so at the risk of the adopting organization. Lower Mainland Pharmacy Services accepts no responsibility for any modification and/or redistribution and is not liable in any way for any actions taken by individuals based on the information herein, or for any inaccuracies, errors, or omissions in the information in this document. Local health authorities may have additional restrictions to the use of this drug.</string>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="vGP-OP-ieG" firstAttribute="top" secondItem="Ubo-n2-OTJ" secondAttribute="bottom" constant="8" id="1CX-cV-4k1"/>
-                                            <constraint firstAttribute="trailing" secondItem="xY9-Kg-Gaw" secondAttribute="trailing" constant="20" id="2kr-9b-l6m"/>
-                                            <constraint firstItem="ymd-ib-e0a" firstAttribute="top" secondItem="oY0-Ki-0jK" secondAttribute="bottom" constant="30" id="8Z8-M2-SdG"/>
-                                            <constraint firstItem="tzv-cj-SHO" firstAttribute="top" secondItem="4Gk-nV-fav" secondAttribute="bottom" constant="-5" id="9FE-Ao-5lD"/>
-                                            <constraint firstItem="ymd-ib-e0a" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="9Lp-R9-5SA"/>
-                                            <constraint firstItem="oY0-Ki-0jK" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="9p4-FA-m6T"/>
-                                            <constraint firstAttribute="trailing" secondItem="CWH-FE-vvk" secondAttribute="trailing" constant="32" id="BXh-Ja-8M6"/>
-                                            <constraint firstAttribute="trailing" secondItem="oY0-Ki-0jK" secondAttribute="trailing" constant="32" id="CjK-7Z-mz5"/>
-                                            <constraint firstItem="xY9-Kg-Gaw" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="20" id="DjU-z6-tNa"/>
-                                            <constraint firstItem="o2X-aA-pla" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="G6i-98-CAL"/>
-                                            <constraint firstItem="CWH-FE-vvk" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="IHN-iw-flo"/>
-                                            <constraint firstItem="Ubo-n2-OTJ" firstAttribute="top" secondItem="DGI-oL-G6P" secondAttribute="top" constant="20" id="Iob-mO-hmO"/>
-                                            <constraint firstAttribute="height" constant="1100" id="LY0-2s-uLf"/>
-                                            <constraint firstItem="4Gk-nV-fav" firstAttribute="top" secondItem="ugx-Oa-bPo" secondAttribute="bottom" constant="20" id="N0c-JF-oeW"/>
-                                            <constraint firstAttribute="trailing" secondItem="4Gk-nV-fav" secondAttribute="trailing" constant="32" id="N1o-da-YlM"/>
-                                            <constraint firstItem="tzv-cj-SHO" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="SoQ-aj-ozq"/>
-                                            <constraint firstAttribute="trailing" secondItem="vGP-OP-ieG" secondAttribute="trailing" constant="20" id="TDz-X9-prO"/>
-                                            <constraint firstItem="xY9-Kg-Gaw" firstAttribute="top" secondItem="ymd-ib-e0a" secondAttribute="bottom" constant="10" id="U1V-AL-hGI"/>
-                                            <constraint firstAttribute="trailing" secondItem="ymd-ib-e0a" secondAttribute="trailing" constant="32" id="YYE-MF-T6q"/>
-                                            <constraint firstItem="vGP-OP-ieG" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="20" id="aNY-me-mXd"/>
-                                            <constraint firstItem="CWH-FE-vvk" firstAttribute="top" secondItem="xY9-Kg-Gaw" secondAttribute="bottom" constant="20" id="dV0-QG-qiC"/>
-                                            <constraint firstItem="4Gk-nV-fav" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="fcY-BR-ZC6"/>
-                                            <constraint firstItem="ugx-Oa-bPo" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="20" id="icT-bO-klo"/>
-                                            <constraint firstItem="o2X-aA-pla" firstAttribute="top" secondItem="vGP-OP-ieG" secondAttribute="bottom" constant="10" id="kuP-hB-t1h"/>
-                                            <constraint firstItem="Ubo-n2-OTJ" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="lkm-F9-Nbn"/>
-                                            <constraint firstAttribute="trailing" secondItem="ugx-Oa-bPo" secondAttribute="trailing" constant="20" id="nCH-dY-su4"/>
-                                            <constraint firstItem="oY0-Ki-0jK" firstAttribute="top" secondItem="o2X-aA-pla" secondAttribute="bottom" constant="20" id="pKG-rg-odO"/>
-                                            <constraint firstAttribute="trailing" secondItem="tzv-cj-SHO" secondAttribute="trailing" constant="32" id="sMb-Ud-UEu"/>
-                                            <constraint firstAttribute="trailing" secondItem="Ubo-n2-OTJ" secondAttribute="trailing" constant="32" id="uaY-VJ-DmP"/>
-                                            <constraint firstItem="ugx-Oa-bPo" firstAttribute="top" secondItem="CWH-FE-vvk" secondAttribute="bottom" constant="10" id="uxI-dl-n8s"/>
-                                            <constraint firstAttribute="trailing" secondItem="o2X-aA-pla" secondAttribute="trailing" constant="32" id="zhu-ze-jDz"/>
+                                            <constraint firstItem="ymd-ib-e0a" firstAttribute="leading" secondItem="CWH-FE-vvk" secondAttribute="leading" id="3EM-yC-5oI"/>
+                                            <constraint firstAttribute="trailing" secondItem="xY9-Kg-Gaw" secondAttribute="trailing" constant="30" id="4JU-7r-9UQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="vGP-OP-ieG" secondAttribute="trailing" constant="30" id="4N3-vD-Bpn"/>
+                                            <constraint firstItem="ymd-ib-e0a" firstAttribute="trailing" secondItem="CWH-FE-vvk" secondAttribute="trailing" id="54Q-eK-XcD"/>
+                                            <constraint firstAttribute="trailing" secondItem="vGP-OP-ieG" secondAttribute="trailing" constant="30" id="5Qh-Dh-or4"/>
+                                            <constraint firstAttribute="trailing" secondItem="oY0-Ki-0jK" secondAttribute="trailing" constant="42" id="6Qu-16-lhS"/>
+                                            <constraint firstItem="vGP-OP-ieG" firstAttribute="leading" secondItem="xY9-Kg-Gaw" secondAttribute="leading" id="7iy-dl-6wg"/>
+                                            <constraint firstItem="oY0-Ki-0jK" firstAttribute="trailing" secondItem="ymd-ib-e0a" secondAttribute="trailing" id="BmS-lz-Uh0"/>
+                                            <constraint firstItem="xY9-Kg-Gaw" firstAttribute="leading" secondItem="ugx-Oa-bPo" secondAttribute="leading" id="Cv1-fq-qQ4"/>
+                                            <constraint firstItem="Ubo-n2-OTJ" firstAttribute="leading" secondItem="o2X-aA-pla" secondAttribute="leading" id="D6b-Va-H3L"/>
+                                            <constraint firstItem="xY9-Kg-Gaw" firstAttribute="top" secondItem="ymd-ib-e0a" secondAttribute="bottom" constant="10" id="ETL-DN-fDo"/>
+                                            <constraint firstItem="Ubo-n2-OTJ" firstAttribute="trailing" secondItem="o2X-aA-pla" secondAttribute="trailing" id="HcQ-Pr-8VT"/>
+                                            <constraint firstItem="vGP-OP-ieG" firstAttribute="top" secondItem="Ubo-n2-OTJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Izs-Cm-Rpd"/>
+                                            <constraint firstAttribute="trailing" secondItem="4Gk-nV-fav" secondAttribute="trailing" constant="42" id="J67-mp-2Wm"/>
+                                            <constraint firstItem="xY9-Kg-Gaw" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="20" id="JNw-cn-QDe"/>
+                                            <constraint firstAttribute="height" constant="1164" id="M2g-Hm-uIN"/>
+                                            <constraint firstItem="oY0-Ki-0jK" firstAttribute="top" secondItem="o2X-aA-pla" secondAttribute="bottom" constant="20" id="MUv-UA-fad"/>
+                                            <constraint firstItem="CWH-FE-vvk" firstAttribute="trailing" secondItem="4Gk-nV-fav" secondAttribute="trailing" id="R6D-0j-SLf"/>
+                                            <constraint firstAttribute="trailing" secondItem="o2X-aA-pla" secondAttribute="trailing" constant="42" id="RW9-9v-hrX"/>
+                                            <constraint firstItem="o2X-aA-pla" firstAttribute="top" secondItem="vGP-OP-ieG" secondAttribute="bottom" constant="10" id="UFn-Ov-fl0"/>
+                                            <constraint firstItem="o2X-aA-pla" firstAttribute="leading" secondItem="oY0-Ki-0jK" secondAttribute="leading" id="UIZ-o7-NkE"/>
+                                            <constraint firstItem="o2X-aA-pla" firstAttribute="trailing" secondItem="oY0-Ki-0jK" secondAttribute="trailing" id="UJf-Yd-HR7"/>
+                                            <constraint firstItem="ugx-Oa-bPo" firstAttribute="top" secondItem="CWH-FE-vvk" secondAttribute="bottom" constant="8" symbolic="YES" id="We3-3i-GRe"/>
+                                            <constraint firstItem="CWH-FE-vvk" firstAttribute="leading" secondItem="4Gk-nV-fav" secondAttribute="leading" id="XWH-gv-0wS"/>
+                                            <constraint firstItem="tzv-cj-SHO" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="cP4-sZ-pz0"/>
+                                            <constraint firstItem="CWH-FE-vvk" firstAttribute="top" secondItem="xY9-Kg-Gaw" secondAttribute="bottom" constant="8" symbolic="YES" id="crz-dr-G1t"/>
+                                            <constraint firstItem="vGP-OP-ieG" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="20" id="dIW-PX-Fzn"/>
+                                            <constraint firstItem="4Gk-nV-fav" firstAttribute="trailing" secondItem="tzv-cj-SHO" secondAttribute="trailing" id="fjf-ah-Oha"/>
+                                            <constraint firstItem="4Gk-nV-fav" firstAttribute="leading" secondItem="tzv-cj-SHO" secondAttribute="leading" id="hk7-Pi-Vhd"/>
+                                            <constraint firstItem="4Gk-nV-fav" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="ixk-WU-KfG"/>
+                                            <constraint firstItem="xY9-Kg-Gaw" firstAttribute="trailing" secondItem="ugx-Oa-bPo" secondAttribute="trailing" id="kLU-Fp-Vgb"/>
+                                            <constraint firstItem="vGP-OP-ieG" firstAttribute="trailing" secondItem="xY9-Kg-Gaw" secondAttribute="trailing" id="kzX-Ep-tW4"/>
+                                            <constraint firstItem="ymd-ib-e0a" firstAttribute="top" secondItem="oY0-Ki-0jK" secondAttribute="bottom" constant="30" id="mM8-0l-tnm"/>
+                                            <constraint firstItem="oY0-Ki-0jK" firstAttribute="leading" secondItem="ymd-ib-e0a" secondAttribute="leading" id="mgz-Qe-05e"/>
+                                            <constraint firstItem="vGP-OP-ieG" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="20" id="rV6-ZS-Fu5"/>
+                                            <constraint firstItem="tzv-cj-SHO" firstAttribute="top" secondItem="4Gk-nV-fav" secondAttribute="bottom" constant="8" symbolic="YES" id="rY1-Uq-B6I"/>
+                                            <constraint firstItem="Ubo-n2-OTJ" firstAttribute="top" secondItem="DGI-oL-G6P" secondAttribute="top" constant="20" id="uuL-F7-0fk"/>
+                                            <constraint firstItem="4Gk-nV-fav" firstAttribute="top" secondItem="ugx-Oa-bPo" secondAttribute="bottom" constant="8" symbolic="YES" id="vSq-jM-fHG"/>
+                                            <constraint firstAttribute="trailing" secondItem="tzv-cj-SHO" secondAttribute="trailing" constant="42" id="vf8-gi-AA6"/>
+                                            <constraint firstItem="o2X-aA-pla" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="x3j-yt-x1i"/>
+                                            <constraint firstItem="Ubo-n2-OTJ" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leadingMargin" id="zCn-RK-k3z"/>
+                                            <constraint firstItem="oY0-Ki-0jK" firstAttribute="leading" secondItem="DGI-oL-G6P" secondAttribute="leading" constant="8" id="zRj-EV-OQ5"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="DGI-oL-G6P" secondAttribute="bottom" constant="-172" id="QCP-7P-42A"/>
-                                    <constraint firstItem="DGI-oL-G6P" firstAttribute="leading" secondItem="KI5-S7-Tde" secondAttribute="leading" id="ebZ-aH-v1a"/>
-                                    <constraint firstAttribute="trailing" secondItem="DGI-oL-G6P" secondAttribute="trailing" id="htV-dx-xCV"/>
-                                    <constraint firstItem="DGI-oL-G6P" firstAttribute="top" secondItem="KI5-S7-Tde" secondAttribute="top" constant="72" id="uTy-rD-ZpN"/>
+                                    <constraint firstAttribute="bottom" secondItem="DGI-oL-G6P" secondAttribute="bottom" constant="-128" id="6sR-no-wuD"/>
+                                    <constraint firstItem="DGI-oL-G6P" firstAttribute="centerX" secondItem="KI5-S7-Tde" secondAttribute="centerX" id="jr7-pS-lQC"/>
+                                    <constraint firstItem="DGI-oL-G6P" firstAttribute="leading" secondItem="KI5-S7-Tde" secondAttribute="leading" id="q48-VX-KAQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="DGI-oL-G6P" secondAttribute="trailing" id="ryD-6i-dXN"/>
+                                    <constraint firstItem="DGI-oL-G6P" firstAttribute="top" secondItem="KI5-S7-Tde" secondAttribute="top" constant="64" id="s9L-Mm-Atx"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="KI5-S7-Tde" firstAttribute="top" secondItem="zEP-L5-K6M" secondAttribute="top" id="HWU-fU-vBh"/>
-                            <constraint firstAttribute="trailing" secondItem="KI5-S7-Tde" secondAttribute="trailing" id="cbw-ta-V1A"/>
-                            <constraint firstItem="DGI-oL-G6P" firstAttribute="width" secondItem="zEP-L5-K6M" secondAttribute="width" id="f0Z-OX-V4f"/>
-                            <constraint firstItem="KI5-S7-Tde" firstAttribute="leading" secondItem="zEP-L5-K6M" secondAttribute="leading" id="iPn-pK-iEA"/>
-                            <constraint firstItem="FpH-FH-Dm0" firstAttribute="top" secondItem="KI5-S7-Tde" secondAttribute="bottom" id="nzI-6N-Bgf"/>
+                            <constraint firstItem="KI5-S7-Tde" firstAttribute="top" secondItem="zEP-L5-K6M" secondAttribute="top" id="821-Cp-ebC"/>
+                            <constraint firstAttribute="trailing" secondItem="KI5-S7-Tde" secondAttribute="trailing" id="9hI-Wo-Xrd"/>
+                            <constraint firstItem="KI5-S7-Tde" firstAttribute="bottom" secondItem="FpH-FH-Dm0" secondAttribute="top" id="QKc-9y-Y34"/>
+                            <constraint firstItem="KI5-S7-Tde" firstAttribute="leading" secondItem="zEP-L5-K6M" secondAttribute="leading" id="n6i-gI-f0Y"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="1000"/>
+                    <size key="freeformSize" width="600" height="1100"/>
                     <connections>
                         <outlet property="emailSupportLabel" destination="ugx-Oa-bPo" id="Nhr-dc-e5U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKe-uU-2qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="933" y="1554"/>
+            <point key="canvasLocation" x="932.79999999999995" y="1553.5232383808097"/>
         </scene>
         <!--Drug Class Search Table View Controller-->
         <scene sceneID="IRg-eQ-Qnp">
