@@ -267,7 +267,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="1100"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGI-oL-G6P">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="764.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To search for the formulary status of a drug, enter the generic or brand name of the drug" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oY0-Ki-0jK">
                                                 <rect key="frame" x="20" y="20" width="560" height="36"/>
@@ -323,7 +323,7 @@
                                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="755" text="The BCHA Formulary App was created by Jessica Yeung and Kelvin Chan, with support from FH Medication  Use Evaluation" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gk-nV-fav">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="The BCHA Formulary App was created by Jessica Yeung and Kelvin Chan, with support from FH Medication  Use Evaluation" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gk-nV-fav">
                                                 <rect key="frame" x="20" y="473.5" width="560" height="36"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -360,6 +360,7 @@
                                             <constraint firstItem="CWH-FE-vvk" firstAttribute="top" secondItem="xY9-Kg-Gaw" secondAttribute="bottom" constant="20" id="crz-dr-G1t"/>
                                             <constraint firstItem="4Gk-nV-fav" firstAttribute="centerX" secondItem="DGI-oL-G6P" secondAttribute="centerX" id="ct6-sN-TFA"/>
                                             <constraint firstItem="tzv-cj-SHO" firstAttribute="centerX" secondItem="DGI-oL-G6P" secondAttribute="centerX" id="dFb-kB-HyS"/>
+                                            <constraint firstAttribute="bottom" secondItem="tzv-cj-SHO" secondAttribute="bottom" constant="20" id="doL-M8-k5m"/>
                                             <constraint firstItem="oY0-Ki-0jK" firstAttribute="width" secondItem="DGI-oL-G6P" secondAttribute="width" constant="-40" id="fou-kh-tqM"/>
                                             <constraint firstItem="xY9-Kg-Gaw" firstAttribute="centerX" secondItem="DGI-oL-G6P" secondAttribute="centerX" id="gTy-7h-SDA"/>
                                             <constraint firstItem="Ubo-n2-OTJ" firstAttribute="width" secondItem="DGI-oL-G6P" secondAttribute="width" constant="-40" id="hhH-2Y-dyX"/>
@@ -375,10 +376,9 @@
                                 <constraints>
                                     <constraint firstItem="DGI-oL-G6P" firstAttribute="top" secondItem="KI5-S7-Tde" secondAttribute="top" id="4ey-6E-Chj"/>
                                     <constraint firstAttribute="bottom" secondItem="DGI-oL-G6P" secondAttribute="bottom" id="6sR-no-wuD"/>
-                                    <constraint firstItem="DGI-oL-G6P" firstAttribute="centerY" secondItem="KI5-S7-Tde" secondAttribute="centerY" id="G9X-uP-mVC"/>
-                                    <constraint firstItem="DGI-oL-G6P" firstAttribute="centerX" secondItem="KI5-S7-Tde" secondAttribute="centerX" id="jr7-pS-lQC"/>
                                     <constraint firstItem="DGI-oL-G6P" firstAttribute="leading" secondItem="KI5-S7-Tde" secondAttribute="leading" id="q48-VX-KAQ"/>
                                     <constraint firstAttribute="trailing" secondItem="DGI-oL-G6P" secondAttribute="trailing" id="ryD-6i-dXN"/>
+                                    <constraint firstItem="DGI-oL-G6P" firstAttribute="width" secondItem="KI5-S7-Tde" secondAttribute="width" id="wmY-UB-RFl"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -393,7 +393,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1100"/>
                     <connections>
+                        <outlet property="contentView" destination="DGI-oL-G6P" id="6aH-Hy-07i"/>
                         <outlet property="emailSupportLabel" destination="ugx-Oa-bPo" id="Nhr-dc-e5U"/>
+                        <outlet property="scrollView" destination="KI5-S7-Tde" id="Bb8-WG-VHV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKe-uU-2qg" userLabel="First Responder" sceneMemberID="firstResponder"/>

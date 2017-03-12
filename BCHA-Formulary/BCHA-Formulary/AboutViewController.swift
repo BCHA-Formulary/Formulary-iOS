@@ -13,10 +13,14 @@ import MessageUI
 class AboutViewController : UIViewController, MFMailComposeViewControllerDelegate{
     
     @IBOutlet weak var emailSupportLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "About This App"
+        
+        scrollView.contentSize = contentView.frame.size
         
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AboutViewController.tapResponse(_:)))
         tapGesture.numberOfTapsRequired = 1

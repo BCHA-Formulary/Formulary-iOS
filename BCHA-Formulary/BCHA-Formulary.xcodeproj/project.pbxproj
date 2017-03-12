@@ -80,6 +80,13 @@
 			remoteGlobalIDString = AF2F06171C76F32400BA7E99;
 			remoteInfo = "BCHA-Formulary";
 		};
+		AF66A1DA1E74D7AC00870FF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF1C54811D3608BC0056E1F0 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A43C76C7F370341B2860D8918ADF7507;
+			remoteInfo = SwiftyJSON;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -176,6 +183,7 @@
 				AF1C548B1D3608BC0056E1F0 /* Pods_BCHA_FormularyTests.framework */,
 				AF1C548D1D3608BC0056E1F0 /* Pods_BCHA_FormularyUITests.framework */,
 				AF1C548F1D3608BC0056E1F0 /* SQLite.framework */,
+				AF66A1DB1E74D7AC00870FF2 /* SwiftyJSON.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -419,6 +427,13 @@
 			fileType = wrapper.framework;
 			path = SQLite.framework;
 			remoteRef = AF1C548E1D3608BC0056E1F0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AF66A1DB1E74D7AC00870FF2 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = AF66A1DA1E74D7AC00870FF2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
